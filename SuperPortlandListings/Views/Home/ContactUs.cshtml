@@ -1,0 +1,62 @@
+﻿
+@using System;
+@using System.Web;
+@using Microsoft.AspNetCore.Html;
+
+@model SuperPortlandListings.Models.ContactUsModel;
+@{
+    ViewData["Title"] = "Contact Us";
+    var contactResponse = "" + ViewData["Message"];
+}
+
+<h2>Contact Us</h2>
+<p>Thank you for writing to us, we look forward to hearing from you.</p>
+
+<div class="content-row">
+    <div class="col-sma-6 page-content">
+        <div class="subtitle-container">
+            <h3 class="subtitle-container__subtitle">Write Us</h3>
+            <div class="subheader-divider"></div>
+        </div>
+        <p>Please fill out the form to get in touch with us.</p>
+
+        <div class="javascript-validation-results-contact-us"></div>
+        @{
+            <div class="form-response">
+                @(new HtmlString(@contactResponse))
+            </div>
+        }
+        <form class="form contact-form" id="contactForm" name="contactForm" method="post">
+            <div class="form__required">** - Required Field</div>
+            <div class="form__input-container">
+                <label class="form__label" for="userName">Name **</label>
+                <input id="userName" class="form__input" type="text" name="userName" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="userEmail">Email **</label>
+                <input id="userEmail" class="form__input" type="text" name="userEmail" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="userSubject">Subject</label>
+                <input id="userSubject" class="form__input" type="text" name="userSubject" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="userComments">Comments/Questions **</label>
+                <textarea id="userComments" class="form__input form__textarea" name="userComments"></textarea>
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <input asp-page-handler="ContactSection" id="contactButton" class="form__submit-button button-container" type="submit" name="contactButton" value="Contact Us!" />
+                <div class="form__errors"></div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sma-6">
+        <div class="background-hero-image contact-us">
+
+        </div>
+    </div>
+</div>

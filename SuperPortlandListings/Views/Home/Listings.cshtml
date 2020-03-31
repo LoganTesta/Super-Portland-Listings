@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewData["Title"] = "Listings";
+    listing listing0 = new listing("Cheery Neigborhood House", "zero", "Hillsboro", "22110 SW Hillsboro 97123", "$350,000", "January 15, 2020", "Cheery Neigborhood House",
+        "This house is great. You should visit it. And buy it if you like it.");
+    listing listing1 = new listing("Perfect for Families", "one", "Hillsboro", "22110 SW Hillsboro 97123", "$31,000", "January 6, 2020", "Perfect for Families",
+        "This house is great. You should visit it. And buy it if you like it.");
+    listing listing2 = new listing("One Story Southwestern Style Home", "two", "Hillsboro", "22110 SW Hillsboro 97123", "$349,000", "January 12, 2020",
+        "One Story Southwestern Style Home", "This house is great. You should visit it. And buy it if you like it.");
+
+    listing listing3 = new listing("Big Front Yard with this Home", "three", "Forest Grove", "22110 SW Forest Grove 97116", "$350,000", "January 12, 2020",
+        "Big Front Yard with this Home", "This house is great. You should visit it. And buy it if you like it.");
+    listing listing4 = new listing("Perfect for Growing Families", "four", "Forest Grove", "22110 SW Forest Grove 97116", "$351,000", "January 19, 2020",
+        "Perfect for Growing Families", "This house is great. You should visit it. And buy it if you like it.");
+    listing listing5 = new listing("Charming One Story Home", "five", "Forest Grove", "22110 SW Forest Grove 97116", "$349,000", "January 11, 2020",
+        "Charming One Story Home", "This house is great. You should visit it. And buy it if you like it.");
+
+    listing listing6 = new listing("New House, Refined Look", "six", "Hillsboro", "22110 SW Cornelius 97113", "$349,000", "January 11, 2020", "New House, Refined Look",
+        "This house is great. You should visit it. And buy it if you like it.");
+    listing listing7 = new listing("Perfect for Families", "seven", "Hillsboro", "22110 SW Cornelius 97113", "$351,000", "January 25, 2020", "Perfect for Families",
+        "This house is great. You should visit it. And buy it if you like it.");
+
+
+    List<listing> theListings = new List<listing>();
+    theListings.Add(listing0);
+    theListings.Add(listing1);
+    theListings.Add(listing2);
+    theListings.Add(listing3);
+    theListings.Add(listing4);
+    theListings.Add(listing5);
+    theListings.Add(listing6);
+    theListings.Add(listing7);
+
+}
+<div class="content-row">
+    <div class="col-sma-12">
+        <h2>Listings</h2>
+        <p>A home perfect for you.  Call a friendly agent at 503-222-3322.</p>
+    </div>
+</div>
+
+<div class="content-row">
+    <h3 class="listings__content-subtitle">Hillsboro Listings</h3>
+    @for (var i = 0; i < 3; i++)
+    {
+        <div class="col-sma-4">
+            <div class="house-container @theListings[i].classCSS">
+                <div class="house-container__image-container">
+                    <div class="house-container__image"></div>
+                </div>
+                <div class="house-container__non-bg-content">
+                    <div class="house-container__title">@theListings[i].name</div>
+                    <div class="house-container__cost">@theListings[i].price</div>
+                    <div class="house-container__label">NEW</div>
+                    <div class="house-container__location">@theListings[i].address</div>
+                    <div class="house-container__description">@theListings[i].description</div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="content-row">
+    <h3 class="listings__content-subtitle">Forest Grove Listings</h3>
+    @for (var i = 3; i < 6; i++)
+    {
+        <div class="col-sma-4">
+            <div class="house-container @theListings[i].classCSS">
+                <div class="house-container__image-container">
+                    <div class="house-container__image"></div>
+                </div>
+                <div class="house-container__non-bg-content">
+                    <div class="house-container__title">@theListings[i].name</div>
+                    <div class="house-container__cost">@theListings[i].price</div>
+                    <div class="house-container__label">NEW</div>
+                    <div class="house-container__location">@theListings[i].address</div>
+                    <div class="house-container__description">@theListings[i].description</div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="content-row">
+    <h3 class="listings__content-subtitle">Cornelius Listings</h3>
+    @for (var i = 6; i < 8; i++)
+    {
+        <div class="col-sma-4">
+            <div class="house-container @theListings[i].classCSS">
+                <div class="house-container__image-container">
+                    <div class="house-container__image"></div>
+                </div>
+                <div class="house-container__non-bg-content">
+                    <div class="house-container__title">@theListings[i].name</div>
+                    <div class="house-container__cost">@theListings[i].price</div>
+                    <div class="house-container__label">NEW</div>
+                    <div class="house-container__location">@theListings[i].address</div>
+                    <div class="house-container__description">@theListings[i].description</div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+    for (let i = 0; i < 8; i++) {
+         document.getElementsByClassName("house-container__image")[i].addEventListener("mouseover", function () {
+            addHoverClass(i);
+         });
+
+        document.getElementsByClassName("house-container__image")[i].addEventListener("mouseout", function () {
+            addOutClass(i);
+        });
+    }
+
+    function addHoverClass(itemNumber) {
+         document.getElementsByClassName("house-container__image")[itemNumber].classList.toggle("over");
+         document.getElementsByClassName("house-container__image")[itemNumber].classList.remove("out");
+    }
+
+    function addOutClass(itemNumber) {
+        document.getElementsByClassName("house-container__image")[itemNumber].classList.remove("over");
+        document.getElementsByClassName("house-container__image")[itemNumber].classList.toggle("out");
+    }
+
+
+</script>
