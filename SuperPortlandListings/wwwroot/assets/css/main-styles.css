@@ -617,7 +617,7 @@ li {
     position: relative;
     top: 0;
     left: 0;
-    width: 300px;
+    width: 100%;
     height: 220px;
 }
 
@@ -639,6 +639,29 @@ li {
 .house-container__cost { 
     color: #908870; 
     font-size: 18px; 
+}
+
+.house-container__details { 
+
+}
+.house-container__details__beds {
+    display: inline-block;
+}
+.house-container__details__baths {
+    display: inline-block;
+}
+.house-container__details__parking-spaces {
+    display: inline-block;
+}
+.house-container__details__year-built {
+   
+}
+.house-container__detials__house-size {
+    display: inline-block;
+}
+.house-container__detials__lot-size {
+    display: inline-block;
+    padding-left: 15px;
 }
 
 .house-container__label {
