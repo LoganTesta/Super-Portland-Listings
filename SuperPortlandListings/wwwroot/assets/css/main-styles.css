@@ -570,6 +570,9 @@ li {
         color: var(--color-1);
     }
 
+/*Footer*/
+.footer { padding: 50px 20px; }
+
 
 /*Index page*/
 .index-house {
@@ -592,6 +595,7 @@ li {
 .index-house.two {
     background: url('/assets/images/house2.jpeg') 50% 30%/cover no-repeat;
 }
+
 
 /*About page*/
 

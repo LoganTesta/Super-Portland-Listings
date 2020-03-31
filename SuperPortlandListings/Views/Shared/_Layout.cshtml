@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    int currentYear = DateTime.Now.Year;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -36,10 +41,17 @@
             </div>
         </div>
 
-        <footer class="border-top footer text-muted">
-            <div class="container">
-                &copy; 2020 - Super Portland Listings - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <footer class="footer">
+            <div class="inner-wrapper">
+                <div class="footer__date">
+                    <span> &copy; @currentYear - Super Portland Listings</span>
+                </div>
+                <div class="footer__nav">
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Info</a>
+                </div>
             </div>
+
+            
         </footer>
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
