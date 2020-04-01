@@ -166,6 +166,11 @@ namespace SuperPortlandListings.Controllers
 
         }
 
+        public IActionResult Sellers()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
