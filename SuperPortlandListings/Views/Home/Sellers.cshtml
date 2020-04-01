@@ -6,6 +6,71 @@
 <div class="content-row">
     <div class="col-sma-12">
         <h2>Sellers</h2>
+        <p>If you are thinking of selling your home than feel free to write use below.  We also offer a free phone consultation for prospective sellers.</p>
+        <form class="form contact-form" id="sellerForm" name="sellerForm" method="post">
+            <div class="form__required">** - Required Field</div>
+            <div class="form__input-container">
+                <label class="form__label" for="sellerName">Name **</label>
+                <input id="sellerName" class="form__input" type="text" name="sellerName" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="sellerEmail">Email **</label>
+                <input id="sellerEmail" class="form__input" type="email" name="sellerEmail" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="sellerPhone">Phone Number</label>
+                <input id="sellerPhone" class="form__input" type="tel" name="sellerPhone" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="sellerCity">City **</label>
+                <input id="sellerCity" class="form__input" type="text" name="sellerCity" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="sellerState">State **</label>
+                <input id="sellerState" class="form__input" type="text" name="sellerState" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="sellerZIP">ZIP **</label>
+                <input id="sellerZIP" class="form__input" type="text" name="sellerZIP" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="sellerShortDescription">Short Description of House (about 2 sentences)**</label>
+                <textarea id="sellerShortDescription" class="form__input form__textarea" name="sellerShortDescription"></textarea>
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="sellerDesiredPrice">Desired Price/Price Range **</label>
+                <input id="sellerDesiredPrice" class="form__input" type="text" name="sellerDesiredPrice" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="sellerDesiredSellDate">Desired Sell Date **</label>
+                <select id="sellerDesiredSellDate" class="form__input" type="text" name="sellerDesiredSellDate">
+                    <option value=""></option>
+                    <option value="ASAP">ASAP</option>
+                    <option value="13:00">Within 2 months</option>
+                    <option value="Within 6 months">Within 6 months</option>
+                    <option value="Within 1 year">Within 1 year</option>
+                    <option value="Undecided">Undecided/Just Curious</option>
+                </select>
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="userAdditionalNotes">Additional Notes</label>
+                <textarea id="userAdditionalNotes" class="form__input form__textarea" name="userAdditionalNotes"></textarea>
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <input asp-page-handler="ContactSection" id="contactButton" class="form__submit-button button-container" type="submit" name="contactButton" value="Submit" />
+                <div class="form__errors"></div>
+            </div>
+        </form>
     </div>
 </div>
 
