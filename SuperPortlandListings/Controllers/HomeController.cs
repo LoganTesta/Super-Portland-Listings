@@ -266,6 +266,24 @@ namespace SuperPortlandListings.Controllers
                 }
 
 
+                Int64 sellerPhoneInteger;
+                bool sellerPhoneIsNumeric = Int64.TryParse(sellerPhone, out sellerPhoneInteger);
+                if (sellerPhone.Length != 10 || !sellerPhoneIsNumeric)
+                {
+                    validForm = false;
+                    contactFormResponse += "Phone must be exactly 10 digits in length, no dashes. ";
+                }
+
+
+                Int64 sellerZipCodeInteger;
+                bool sellerZipCodeIsNumeric = Int64.TryParse(sellerZIP, out sellerZipCodeInteger);
+                if (sellerZIP.Length != 5 || !sellerZipCodeIsNumeric)
+                {
+                    validForm = false;
+                    contactFormResponse += "Zip code must be a number exactly 5 digits in length. ";
+                }
+
+
 
                 if (!validForm)
                 {
