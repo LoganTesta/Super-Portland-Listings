@@ -12,7 +12,5 @@ namespace SuperPortlandListings.Models
         public string userZipCode { get; set; }
         public string userSubject { get; set; }
         public string userMessage { get; set; }
-
-
     }
 }

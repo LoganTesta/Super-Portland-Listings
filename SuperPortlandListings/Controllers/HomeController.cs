@@ -171,6 +171,153 @@ namespace SuperPortlandListings.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Sellers(SellerModel sellerModel)
+        {
+            if (ModelState.IsValid)
+            {
+                bool validForm = true;
+                string contactFormResponse = "";
+
+                string sellerName = "";
+                string sellerEmail = "";
+                string sellerPhone = "";
+                string sellerCity = "";
+                string sellerState = "";
+                string sellerZIP = "";
+                string sellerShortDescription = "";
+                string sellerDesiredPrice = "";
+                string sellerDesiredSellDate = "";
+                string sellerAdditionalNotes = "";
+
+                try
+                {
+                    sellerName = System.Web.HttpUtility.HtmlEncode(Request.Form["sellerName"]);
+                    sellerEmail = System.Web.HttpUtility.HtmlEncode(Request.Form["sellerEmail"]);
+                    sellerPhone = System.Web.HttpUtility.HtmlEncode(Request.Form["sellerPhone"]);
+                    sellerCity = System.Web.HttpUtility.HtmlEncode(Request.Form["sellerCity"]);
+                    sellerState = System.Web.HttpUtility.HtmlEncode(Request.Form["sellerState"]);
+                    sellerZIP = System.Web.HttpUtility.HtmlEncode(Request.Form["sellerZIP"]);
+                    sellerShortDescription = System.Web.HttpUtility.HtmlEncode(Request.Form["sellerShortDescription"]);
+                    sellerDesiredPrice = System.Web.HttpUtility.HtmlEncode(Request.Form["sellerDesiredPrice"]);
+                    sellerDesiredSellDate = System.Web.HttpUtility.HtmlEncode(Request.Form["sellerDesiredSellDate"]);
+                    sellerAdditionalNotes = System.Web.HttpUtility.HtmlEncode(Request.Form["sellerAdditionalNotes"]);
+                }
+                catch (Exception)
+                {
+                    sellerName = "";
+                    sellerEmail = "";
+                    sellerPhone = "";
+                    sellerCity = "";
+                    sellerState = "";
+                    sellerZIP = "";
+                    sellerShortDescription = "";
+                    sellerDesiredPrice = "";
+                    sellerDesiredSellDate = "";
+                    sellerAdditionalNotes = "";
+                }
+
+
+                if (sellerName == "" || sellerEmail == "" || sellerCity == "" || sellerState == "" || sellerZIP == "" || sellerShortDescription == "" || sellerDesiredPrice == "" 
+                    || sellerDesiredSellDate == "")
+                {
+                    validForm = false;
+                    contactFormResponse = "Sorry, form not valid, please fill in all required (**) input fields. ";
+                }
+
+
+                if (!sellerEmail.Contains("@"))
+                {
+                    validForm = false;
+                    contactFormResponse += "Email must contain at least 1 @ symbol. ";
+                }
+
+                if (!sellerEmail.Contains("."))
+                {
+                    validForm = false;
+                    contactFormResponse += "Email must contain at least 1 period (.). ";
+                }
+
+                int atSymbolIndex = sellerEmail.IndexOf("@");
+                int lastPeriodSymbol = sellerEmail.LastIndexOf(".");
+                int userEmailLength = sellerEmail.Length;
+
+
+                //Ensure at least 1 char before first @ symbol.
+                if (!(atSymbolIndex > 0))
+                {
+                    validForm = false;
+                    contactFormResponse += "Email must have at least one chracter before first @. ";
+                }
+
+                //Verify that at least 1 @ symbol comes before the last period, and that there is at least
+                //one char in between them.
+                if (!(atSymbolIndex + 1 < lastPeriodSymbol))
+                {
+                    validForm = false;
+                    contactFormResponse += "Email must have at least 1 @ symbol before the last period (.). ";
+                }
+
+                //Verify that there are at least 2 chars after the last period.
+                if (!(lastPeriodSymbol + 2 < userEmailLength))
+                {
+                    validForm = false;
+                    contactFormResponse += "Email must contain at least two characters after the last period (.). ";
+                }
+
+
+
+                if (!validForm)
+                {
+                    contactFormResponse += "";
+                }
+                else if (validForm)
+                {
+
+                    //Construct the Email
+                    string FromName = sellerName;
+                    string FromEmail = sellerEmail;
+                    string ToEmail = "youremail";
+                    string EmailSubject = "Potential Seller Question from " + sellerName;
+
+                    string BodyEmail = "<strong>From:</strong> " + sellerName + "<br />";
+                    BodyEmail += "<strong>Email:</strong> " + FromEmail + "<br />";
+                    BodyEmail += "<strong>Phone:</strong> " + sellerPhone + "<br />";
+                    BodyEmail += "<strong>Subject:</strong> " + EmailSubject + "<br />";
+                    BodyEmail += "<strong>Home Info:</strong> City, State, ZIP: " + sellerCity + " " + sellerState + " " + sellerZIP + "<br />";
+                    BodyEmail += "<strong>Seller Home Short Description:</strong> " + sellerShortDescription;
+                    BodyEmail += "<strong>Desired Price:</strong> " + sellerDesiredPrice;
+                    BodyEmail += "<strong>Desired Sell Date:</strong> " + sellerDesiredSellDate;
+                    BodyEmail += "<strong>Additional Notes:</strong> " + sellerAdditionalNotes;
+
+
+                    var emailMessage = new MimeMessage();
+                    emailMessage.From.Add(new MailboxAddress(FromName, ToEmail));
+                    emailMessage.To.Add(new MailboxAddress("Super Portland Listings", ToEmail));
+
+                    emailMessage.Subject = EmailSubject;
+                    BodyBuilder emailBody = new BodyBuilder();
+                    emailBody.HtmlBody = "" + BodyEmail;
+                    emailMessage.Body = emailBody.ToMessageBody();
+
+                    using (var destinationSmtp = new SmtpClient())
+                    {
+                        destinationSmtp.Connect("cmx5.my-hosting-panel.com", 465, true);
+                        destinationSmtp.Authenticate("youremail", "yourpassword");
+                        destinationSmtp.Send(emailMessage);
+                        destinationSmtp.Disconnect(true);
+                        destinationSmtp.Dispose();
+
+                        contactFormResponse = "Thank you <strong>" + sellerName + "</strong>, we look forward to reading your comments and our reply will be sent to your email at: <strong>" 
+                            + sellerEmail + "</strong>.";
+                    }
+                }
+                ViewData["Message"] = "" + contactFormResponse;
+            }
+            return View();
+        }
+
+
         public IActionResult Privacy()
         {
             return View();
