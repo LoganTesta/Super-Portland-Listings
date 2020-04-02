@@ -519,6 +519,7 @@ li {
     }
 
     .form-response {
+        padding-bottom: 20px;
         font-style: italic;
     }
 
@@ -772,11 +773,14 @@ li {
     background: url('/assets/images/house7.jpeg') 50% 30%/cover no-repeat;
 }
 
+
+/*Sellers page*/
+#sellerButton {
+    float: right;
+}
+
+
 /*Contact Us page*/
-
-
-
-
 @media only screen and (min-width: 700px) {
 }
 
