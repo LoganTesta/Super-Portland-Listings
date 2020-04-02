@@ -554,6 +554,12 @@ li {
 
 
 /*Nav*/
+.nav { 
+
+}
+.nav__list {
+    font-size: 0;
+}
 .nav__nav-item {
     display: block;
 }
@@ -588,8 +594,11 @@ li {
 .footer-nav {
 
 }
-.footer-nav__nav-item {
+.footer-nav__list { 
 
+}
+.footer-nav__nav-item {
+    display: block;
 }
 .footer-nav__nav-link {
 
@@ -839,7 +848,7 @@ li {
     }
 
     .nav__nav-link {
-        padding-right: 25px;
+        padding-right: 30px;
     }
 
 
