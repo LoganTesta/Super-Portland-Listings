@@ -572,7 +572,12 @@ li {
     }
 
 /*Footer*/
-.footer { padding: 50px 20px; }
+.footer { 
+    padding: 50px 20px;
+}
+.footer__copyright-info {
+    text-align: center;
+}
 
 
 /*Index page*/
