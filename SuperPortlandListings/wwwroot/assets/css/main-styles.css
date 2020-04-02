@@ -581,6 +581,9 @@ li {
 .footer { 
     padding: 50px 20px;
 }
+.footer__subheading {
+
+}
 .footer__copyright-info {
     text-align: center;
 }
@@ -851,8 +854,13 @@ li {
         padding-right: 30px;
     }
 
-
-
+    /*Footer*/
+    .footer__subheading {
+        text-align: left;
+    }
+    .footer__subheading--browse {
+        
+    }
     /*Index page*/
     .index-house {
         width: auto;
