@@ -302,10 +302,10 @@ namespace SuperPortlandListings.Controllers
                     BodyEmail += "<strong>Email:</strong> " + FromEmail + "<br />";
                     BodyEmail += "<strong>Phone:</strong> " + sellerPhone + "<br />";
                     BodyEmail += "<strong>Subject:</strong> " + EmailSubject + "<br />";
-                    BodyEmail += "<strong>Home Info:</strong> City, State, ZIP: " + sellerCity + " " + sellerState + " " + sellerZIP + "<br />";
-                    BodyEmail += "<strong>Seller Home Short Description:</strong> " + sellerShortDescription;
-                    BodyEmail += "<strong>Desired Price:</strong> " + sellerDesiredPrice;
-                    BodyEmail += "<strong>Desired Sell Date:</strong> " + sellerDesiredSellDate;
+                    BodyEmail += "<strong>Home Info (City, State, ZIP):</strong> " + sellerCity + " " + sellerState + " " + sellerZIP + "<br />";
+                    BodyEmail += "<strong>Short Description:</strong> " + sellerShortDescription + "<br />";
+                    BodyEmail += "<strong>Desired Price:</strong> " + sellerDesiredPrice + "<br />";
+                    BodyEmail += "<strong>Desired Sell Date:</strong> " + sellerDesiredSellDate + "<br />";
                     BodyEmail += "<strong>Additional Notes:</strong> " + sellerAdditionalNotes;
 
 
