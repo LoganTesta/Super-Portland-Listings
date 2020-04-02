@@ -444,7 +444,7 @@ a, a:link, a:visited, a:hover {
 }
 
     a, a:link, a:visited {
-        color: var(--color-4);
+        color: var(--color-2);
     }
 
         a:hover {
@@ -554,7 +554,7 @@ li {
 
 
 /*Nav*/
-.nav-item {
+.nav__nav-item {
     display: block;
 }
 
@@ -579,7 +579,27 @@ li {
     text-align: center;
 }
 
+.footer__message {
 
+}
+.footer__navigation-section {
+
+}
+.footer-nav {
+
+}
+.footer-nav__nav-item {
+
+}
+.footer-nav__nav-link {
+
+}
+.footer__location-and-hours {
+
+}
+.footer__staff {
+
+}
 /*Index page*/
 .index-house {
     width: 300px;
@@ -814,10 +834,11 @@ li {
 
 
     /*Nav*/
-    .nav-item {
+    .nav__nav-item {
         display: inline-block;
     }
-    .navbar-expand-sm .navbar-nav .nav-link {
+
+    .nav__nav-link {
         padding-right: 25px;
     }
 
