@@ -48,8 +48,6 @@ namespace SuperPortlandListings.Controllers
         {
             if (ModelState.IsValid)
             {
-
-
                 bool validForm = true;
                 string contactFormResponse = "";
 
@@ -163,7 +161,6 @@ namespace SuperPortlandListings.Controllers
                 ViewData["Message"] = "" + contactFormResponse;
             }
             return View();
-
         }
 
         public IActionResult Sellers()
@@ -337,6 +334,16 @@ namespace SuperPortlandListings.Controllers
 
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult Error404()
+        {
+            return View();
+        }
+
+        public IActionResult Error500()
         {
             return View();
         }
