@@ -40,7 +40,8 @@ namespace SuperPortlandListings
                 app.UseHsts();
             }
 
-            app.UseStatusCodePagesWithReExecute("/error/{0}"); //For error handling like 404, 500, etc.
+            app.UseStatusCodePages();
+            app.UseStatusCodePagesWithReExecute("/error/{0}"); //For error handling like 404, etc.
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
