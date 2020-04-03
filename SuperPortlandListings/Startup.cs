@@ -39,6 +39,9 @@ namespace SuperPortlandListings
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseStatusCodePagesWithReExecute("/error/{0}"); //For error handling like 404, 500, etc.
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
