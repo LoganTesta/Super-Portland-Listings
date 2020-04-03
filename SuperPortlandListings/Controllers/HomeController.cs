@@ -344,8 +344,7 @@ namespace SuperPortlandListings.Controllers
         {
             return View();
         }
-        
-        [Route("error/500")]
+
         public IActionResult Error500()
         {
             return View();
