@@ -11,12 +11,18 @@
     <meta name="keywords" content="real estate, Portland, homes, single-family, Hillsboro, Forest Grove, Cornelius, Aloha, Beaverton" />
     <meta name="description" content="Get friendly and hassle-free real estate services whether you are interested in buying or selling from our knowledgeable local team." />
     <title>@ViewData["Title"] | Super Portland Listings</title>
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
     <link rel="stylesheet" href="~/assets/css/main-styles.css" />
 </head>
 <body>
     <div class="body-wrapper">
         <header class="header">
             <div class="inner-wrapper">
+                <div class="logo-container">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="~/assets/images/logo.png" alt="Super Portland Listings logo" />
+                    </a>
+                </div>
                 <h1 class="main-title"><a class="main-title__title" asp-area="" asp-controller="Home" asp-action="Index">Super Portland Listings</a></h1>
                 <nav class="nav">
                     <ul class="nav__list">

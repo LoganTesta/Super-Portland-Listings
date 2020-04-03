@@ -557,9 +557,19 @@ h4 {
 .header {
     background: linear-gradient(var(--color-3-low-opacity), var(--color-3-very-low-opacity), rgba(255, 255, 255, 1));
 }
+
+.logo-container {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 45px;
+    height: 45px;
+}
+
 .main-title {
     display: block;
-    padding: 30px 10px 20px 10px;
+    padding: 15px 20px 20px 75px;
+    text-align: right;
 }
 
     .main-title .main-title__title {
@@ -571,7 +581,7 @@ h4 {
 
 /*Nav*/
 .nav { 
-    padding: 0 15px 10px 15px;
+    padding: 15px 15px 10px 15px;
 }
 .nav__list {
     font-size: 0;
@@ -829,6 +839,11 @@ h4 {
 
 /*Contact Us page*/
 @media only screen and (min-width: 700px) {
+
+    /*Header*/
+    .main-title {
+        text-align: left;
+    }
 }
 
 
@@ -858,8 +873,22 @@ h4 {
     .header {
         padding-bottom: 20px;
     }
+    .logo-container {
+        top: 20px;
+        left: 15px;
+        width: 60px;
+        height: 60px;
+    }
+    .main-title {
+        padding-left: 90px;
+        padding-top: 30px;
+        text-align: left;
+    }
 
     /*Nav*/
+    .nav {
+        padding-top: 10px;
+    }
     .nav__nav-item {
         display: inline-block;
         padding-bottom: 0;
