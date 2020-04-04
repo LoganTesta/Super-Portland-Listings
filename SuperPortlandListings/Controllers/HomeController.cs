@@ -168,6 +168,11 @@ namespace SuperPortlandListings.Controllers
             return View();
         }
 
+        public IActionResult OurTeam()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Sellers(SellerModel sellerModel)
         {

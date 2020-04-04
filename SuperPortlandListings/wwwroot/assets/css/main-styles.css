@@ -627,15 +627,19 @@ h4 {
 .footer__location-and-hours {
     padding-bottom: 30px;
 }
-.footer__staff {
+.footer__team {
     position: absolute;
 }
-.footer__staff__agent-name {
+.footer__team__agent-name {
+}
+
+.footer__team__agent-name__link {
     font-size: 20px;
     font-weight: bold;
     color: var(--color-1);
 }
-.footer__staff__agent-photo {
+
+.footer__team__agent-photo {
     float: right;
     width: 100px;
     height: 100px;
@@ -935,8 +939,7 @@ h4 {
         padding-bottom: 0;
     }
 
-    .footer__staff {
-
+    .footer__team {
     }
 
     .footer-nav__nav-item {
