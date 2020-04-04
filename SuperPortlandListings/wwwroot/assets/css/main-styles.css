@@ -628,7 +628,20 @@ h4 {
     padding-bottom: 30px;
 }
 .footer__staff {
-
+    position: absolute;
+}
+.footer__staff__agent-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-1);
+}
+.footer__staff__agent-photo {
+    float: right;
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    background: url('/assets/images/real-estate-agent-kelsey-smith.jpg') 50% 30%/cover no-repeat;
 }
 
 
