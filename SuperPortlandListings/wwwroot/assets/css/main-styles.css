@@ -853,6 +853,33 @@ h4 {
     float: right;
 }
 
+/*Our Team page*/
+.team-member {
+    padding-bottom: 50px;
+}
+.team-member__name {
+    font-size: 20px; 
+    font-weight: bold;
+}
+.team-member__photo {
+
+}
+.team-member__title {
+    font-size: 19px;
+}
+.team-member__description{
+
+}
+@media only screen and (min-width: 700px) {
+    /*Index*/
+    .team-member:nth-of-type(3n + 1) {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+
 
 /*Contact Us page*/
 @media only screen and (min-width: 700px) {
