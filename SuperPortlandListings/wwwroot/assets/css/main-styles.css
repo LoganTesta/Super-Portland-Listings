@@ -628,7 +628,7 @@ h4 {
     padding-bottom: 30px;
 }
 .footer__team {
-    position: absolute;
+
 }
 .footer__team__agent-name {
 }
@@ -646,6 +646,9 @@ h4 {
     margin-left: 10px;
     margin-bottom: 5px;
     background: url('/assets/images/real-estate-agent-kelsey-smith.jpg') 50% 30%/cover no-repeat;
+}
+
+.footer__team__agent-description { 
 }
 
 
