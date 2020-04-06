@@ -477,7 +477,9 @@ h4 {
 
 
 /*General classes*/
-.content__heading { text-align: center; }
+.content__heading {
+    text-align: center;
+}
 
 
 /* General sitewide sections */
@@ -517,10 +519,10 @@ h4 {
     .form__submit-button:hover {
     }
 
-    .form-response {
-        padding-bottom: 20px;
-        font-style: italic;
-    }
+.form-response {
+    padding-bottom: 20px;
+    font-style: italic;
+}
 
 .button-container {
     border: 2px solid var(--color-1);
@@ -580,12 +582,14 @@ h4 {
 
 
 /*Nav*/
-.nav { 
+.nav {
     padding: 15px 15px 10px 15px;
 }
+
 .nav__list {
     font-size: 0;
 }
+
 .nav__nav-item {
     display: block;
     padding-bottom: 15px;
@@ -593,13 +597,14 @@ h4 {
 
 
 /*Footer*/
-.footer { 
+.footer {
     padding: 50px 20px;
     background-color: rgb(236, 237, 239);
 }
-.footer__subheading {
 
+.footer__subheading {
 }
+
 .footer__copyright-info {
     padding-bottom: 30px;
     text-align: center;
@@ -608,28 +613,32 @@ h4 {
 .footer__message {
     padding-bottom: 30px;
 }
+
 .footer__navigation-section {
     padding-bottom: 30px;
 }
+
 .footer-nav {
-
 }
-.footer-nav__list { 
 
+.footer-nav__list {
 }
+
 .footer-nav__nav-item {
     display: block;
     padding-bottom: 12px;
 }
-.footer-nav__nav-link {
 
+.footer-nav__nav-link {
 }
+
 .footer__location-and-hours {
     padding-bottom: 30px;
 }
-.footer__team {
 
+.footer__team {
 }
+
 .footer__team__agent-name {
 }
 
@@ -648,13 +657,13 @@ h4 {
     background: url('/assets/images/real-estate-agent-kelsey-smith.jpg') 50% 30%/cover no-repeat;
 }
 
-.footer__team__agent-description { 
+.footer__team__agent-description {
 }
 
 
 /*Index page*/
 .index-house {
-    width: 300px;
+    width: 100%;
     height: 200px;
 }
 
@@ -667,9 +676,11 @@ h4 {
 .index-house.zero {
     background: url('/assets/images/house0.jpeg') 50% 30%/cover no-repeat;
 }
+
 .index-house.one {
     background: url('/assets/images/house1.jpeg') 50% 30%/cover no-repeat;
 }
+
 .index-house.two {
     background: url('/assets/images/house2.jpeg') 50% 30%/cover no-repeat;
 }
@@ -680,11 +691,14 @@ h4 {
 
 
 /*Listings page*/
-.listings__content-subtitle { padding-left: 15px; font-weight: bold; }
+.listings__content-subtitle {
+    padding-left: 15px;
+    font-weight: bold;
+}
 
 .house-container {
     position: relative;
-    padding-bottom: 40px;  
+    padding-bottom: 40px;
 }
 
 .house-container__image-container {
@@ -714,36 +728,43 @@ h4 {
     letter-spacing: 0.3px;
     color: #333333;
 }
-.house-container__cost { 
-    color: #908870; 
-    font-size: 18px; 
+
+.house-container__cost {
+    color: #908870;
+    font-size: 18px;
 }
 
 .house-container__details {
     font-size: 0;
     color: #333640;
 }
+
 .house-container__details__beds {
     display: inline-block;
     font-size: 16px;
 }
+
 .house-container__details__baths {
     display: inline-block;
     padding-left: 15px;
     font-size: 16px;
 }
+
 .house-container__details__parking-spaces {
     display: inline-block;
     padding-left: 15px;
     font-size: 16px;
 }
+
 .house-container__details__year-built {
     font-size: 16px;
 }
+
 .house-container__detials__house-size {
     display: inline-block;
     font-size: 16px;
 }
+
 .house-container__detials__lot-size {
     display: inline-block;
     padding-left: 20px;
@@ -755,6 +776,7 @@ h4 {
     font-style: italic;
     color: var(--color-1);
 }
+
 .house-container__location {
     padding-bottom: 8px;
     font-size: 16px;
@@ -762,6 +784,7 @@ h4 {
     color: #336044;
     transform: skew(-12deg);
 }
+
 .house-container__description {
     font-size: 16px;
     line-height: 20px;
@@ -791,6 +814,7 @@ h4 {
         left: -40px;
         transform: scale(1.26);
     }
+
     100% {
         top: -30px;
         left: -50px;
@@ -860,22 +884,40 @@ h4 {
 .team-member {
     padding-bottom: 50px;
 }
-.team-member__name {
-    font-size: 20px; 
-    font-weight: bold;
-}
-.team-member__photo {
 
+.team-member__name {
+    padding-bottom: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-1);
 }
+
+.team-member__photo {
+    width: 100%;
+    ;
+    height: 200px;
+    margin-bottom: 8px;
+}
+
 .team-member__title {
     font-size: 19px;
+    margin-bottom: 5px;
+    color: var(--color-3);
 }
-.team-member__description{
 
+.team-member__description {
 }
+
+.team-member.zero .team-member__photo {
+    background: url('/assets/images/real-estate-agent-kelsey-smith.jpg') 50% 30%/cover no-repeat;
+}
+
+
+
+
 @media only screen and (min-width: 700px) {
     /*Index*/
-    .team-member:nth-of-type(3n + 1) {
+    .team-member:nth-of-type(4n + 1) {
         content: "";
         display: block;
         clear: both;
@@ -884,15 +926,12 @@ h4 {
 
 
 
-/*Contact Us page*/
 @media only screen and (min-width: 700px) {
-
     /*Header*/
     .main-title {
         text-align: left;
     }
 }
-
 
 
 
@@ -920,12 +959,14 @@ h4 {
     .header {
         padding-bottom: 20px;
     }
+
     .logo-container {
         top: 20px;
         left: 15px;
         width: 60px;
         height: 60px;
     }
+
     .main-title {
         padding-left: 90px;
         padding-top: 30px;
@@ -936,6 +977,7 @@ h4 {
     .nav {
         padding-top: 10px;
     }
+
     .nav__nav-item {
         display: inline-block;
         padding-bottom: 0;
@@ -949,8 +991,8 @@ h4 {
     .footer__subheading {
         text-align: left;
     }
+
     .footer__subheading--browse {
-        
     }
 
     .footer__copyright-info {
@@ -988,8 +1030,22 @@ h4 {
     .house-container {
         padding-bottom: 0px;
     }
+
     .house-container__image {
         width: 370px;
         height: 320px;
+    }
+
+    /*Our Team page*/
+    .team-member__name {
+        font-size: 24px;
+    }
+
+    .team-member__title {
+        font-size: 20px;
+    }
+
+    .team-member__photo {
+        height: 280px;
     }
 }
