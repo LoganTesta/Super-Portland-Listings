@@ -542,6 +542,9 @@ h4 {
         transition: 0.4s ease-in;
     }
 
+.background-hero-image {
+    height: 240px;
+}
 
 /*Header*/
 .header {
@@ -923,7 +926,16 @@ h4 {
     background: url('/assets/images/real-estate-agent-heather-richards.jpg') 50% 30%/cover no-repeat;
 }
 
+/*Error 404 page*/
+.background-hero-image.four-hundred-four {
+    background: url('/assets/images/new-home-under-construction.jpg') 50% 30%/cover no-repeat;
+}
 
+
+/*Error 500 page*/
+.background-hero-image.five-hundred {
+    background: url('/assets/images/new-home-under-construction.jpg') 50% 30%/cover no-repeat;
+}
 
 
 
@@ -965,6 +977,10 @@ h4 {
 
     .form__input {
         width: 65%;
+    }
+
+    .background-hero-image {
+        height: 450px;
     }
 
     /*Header*/
