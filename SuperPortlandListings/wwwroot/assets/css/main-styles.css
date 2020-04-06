@@ -545,6 +545,7 @@ h4 {
 .index-house {
     width: 300px;
     height: 200px;
+    margin-bottom: 20px;
 }
 
 .index-house__link {
@@ -655,6 +656,11 @@ h4 {
     margin-left: 10px;
     margin-bottom: 5px;
     background: url('/assets/images/real-estate-agent-kelsey-smith.jpg') 50% 30%/cover no-repeat;
+}
+.footer__team__agent-photo__link {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .footer__team__agent-description {
