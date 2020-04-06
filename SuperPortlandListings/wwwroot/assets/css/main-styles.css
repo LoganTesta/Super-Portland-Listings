@@ -907,6 +907,22 @@ h4 {
 .team-member.zero .team-member__photo {
     background: url('/assets/images/real-estate-agent-kelsey-smith.jpg') 50% 30%/cover no-repeat;
 }
+.team-member.one .team-member__photo {
+    background: url('/assets/images/real-estate-agent-alex-contreras.jpg') 50% 30%/cover no-repeat;
+}
+.team-member.two .team-member__photo {
+    background: url('/assets/images/real-estate-agent-kelly-rands.jpg') 50% 30%/cover no-repeat;
+}
+.team-member.three .team-member__photo {
+    background: url('/assets/images/real-estate-agent-adam-evanton.jpg') 50% 30%/cover no-repeat;
+}
+.team-member.four .team-member__photo {
+    background: url('/assets/images/real-estate-agent-brian-anderson.jpg') 50% 30%/cover no-repeat;
+}
+.team-member.five .team-member__photo {
+    background: url('/assets/images/real-estate-agent-heather-richards.jpg') 50% 30%/cover no-repeat;
+}
+
 
 
 
@@ -1040,6 +1056,7 @@ h4 {
 
     .team-member__title {
         font-size: 20px;
+        text-align: center;
     }
 
     .team-member__photo {
