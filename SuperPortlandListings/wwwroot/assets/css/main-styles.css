@@ -542,19 +542,6 @@ h4 {
         transition: 0.4s ease-in;
     }
 
-.index-house {
-    width: 300px;
-    height: 200px;
-    margin-bottom: 20px;
-}
-
-.index-house__link {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-}
-
-
 
 /*Header*/
 .header {
@@ -671,6 +658,7 @@ h4 {
 .index-house {
     width: 100%;
     height: 200px;
+    margin-bottom: 20px;
 }
 
 .index-house__link {
@@ -893,20 +881,22 @@ h4 {
 
 .team-member__name {
     padding-bottom: 8px;
-    font-size: 20px;
+    text-align: center;
+    font-size: 22px;
     font-weight: bold;
     color: var(--color-1);
 }
 
 .team-member__photo {
-    width: 100%;
-    ;
-    height: 200px;
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin-right: 12px;
     margin-bottom: 8px;
 }
 
 .team-member__title {
-    font-size: 19px;
+    font-size: 18px;
     margin-bottom: 5px;
     color: var(--color-3);
 }
@@ -1029,6 +1019,7 @@ h4 {
     .index-house {
         width: auto;
         height: 300px;
+        margin-bottom: 0;
     }
 
 
@@ -1044,7 +1035,7 @@ h4 {
 
     /*Our Team page*/
     .team-member__name {
-        font-size: 24px;
+        font-size: 26px;
     }
 
     .team-member__title {
@@ -1052,6 +1043,9 @@ h4 {
     }
 
     .team-member__photo {
+        float: none;
+        width: 100%;
         height: 280px;
+        margin-right: 0;
     }
 }
