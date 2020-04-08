@@ -40,87 +40,27 @@
 </div>
 
 <div class="content-row">
-    <h3 class="listings__content-subtitle">Hillsboro Listings</h3>
-    @for (var i = 0; i < 3; i++)
+    <h3 class="listings__content-subtitle">Search Results</h3>
+    @for (var i = 0; i < theListings.Count; i++)
     {
-        <div class="col-sma-4">
-            <div class="house-container @theListings[i].classCSS">
-                <div class="house-container__image-container">
-                    <div class="house-container__image"></div>
-                </div>
-                <div class="house-container__non-bg-content">
-                    <div class="house-container__title">@theListings[i].name</div>
-                    <div class="house-container__cost">@theListings[i].price</div>
-                    <div class="house-container__label">NEW</div>
-                    <div class="house-container__details">
-                        <div class="house-container__details__beds">@theListings[i].numberOfBedrooms bd</div>
-                        <div class="house-container__details__baths">@theListings[i].numberOfBathrooms ba</div>
-                        <div class="house-container__details__parking-spaces">@theListings[i].parkingSpaces car</div>
-                        <div class="house-container__details__year-built">Built: @theListings[i].yearBuilt</div>
-                        <div class="house-container__detials__house-size">Home: @theListings[i].homeSquareFootage ft&sup2;</div>
-                        <div class="house-container__detials__lot-size">Lot: @theListings[i].lotSquareFootage ft&sup2;</div>
-                    </div>
-                    <div class="house-container__location">@theListings[i].address</div>
-                    <div class="house-container__description">@theListings[i].description</div>
-                </div>
+        <div class="col-sma-6 col-lar-4 house-container @theListings[i].classCSS">
+            <div class="house-container__image-container">
+                <div class="house-container__image"></div>
             </div>
-        </div>
-    }
-</div>
-
-<div class="content-row">
-    <h3 class="listings__content-subtitle">Forest Grove Listings</h3>
-    @for (var i = 3; i < 6; i++)
-    {
-        <div class="col-sma-4">
-            <div class="house-container @theListings[i].classCSS">
-                <div class="house-container__image-container">
-                    <div class="house-container__image"></div>
+            <div class="house-container__non-bg-content">
+                <div class="house-container__title">@theListings[i].name</div>
+                <div class="house-container__cost">@theListings[i].price</div>
+                <div class="house-container__label">NEW</div>
+                <div class="house-container__details">
+                    <div class="house-container__details__beds">@theListings[i].numberOfBedrooms bd</div>
+                    <div class="house-container__details__baths">@theListings[i].numberOfBathrooms ba</div>
+                    <div class="house-container__details__parking-spaces">@theListings[i].parkingSpaces car</div>
+                    <div class="house-container__details__year-built">Built: @theListings[i].yearBuilt</div>
+                    <div class="house-container__detials__house-size">Home: @theListings[i].homeSquareFootage ft&sup2;</div>
+                    <div class="house-container__detials__lot-size">Lot: @theListings[i].lotSquareFootage ft&sup2;</div>
                 </div>
-                <div class="house-container__non-bg-content">
-                    <div class="house-container__title">@theListings[i].name</div>
-                    <div class="house-container__cost">@theListings[i].price</div>
-                    <div class="house-container__label">NEW</div>
-                    <div class="house-container__details">
-                        <div class="house-container__details__beds">@theListings[i].numberOfBedrooms bd</div>
-                        <div class="house-container__details__baths">@theListings[i].numberOfBathrooms ba</div>
-                        <div class="house-container__details__parking-spaces">@theListings[i].parkingSpaces car</div>
-                        <div class="house-container__details__year-built">Built: @theListings[i].yearBuilt</div>
-                        <div class="house-container__detials__house-size">Home: @theListings[i].homeSquareFootage ft&sup2;</div>
-                        <div class="house-container__detials__lot-size">Lot: @theListings[i].lotSquareFootage ft&sup2;</div>
-                    </div>
-                    <div class="house-container__location">@theListings[i].address</div>
-                    <div class="house-container__description">@theListings[i].description</div>
-                </div>
-            </div>
-        </div>
-    }
-</div>
-
-<div class="content-row">
-    <h3 class="listings__content-subtitle">Cornelius Listings</h3>
-    @for (var i = 6; i < 8; i++)
-    {
-        <div class="col-sma-4">
-            <div class="house-container @theListings[i].classCSS">
-                <div class="house-container__image-container">
-                    <div class="house-container__image"></div>
-                </div>
-                <div class="house-container__non-bg-content">
-                    <div class="house-container__title">@theListings[i].name</div>
-                    <div class="house-container__cost">@theListings[i].price</div>
-                    <div class="house-container__label">NEW</div>
-                    <div class="house-container__details">
-                        <div class="house-container__details__beds">@theListings[i].numberOfBedrooms bd</div>
-                        <div class="house-container__details__baths">@theListings[i].numberOfBathrooms ba</div>
-                        <div class="house-container__details__parking-spaces">@theListings[i].parkingSpaces car</div>
-                        <div class="house-container__details__year-built">Built: @theListings[i].yearBuilt</div>
-                        <div class="house-container__detials__house-size">Home: @theListings[i].homeSquareFootage ft&sup2;</div>
-                        <div class="house-container__detials__lot-size">Lot: @theListings[i].lotSquareFootage ft&sup2;</div>
-                    </div>
-                    <div class="house-container__location">@theListings[i].address</div>
-                    <div class="house-container__description">@theListings[i].description</div>
-                </div>
+                <div class="house-container__location">@theListings[i].address</div>
+                <div class="house-container__description">@theListings[i].description</div>
             </div>
         </div>
     }
@@ -128,9 +68,9 @@
 
 <script type="text/javascript">
     for (let i = 0; i < 8; i++) {
-         document.getElementsByClassName("house-container__image")[i].addEventListener("mouseover", function () {
+        document.getElementsByClassName("house-container__image")[i].addEventListener("mouseover", function () {
             addHoverClass(i);
-         });
+        });
 
         document.getElementsByClassName("house-container__image")[i].addEventListener("mouseout", function () {
             addOutClass(i);
@@ -138,8 +78,8 @@
     }
 
     function addHoverClass(itemNumber) {
-         document.getElementsByClassName("house-container__image")[itemNumber].classList.toggle("over");
-         document.getElementsByClassName("house-container__image")[itemNumber].classList.remove("out");
+        document.getElementsByClassName("house-container__image")[itemNumber].classList.toggle("over");
+        document.getElementsByClassName("house-container__image")[itemNumber].classList.remove("out");
     }
 
     function addOutClass(itemNumber) {

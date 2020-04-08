@@ -952,6 +952,13 @@ h4 {
 
 
 @media only screen and (min-width: 700px) and (max-width: 1199px){
+    /*Listings page*/
+    .house-container:nth-of-type(2n + 1) {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    
     /*Our team page*/
     .team-member:nth-of-type(2n + 1) {
         content: "";
@@ -962,6 +969,13 @@ h4 {
 
 
 @media only screen and (min-width: 1200px) {
+    /*Listings page*/
+    .house-container:nth-of-type(3n + 1) {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
     /*Our team page*/
     .team-member:nth-of-type(4n + 1) {
         content: "";
@@ -1084,7 +1098,7 @@ h4 {
 
     /*Listings page*/
     .house-container {
-        padding-bottom: 0px;
+    
     }
 
     .house-container__image {
