@@ -875,6 +875,9 @@ h4 {
 
 
 /*Sellers page*/
+.background-hero-image.sellers {
+    background: url('/assets/images/key-up-close-in-door.jpeg') 50% 30%/cover no-repeat;
+}
 #sellerButton {
     float: right;
 }
@@ -956,6 +959,11 @@ h4 {
     /*Header*/
     .main-title {
         text-align: left;
+    }
+
+    /*Sellers page*/
+    .background-hero-image.sellers {
+        height: 200px;
     }
 }
 
@@ -1066,6 +1074,13 @@ h4 {
         width: 370px;
         height: 320px;
     }
+
+
+    /*Sellers page*/
+    .background-hero-image.sellers {
+        height: 240px;
+    }
+
 
     /*Our Team page*/
     .team-member__name {
