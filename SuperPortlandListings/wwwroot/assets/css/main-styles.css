@@ -705,8 +705,15 @@ h4 {
     padding-bottom: 15px;
 }
 
+.search-listings__search {
+    padding: 15px;
+    font-weight: bold;
+    background-color: var(--color-1);
+    color: #ffffff;
+    cursor: pointer;
+}
+
 .search-listings__show-all {
-    margin-top: 30px;
     padding: 15px;
     font-weight: bold;
     background-color: var(--color-1);

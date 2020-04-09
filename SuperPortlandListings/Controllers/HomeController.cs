@@ -37,6 +37,51 @@ namespace SuperPortlandListings.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Listings(ListingsModel listingsModel)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                bool validForm = true;
+                string searchResults = "";
+
+                string searchCity = "";
+                string searchByOptions = "";
+
+                try
+                {
+                    searchCity = System.Web.HttpUtility.HtmlEncode(Request.Form["searchCity"]);
+                    searchByOptions = System.Web.HttpUtility.HtmlEncode(Request.Form["searchByOptions"]);
+                } catch(Exception)
+                {
+                    searchCity = "";
+                    searchByOptions = "";
+                }
+
+
+                if(searchCity == "" && searchByOptions == "")
+                {
+                    validForm = false;
+                }
+
+
+                if (validForm)
+                {
+                    searchResults = "Your search results are below.";
+                } else
+                {
+                    searchResults = "Search not completed, please try again and make sure at least 1 criteria is selected.";
+                }
+
+
+                ViewData["searchResults"] = searchResults;
+      
+            }
+            return View();
+        }
+
         [HttpGet]
         public IActionResult ContactUs()
         {

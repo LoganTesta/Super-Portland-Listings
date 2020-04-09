@@ -1,6 +1,8 @@
 ﻿
 @{
     ViewData["Title"] = "Listings";
+    var searchResults = ViewData["searchResults"];
+
     listing listing0 = new listing("Cheery Neigborhood House", "zero", "Hillsboro", "22110 SW Hillsboro 97123", "$450,000", "January 15, 2020", "2005", "2500", "5000", "4", "2", "2",
         "Cheery Neigborhood House", "This house is great. You should visit it and buy it if you like it.");
     listing listing1 = new listing("Perfect for Families", "one", "Hillsboro", "22111 SW Hillsboro 97123", "$451,000", "January 6, 2020", "2005", "2500", "5000", "4", "2", "2",
@@ -33,36 +35,48 @@
 
 }
 <div class="content-row">
-    <div class="col-sma-4">
+    <div class="col-sma-3">
         <h2>Listings</h2>
         <p>A home perfect for you.  Call a friendly agent at 503-272-3322.</p>
     </div>
-    <div class="col-sma-8">
+    <div class="col-sma-9">
         <div class="search-listings">
             <h3>Search Listings</h3>
-            <div class="search-listings__subsection">
-                <div class="search-listings__show-all">Show All</div>
-            </div>
-            <div class="search-listings__subsection">
-                <h4>Show by City</h4>
-                <select id="">
-                    <option value=""></option>
-                    <option value="Cornelius">Cornelius</option>
-                    <option value="Forest Grove">Forest Grove</option>
-                    <option value="Hillsboro">Hillsboro</option>
-                </select>
-            </div>
-            <div class="search-listings__subsection">
-                <h4>Order By</h4>
-                <select id="">
-                    <option value=""></option>
-                    <option value="PriceAsc">Price low to high</option>
-                    <option value="PriceDesc">Price high to low</option>
-                    <option value="HouseSizeAsc">House Size low to high</option>
-                    <option value="HouseSizeDesc">House Size high to low</option>
-                </select>
-            </div>
-            <div class="clear-both"></div>
+            <form id="" class="" method="post">
+                <div class="search-listings__subsection">
+                    <label for="searchCity">Show by City</label>
+                    <select id="searchCity" name="searchCity">
+                        <option value=""></option>
+                        <option value="Aloha">Aloha</option>
+                        <option value="Beaverton">Beaverton</option>
+                        <option value="Cornelius">Cornelius</option>
+                        <option value="Forest Grove">Forest Grove</option>
+                        <option value="Hillsboro">Hillsboro</option>
+                    </select>
+                </div>
+                <div class="search-listings__subsection">
+                    <label for="searchByOptions">Order By</label>
+                    <select id="searchByOptions" name="searchByOptions">
+                        <option value=""></option>
+                        <option value="PriceAsc">Price low to high</option>
+                        <option value="PriceDesc">Price high to low</option>
+                        <option value="HouseSizeAsc">House Size low to high</option>
+                        <option value="HouseSizeDesc">House Size high to low</option>
+                    </select>
+                </div>
+                <div class="search-listings__subsection">
+                    <input type="submit" class="search-listings__search" asp-page-handler="ListingsCitySection" value="Search" />
+                </div>
+                <div class="search-listings__subsection">
+                    <div class="search-listings__show-all">Show All</div>
+                </div>
+                <div class="search-listings__subsection">
+                    <div class="search-listings__search-response">
+                        @searchResults
+                    </div>
+                </div>
+                <div class="clear-both"></div>
+            </form>
         </div>
     </div>
 </div>
