@@ -1,7 +1,17 @@
 ﻿
+
+@using System;
+@using System.Web;
+@using Microsoft.AspNetCore.Html; //For using HTML in strings
+
+@model SuperPortlandListings.Models.ListingsModel;
+
 @{
     ViewData["Title"] = "Listings";
     var searchResults = ViewData["searchResults"];
+    string searchCity = "" + ViewData["searchCity"];
+    string searchByOptions = "" + ViewData["searchByOptions"];
+
 
     listing listing0 = new listing("Cheery Neigborhood House", "zero", "Hillsboro", "22110 SW Hillsboro 97123", "$450,000", "January 15, 2020", "2005", "2500", "5000", "4", "2", "2",
         "Cheery Neigborhood House", "This house is great. You should visit it and buy it if you like it.");
@@ -17,9 +27,9 @@
     listing listing5 = new listing("Charming One Story Home", "five", "Forest Grove", "22112 SW Hillsboro 97116", "$449,000", "January 11, 2020", "2005", "2500", "5000", "4", "2", "2",
         "Charming One Story Home", "This house is great. You should visit it and buy it if you like it.");
 
-    listing listing6 = new listing("New House, Refined Look", "six", "Hillsboro", "22110 SW Cornelius 97113", "$449,000", "January 11, 2020", "2005", "2500", "5000", "4", "2", "2",
+    listing listing6 = new listing("New House, Refined Look", "six", "Cornelius", "22110 SW Cornelius 97113", "$449,000", "January 11, 2020", "2005", "2500", "5000", "4", "2", "2",
         "New House, Refined Look", "This house is great. You should visit it and buy it if you like it.");
-    listing listing7 = new listing("Perfect for Families", "seven", "Hillsboro", "22111 SW Cornelius 97113", "$451,000", "January 25, 2020", "2005", "2500", "5000", "4", "2", "2",
+    listing listing7 = new listing("Perfect for Families", "seven", "Cornelius", "22111 SW Cornelius 97113", "$451,000", "January 25, 2020", "2005", "2500", "5000", "4", "2", "2",
         "Perfect for Families", "This house is great. You should visit it and buy it if you like it.");
 
 
@@ -70,10 +80,9 @@
                 <div class="search-listings__subsection">
                     <div class="search-listings__show-all">Show All</div>
                 </div>
-                <div class="search-listings__subsection">
-                    <div class="search-listings__search-response">
-                        @searchResults
-                    </div>
+                <div class="clear-both"></div>
+                <div class="search-listings__search-response">
+                    @(new HtmlString("" + @searchResults))
                 </div>
                 <div class="clear-both"></div>
             </form>
@@ -85,7 +94,21 @@
     <h3 class="listings__content-subtitle">Search Results</h3>
     @for (var i = 0; i < theListings.Count; i++)
     {
-        <div class="col-sma-6 col-lar-4 house-container @theListings[i].classCSS">
+        var hideString = "";
+
+        if (@searchCity == "")
+        {
+            hideString = "";
+        }
+        else
+        {
+            if (@searchCity != theListings[i].city)
+            {
+                hideString = "hide";
+            }
+        }
+
+        <div class="col-sma-6 col-lar-4 house-container @theListings[i].classCSS @hideString">
             <div class="house-container__image-container">
                 <div class="house-container__image"></div>
             </div>

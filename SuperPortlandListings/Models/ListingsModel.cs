@@ -7,5 +7,7 @@ namespace SuperPortlandListings.Models
 {
     public class ListingsModel
     {
+        public string searchCity { get; set; }
+        public string searchByOptions { get; set; }
     }
 }

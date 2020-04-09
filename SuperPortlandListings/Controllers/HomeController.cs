@@ -11,6 +11,8 @@ using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
 
+using Microsoft.AspNetCore.Html; //For using HTML in strings 
+
 namespace SuperPortlandListings.Controllers
 {
     public class HomeController : Controller
@@ -43,7 +45,6 @@ namespace SuperPortlandListings.Controllers
 
             if (ModelState.IsValid)
             {
-
                 bool validForm = true;
                 string searchResults = "";
 
@@ -69,16 +70,22 @@ namespace SuperPortlandListings.Controllers
 
                 if (validForm)
                 {
-                    searchResults = "Your search results are below.";
+                    searchResults = "Search Results. ";
+                    if(searchCity != "")
+                    {
+                        searchResults += "Showing all listings in <strong>" + searchCity + "</strong>.";
+                    }
+
                 } else
                 {
-                    searchResults = "Search not completed, please try again and make sure at least 1 criteria is selected.";
+                    searchResults = "Showing all listings.";
                 }
 
-
                 ViewData["searchResults"] = searchResults;
-      
+                ViewBag.searchCity = "" + searchCity;
+                ViewBag.searchByOptions = "" + searchByOptions;
             }
+
             return View();
         }
 

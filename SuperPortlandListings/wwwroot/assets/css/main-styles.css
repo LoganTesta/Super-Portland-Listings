@@ -721,10 +721,17 @@ h4 {
     cursor: pointer;
 }
 
+.search-listings__search-response {
+    padding-top: 15px;
+}
+
 
 .house-container {
     position: relative;
     padding-bottom: 40px;
+}
+.content-row .house-container.hide {
+    display: none;
 }
 
 .house-container__image-container {
