@@ -68,17 +68,20 @@ namespace SuperPortlandListings.Controllers
                 }
 
 
+                searchResults = "Search Results: ";
                 if (validForm)
                 {
-                    searchResults = "Search Results. ";
                     if(searchCity != "")
                     {
                         searchResults += "Showing all listings in <strong>" + searchCity + "</strong>.";
+                    } else
+                    {
+                        searchResults += "Showing all listings.";
                     }
 
                 } else
                 {
-                    searchResults = "Showing all listings.";
+                    searchResults += "Showing all listings.";
                 }
 
                 ViewData["searchResults"] = searchResults;
