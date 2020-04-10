@@ -11,6 +11,7 @@
     var searchResults = ViewData["searchResults"];
     string searchCity = "" + ViewData["searchCity"];
     string searchByOptions = "" + ViewData["searchByOptions"];
+    string displayAll = "" + ViewData["displayAll"];
 
 
     listing listing0 = new listing("Cheery Neigborhood House", "zero", "Hillsboro", "22110 SW Hillsboro 97123", "$450,000", "January 15, 2020", "2005", "2500", "5000", "4", "2", "2",
@@ -78,7 +79,7 @@
                     <input type="submit" class="search-listings__search" asp-page-handler="ListingsCitySection" value="Search" />
                 </div>
                 <div class="search-listings__subsection">
-                    <div class="search-listings__show-all">Show All</div>
+                    <input type="submit" id="searchListingsShowAll" name="searchListingsShowAll" class="search-listings__show-all" asp-page-handler="ListingsShowAllSection" value="Show All" />
                 </div>
                 <div class="clear-both"></div>
                 <div class="search-listings__search-response">

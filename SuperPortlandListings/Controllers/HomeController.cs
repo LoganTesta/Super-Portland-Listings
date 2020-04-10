@@ -50,17 +50,26 @@ namespace SuperPortlandListings.Controllers
 
                 string searchCity = "";
                 string searchByOptions = "";
+                string displayAll = "";
 
                 try
                 {
                     searchCity = System.Web.HttpUtility.HtmlEncode(Request.Form["searchCity"]);
                     searchByOptions = System.Web.HttpUtility.HtmlEncode(Request.Form["searchByOptions"]);
+                    displayAll = System.Web.HttpUtility.HtmlEncode(Request.Form["searchListingsShowAll"]);
                 } catch(Exception)
                 {
                     searchCity = "";
                     searchByOptions = "";
+                    displayAll = "";
                 }
 
+                if(displayAll == "Show All")
+                {
+                    validForm = false;
+                    searchCity = "";
+                    searchByOptions = "";
+                }
 
                 if(searchCity == "" && searchByOptions == "")
                 {
@@ -87,6 +96,7 @@ namespace SuperPortlandListings.Controllers
                 ViewData["searchResults"] = searchResults;
                 ViewBag.searchCity = "" + searchCity;
                 ViewBag.searchByOptions = "" + searchByOptions;
+                ViewBag.displayAll = "" + displayAll;
             }
 
             return View();
