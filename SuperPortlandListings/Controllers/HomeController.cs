@@ -67,8 +67,6 @@ namespace SuperPortlandListings.Controllers
                 if(displayAll == "Show All")
                 {
                     validForm = false;
-                    searchCity = "";
-                    searchByOptions = "";
                 }
 
                 if(searchCity == "" && searchByOptions == "")
@@ -83,13 +81,16 @@ namespace SuperPortlandListings.Controllers
                     if(searchCity != "")
                     {
                         searchResults += "Showing all listings in <strong>" + searchCity + "</strong>.";
-                    } else
+                    }
+                    if (searchByOptions != "")
                     {
-                        searchResults += "Showing all listings.";
+                        searchResults += "Order by <strong>" + searchByOptions + "</strong>.";
                     }
 
                 } else
                 {
+                    searchCity = "";
+                    searchByOptions = "";
                     searchResults += "Showing all listings.";
                 }
 
