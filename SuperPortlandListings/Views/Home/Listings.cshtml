@@ -20,12 +20,12 @@
         "Perfect for Families", "This house is great. You should visit it and buy it if you like it.");
     listing listing2 = new listing("One Story Southwestern Style Home", "two", "Hillsboro", "22112 SW Hillsboro 97123", "$449,000", "January 12, 2020", "2005", "2100", "5000", "4", "2", "2",
         "One Story Southwestern Style Home", "This house is great. You should visit it and buy it if you like it.");
-
-    listing listing3 = new listing("Big Front Yard with this Home", "three", "Forest Grove", "22110 SW Hillsboro 97116", "$450,000", "January 12, 2020", "2005", "2500", "5000", "4", "2", "2",
+    listing listing3 = new listing("Big Front Yard with this Home", "three", "Hillsboro", "22110 SW Hillsboro 97123", "$450,000", "January 12, 2020", "2005", "2500", "5000", "4", "2", "2",
         "Big Front Yard with this Home", "This house is great. You should visit it and buy it if you like it.");
-    listing listing4 = new listing("Perfect for Growing Families", "four", "Forest Grove", "22111 SW Hillsboro 97116", "$451,000", "January 19, 2020", "2005", "3200", "5000", "4", "2", "2",
+
+    listing listing4 = new listing("Perfect for Growing Families", "four", "Forest Grove", "22111 SW Forest Grove 97116", "$451,000", "January 19, 2020", "2005", "3200", "5000", "4", "2", "2",
         "Perfect for Growing Families", "This house is great. You should visit it and buy it if you like it.");
-    listing listing5 = new listing("Charming One Story Home", "five", "Forest Grove", "22112 SW Hillsboro 97116", "$425,000", "January 11, 2020", "2005", "1850", "5000", "4", "2", "2",
+    listing listing5 = new listing("Charming One Story Home", "five", "Forest Grove", "22112 SW Forest Grove 97116", "$425,000", "January 11, 2020", "2005", "1850", "5000", "4", "2", "2",
         "Charming One Story Home", "This house is great. You should visit it and buy it if you like it.");
 
     listing listing6 = new listing("New House, Refined Look", "six", "Cornelius", "22110 SW Cornelius 97113", "$449,000", "January 11, 2020", "2005", "2400", "5000", "4", "2", "2",
@@ -45,6 +45,7 @@
     theListings.Add(listing7);
 
     List<listing> reorderedListings = new List<listing>();
+    List<listing> finalListings = new List<listing>();
 
 }
 <div class="content-row">
@@ -97,25 +98,19 @@
     <h3 class="listings__content-subtitle">Search Results</h3>
 
     @{
-        string startingNames = "";
-        string endingNames = "";
-
-
-        @for (var i = 0; i < theListings.Count; i++)
-        {
-            startingNames += " " + theListings[i].name;
-        }
-
         if (searchByOptions == "PriceAsc")
         {
             reorderedListings = theListings.OrderBy(theListings => theListings.price).ToList();
-        } else if (searchByOptions == "PriceDesc")
+        }
+        else if (searchByOptions == "PriceDesc")
         {
             reorderedListings = theListings.OrderByDescending(theListings => theListings.price).ToList();
-        } else if (searchByOptions == "HouseSizeAsc")
+        }
+        else if (searchByOptions == "HouseSizeAsc")
         {
             reorderedListings = theListings.OrderBy(theListings => theListings.homeSquareFootage).ToList();
-        } else if (searchByOptions == "HouseSizeDesc")
+        }
+        else if (searchByOptions == "HouseSizeDesc")
         {
             reorderedListings = theListings.OrderByDescending(theListings => theListings.homeSquareFootage).ToList();
         }
@@ -128,45 +123,40 @@
 
     @for (var i = 0; i < reorderedListings.Count; i++)
     {
-        endingNames += " " + reorderedListings[i].name;
-    }
-
-
-    @for (var i = 0; i < reorderedListings.Count; i++)
-    {
-        var hideString = "";
-
         if (@searchCity == "")
         {
-            hideString = "";
+            finalListings.Add(reorderedListings[i]);
         }
         else
         {
-            if (@searchCity != reorderedListings[i].city)
+            if (@searchCity == reorderedListings[i].city)
             {
-                hideString = "hide";
+                finalListings.Add(reorderedListings[i]);
             }
         }
+    }
 
 
-        <div class="col-sma-6 col-lar-4 house-container @reorderedListings[i].classCSS @hideString">
+    @for (var i = 0; i < finalListings.Count; i++)
+    {
+        <div class="col-sma-6 col-lar-4 house-container @finalListings[i].classCSS">
             <div class="house-container__image-container">
                 <div class="house-container__image"></div>
             </div>
             <div class="house-container__non-bg-content">
-                <div class="house-container__title">@reorderedListings[i].name</div>
-                <div class="house-container__cost">@reorderedListings[i].price</div>
+                <div class="house-container__title">@finalListings[i].name</div>
+                <div class="house-container__cost">@finalListings[i].price</div>
                 <div class="house-container__label">NEW</div>
                 <div class="house-container__details">
-                    <div class="house-container__details__beds">@reorderedListings[i].numberOfBedrooms bd</div>
-                    <div class="house-container__details__baths">@reorderedListings[i].numberOfBathrooms ba</div>
-                    <div class="house-container__details__parking-spaces">@reorderedListings[i].parkingSpaces car</div>
-                    <div class="house-container__details__year-built">Built: @reorderedListings[i].yearBuilt</div>
-                    <div class="house-container__detials__house-size">Home: @reorderedListings[i].homeSquareFootage ft&sup2;</div>
-                    <div class="house-container__detials__lot-size">Lot: @reorderedListings[i].lotSquareFootage ft&sup2;</div>
+                    <div class="house-container__details__beds">@finalListings[i].numberOfBedrooms bd</div>
+                    <div class="house-container__details__baths">@finalListings[i].numberOfBathrooms ba</div>
+                    <div class="house-container__details__parking-spaces">@finalListings[i].parkingSpaces car</div>
+                    <div class="house-container__details__year-built">Built: @finalListings[i].yearBuilt</div>
+                    <div class="house-container__detials__house-size">Home: @finalListings[i].homeSquareFootage ft&sup2;</div>
+                    <div class="house-container__detials__lot-size">Lot: @finalListings[i].lotSquareFootage ft&sup2;</div>
                 </div>
-                <div class="house-container__location">@reorderedListings[i].address</div>
-                <div class="house-container__description">@reorderedListings[i].description</div>
+                <div class="house-container__location">@finalListings[i].address</div>
+                <div class="house-container__description">@finalListings[i].description</div>
             </div>
         </div>
     }

@@ -75,23 +75,23 @@ namespace SuperPortlandListings.Controllers
                 }
 
 
-                searchResults = "Search Results: ";
+                searchResults = "Search Results:";
                 if (validForm)
                 {
                     if(searchCity != "")
                     {
-                        searchResults += "Showing all listings in <strong>" + searchCity + "</strong>.";
+                        searchResults += " Showing all listings in <strong>" + searchCity + "</strong>.";
                     }
                     if (searchByOptions != "")
                     {
-                        searchResults += "Order by <strong>" + searchByOptions + "</strong>.";
+                        searchResults += " Order by <strong>" + searchByOptions + "</strong>.";
                     }
 
                 } else
                 {
                     searchCity = "";
                     searchByOptions = "";
-                    searchResults += "Showing all listings.";
+                    searchResults += " Showing all listings.";
                 }
 
                 ViewData["searchResults"] = searchResults;

@@ -730,9 +730,6 @@ h4 {
     position: relative;
     padding-bottom: 40px;
 }
-.content-row .house-container.hide {
-    display: none;
-}
 
 .house-container__image-container {
     overflow: hidden;
@@ -1009,6 +1006,7 @@ h4 {
         display: block;
         clear: both;
     }
+
 
     /*Our team page*/
     .team-member:nth-of-type(4n + 1) {
