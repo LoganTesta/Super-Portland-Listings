@@ -49,17 +49,20 @@ namespace SuperPortlandListings.Controllers
                 string searchResults = "";
 
                 string searchCity = "";
+                string searchPriceRange = "";
                 string searchByOptions = "";
                 string displayAll = "";
 
                 try
                 {
                     searchCity = System.Web.HttpUtility.HtmlEncode(Request.Form["searchCity"]);
+                    searchPriceRange = System.Web.HttpUtility.HtmlEncode(Request.Form["searchPriceRange"]);
                     searchByOptions = System.Web.HttpUtility.HtmlEncode(Request.Form["searchByOptions"]);
                     displayAll = System.Web.HttpUtility.HtmlEncode(Request.Form["searchListingsShowAll"]);
                 } catch(Exception)
                 {
                     searchCity = "";
+                    searchPriceRange = "";
                     searchByOptions = "";
                     displayAll = "";
                 }
@@ -69,7 +72,7 @@ namespace SuperPortlandListings.Controllers
                     validForm = false;
                 }
 
-                if(searchCity == "" && searchByOptions == "")
+                if(searchCity == "" && searchPriceRange == "" && searchByOptions == "")
                 {
                     validForm = false;
                 }
@@ -82,6 +85,10 @@ namespace SuperPortlandListings.Controllers
                     {
                         searchResults += " Showing all listings in <strong>" + searchCity + "</strong>.";
                     }
+                    if(searchPriceRange != "")
+                    {
+                        searchResults += " Showing listings between <strong>" + searchPriceRange + "</strong>.";
+                    }
                     if (searchByOptions != "")
                     {
                         searchResults += " Order by <strong>" + searchByOptions + "</strong>.";
@@ -90,12 +97,14 @@ namespace SuperPortlandListings.Controllers
                 } else
                 {
                     searchCity = "";
+                    searchPriceRange = "";
                     searchByOptions = "";
                     searchResults += " Showing all listings.";
                 }
 
                 ViewData["searchResults"] = searchResults;
                 ViewBag.searchCity = "" + searchCity;
+                ViewBag.searchPriceRange = "" + searchPriceRange;
                 ViewBag.searchByOptions = "" + searchByOptions;
                 ViewBag.displayAll = "" + displayAll;
             }
