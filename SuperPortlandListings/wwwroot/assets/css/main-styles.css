@@ -433,6 +433,7 @@ input, textarea, select {
     padding: 10px;
     border: 1px solid #000000;
     outline: 0;
+    border-radius: 7px;
     transition: box-shadow 0.4s ease-in;
 }
 
@@ -707,6 +708,7 @@ h4 {
 
 .search-listings__label {
     display: block;
+    padding-bottom: 2px;
 }
 
 .search-listings__search {
@@ -1141,11 +1143,11 @@ h4 {
     }
 
     .search-listings__search {
-        margin-top: 15px;
+        margin-top: 17px;
     }
 
     .search-listings__show-all {
-        margin-top: 15px;
+        margin-top: 17px;
     }
 
 

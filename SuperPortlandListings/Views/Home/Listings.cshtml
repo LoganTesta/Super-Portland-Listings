@@ -85,10 +85,10 @@
                     <label class="search-listings__label" for="searchByOptions">Order By</label>
                     <select id="searchByOptions" name="searchByOptions">
                         <option value=""></option>
-                        <option value="PriceAsc">Price low to high</option>
-                        <option value="PriceDesc">Price high to low</option>
-                        <option value="HouseSizeAsc">House Size low to high</option>
-                        <option value="HouseSizeDesc">House Size high to low</option>
+                        <option value="Price">Price low to high</option>
+                        <option value="Price (Descreasing)">Price high to low</option>
+                        <option value="House Size">House Size low to high</option>
+                        <option value="House Size (Descreasing)">House Size high to low</option>
                     </select>
                 </div>
                 <div class="search-listings__subsection">
@@ -111,19 +111,19 @@
     <h3 class="listings__content-subtitle">Search Results</h3>
 
     @{
-        if (searchByOptions == "PriceAsc")
+        if (searchByOptions == "Price")
         {
             reorderedListings = theListings.OrderBy(theListings => theListings.price).ToList();
         }
-        else if (searchByOptions == "PriceDesc")
+        else if (searchByOptions == "Price (Descreasing)")
         {
             reorderedListings = theListings.OrderByDescending(theListings => theListings.price).ToList();
         }
-        else if (searchByOptions == "HouseSizeAsc")
+        else if (searchByOptions == "House Size")
         {
             reorderedListings = theListings.OrderBy(theListings => theListings.homeSquareFootage).ToList();
         }
-        else if (searchByOptions == "HouseSizeDesc")
+        else if (searchByOptions == "House Size (Descreasing)")
         {
             reorderedListings = theListings.OrderByDescending(theListings => theListings.homeSquareFootage).ToList();
         }
