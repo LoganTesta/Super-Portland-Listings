@@ -56,9 +56,9 @@
     <div class="col-sma-9">
         <div class="search-listings">
             <h3>Search Listings</h3>
-            <form id="" class="" method="post">
+            <form id="searchListings" class="search-listings" method="post">
                 <div class="search-listings__subsection">
-                    <label for="searchCity">Show by City</label>
+                    <label class="search-listings__label" for="searchCity">City</label>
                     <select id="searchCity" name="searchCity">
                         <option value=""></option>
                         <option value="Aloha">Aloha</option>
@@ -69,7 +69,19 @@
                     </select>
                 </div>
                 <div class="search-listings__subsection">
-                    <label for="searchByOptions">Order By</label>
+                    <label class="search-listings__label" for="searchPriceRange">Price Range</label>
+                    <select id="searchPriceRange" name="searchPriceRange">
+                        <option value=""></option>
+                        <option value="">Under $200,000</option>
+                        <option value="">$200,000 - $399,399</option>
+                        <option value="">$400,000 - $599,999</option>
+                        <option value=" ">$600,000 - $799,999</option>
+                        <option value="">$800,000 - $999,999</option>
+                        <option value="">$1 Million+</option>
+                    </select>
+                </div>
+                <div class="search-listings__subsection">
+                    <label class="search-listings__label" for="searchByOptions">Order By</label>
                     <select id="searchByOptions" name="searchByOptions">
                         <option value=""></option>
                         <option value="PriceAsc">Price low to high</option>
