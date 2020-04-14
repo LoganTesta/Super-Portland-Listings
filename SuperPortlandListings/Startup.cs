@@ -24,6 +24,12 @@ namespace SuperPortlandListings
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            //Allow for Session Variables
+            services.AddSession();
+            services.AddMemoryCache();
+            services.AddMvc();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +47,8 @@ namespace SuperPortlandListings
 
             app.UseStatusCodePages();
             app.UseStatusCodePagesWithReExecute("/error/{0}"); //For error handling like 404, etc.
+
+            app.UseSession(); //For Sessions
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

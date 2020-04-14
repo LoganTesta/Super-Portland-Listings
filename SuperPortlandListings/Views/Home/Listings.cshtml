@@ -3,11 +3,15 @@
 @using System;
 @using System.Web;
 @using Microsoft.AspNetCore.Html; @*For using HTML in strings*@
+@using Microsoft.AspNetCore.Http;   @*For Sessions*@
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
 
 @model SuperPortlandListings.Models.ListingsModel;
 
 @{
     ViewData["Title"] = "Listings";
+
     var searchResults = ViewData["searchResults"];
     string searchCity = "" + ViewData["searchCity"];
     string searchPriceRange = "" + ViewData["searchPriceRange"];
@@ -47,8 +51,107 @@
 
     List<listing> reorderedListings = new List<listing>();
     List<listing> finalListings = new List<listing>();
-
 }
+
+
+@{
+    if (searchByOptions == "Price")
+    {
+        reorderedListings = theListings.OrderBy(theListings => theListings.price).ToList();
+    }
+    else if (searchByOptions == "Price (Descreasing)")
+    {
+        reorderedListings = theListings.OrderByDescending(theListings => theListings.price).ToList();
+    }
+    else if (searchByOptions == "House Size")
+    {
+        reorderedListings = theListings.OrderBy(theListings => theListings.homeSquareFootage).ToList();
+    }
+    else if (searchByOptions == "House Size (Descreasing)")
+    {
+        reorderedListings = theListings.OrderByDescending(theListings => theListings.homeSquareFootage).ToList();
+    }
+    else
+    {
+        reorderedListings = theListings;
+    }
+}
+
+
+@for (var i = 0; i < reorderedListings.Count; i++)
+{
+    if (@searchCity == "" && @searchPriceRange == "")
+    {
+        finalListings.Add(reorderedListings[i]);
+    }
+    else if (@searchCity == reorderedListings[i].city && @searchPriceRange == "")
+    {
+        finalListings.Add(reorderedListings[i]);
+    }
+    else if (@searchPriceRange != "")
+    {
+        bool validListing = true;
+
+        if (@searchCity != "" && @searchCity != reorderedListings[i].city)
+        {
+            validListing = false;
+        }
+
+        if (validListing)
+        {
+            decimal listingPrice = Convert.ToDecimal(reorderedListings[i].price.Replace("$", ""));
+
+            if (@searchPriceRange == "Under $200,000")
+            {
+                if (listingPrice < 200000)
+                {
+                    finalListings.Add(reorderedListings[i]);
+                }
+            }
+            else if (@searchPriceRange == "$200,000 - $399,999")
+            {
+                if (listingPrice >= 200000 && listingPrice < 400000)
+                {
+                    finalListings.Add(reorderedListings[i]);
+                }
+            }
+            else if (@searchPriceRange == "$400,000 - $599,999")
+            {
+                if (listingPrice >= 400000 && listingPrice < 600000)
+                {
+                    finalListings.Add(reorderedListings[i]);
+                }
+            }
+            else if (@searchPriceRange == "$600,000 - $799,999")
+            {
+                if (listingPrice >= 600000 && listingPrice < 800000)
+                {
+                    finalListings.Add(reorderedListings[i]);
+                }
+            }
+            else if (@searchPriceRange == "$800,000 - $999,999")
+            {
+                if (listingPrice >= 800000 && listingPrice < 1000000)
+                {
+                    finalListings.Add(reorderedListings[i]);
+                }
+            }
+            else if (@searchPriceRange == "$1 Million+")
+            {
+                if (listingPrice >= 1000000)
+                {
+                    finalListings.Add(reorderedListings[i]);
+                }
+            }
+        }
+    }
+}
+
+@{
+    ViewData["listingsSummaryText"] = "" + Convert.ToString(finalListings.Count);
+}
+
+
 <div class="content-row">
     <div class="col-sma-3">
         <h2>Listings</h2>
@@ -99,7 +202,7 @@
                 </div>
                 <div class="clear-both"></div>
                 <div class="search-listings__search-response">
-                    @(new HtmlString("" + @searchResults))
+                    Listings shown: <strong>@ViewData["listingsSummaryText"]</strong>. @(new HtmlString("" + @searchResults))
                 </div>
                 <div class="clear-both"></div>
             </form>
@@ -109,103 +212,6 @@
 
 <div class="content-row">
     <h3 class="listings__content-subtitle">Search Results</h3>
-
-    @{
-        if (searchByOptions == "Price")
-        {
-            reorderedListings = theListings.OrderBy(theListings => theListings.price).ToList();
-        }
-        else if (searchByOptions == "Price (Descreasing)")
-        {
-            reorderedListings = theListings.OrderByDescending(theListings => theListings.price).ToList();
-        }
-        else if (searchByOptions == "House Size")
-        {
-            reorderedListings = theListings.OrderBy(theListings => theListings.homeSquareFootage).ToList();
-        }
-        else if (searchByOptions == "House Size (Descreasing)")
-        {
-            reorderedListings = theListings.OrderByDescending(theListings => theListings.homeSquareFootage).ToList();
-        }
-        else
-        {
-            reorderedListings = theListings;
-        }
-    }
-
-
-    @for (var i = 0; i < reorderedListings.Count; i++)
-    {
-        if (@searchCity == "" && @searchPriceRange == "")
-        {
-            finalListings.Add(reorderedListings[i]);
-        }
-        else if (@searchCity == reorderedListings[i].city && @searchPriceRange == "")
-        {
-            finalListings.Add(reorderedListings[i]);
-        }
-        else if (@searchPriceRange != "")
-        {
-            bool validListing = true;
-
-            if (@searchCity != "" && @searchCity != reorderedListings[i].city)
-            {
-                validListing = false;
-            }
-
-
-            if (validListing)
-            {
-                decimal listingPrice = Convert.ToDecimal(reorderedListings[i].price.Replace("$", ""));
-
-                if (@searchPriceRange == "Under $200,000")
-                {
-                    if (listingPrice < 200000)
-                    {
-                        finalListings.Add(reorderedListings[i]);
-                    }
-                }
-                else if (@searchPriceRange == "$200,000 - $399,999")
-                {
-                    if (listingPrice >= 200000 && listingPrice < 400000)
-                    {
-                        finalListings.Add(reorderedListings[i]);
-                    }
-                }
-                else if (@searchPriceRange == "$400,000 - $599,999")
-                {
-                    if (listingPrice >= 400000 && listingPrice < 600000)
-                    {
-                        finalListings.Add(reorderedListings[i]);
-                    }
-                }
-                else if (@searchPriceRange == "$600,000 - $799,999")
-                {
-                    if (listingPrice >= 600000 && listingPrice < 800000)
-                    {
-                        finalListings.Add(reorderedListings[i]);
-                    }
-                }
-                else if (@searchPriceRange == "$800,000 - $999,999")
-                {
-                    if (listingPrice >= 800000 && listingPrice < 1000000)
-                    {
-                        finalListings.Add(reorderedListings[i]);
-                    }
-                }
-                else if (@searchPriceRange == "$1 Million+")
-                {
-                    if (listingPrice >= 1000000)
-                    {
-                        finalListings.Add(reorderedListings[i]);
-                    }
-                }
-            }
-        }
-
-    }
-
-
     @for (var i = 0; i < finalListings.Count; i++)
     {
         <div class="col-sma-6 col-lar-4 house-container @finalListings[i].classCSS">

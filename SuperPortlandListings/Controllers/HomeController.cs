@@ -12,6 +12,8 @@ using MailKit.Security;
 using MimeKit;
 
 using Microsoft.AspNetCore.Html; //For using HTML in strings 
+using Microsoft.AspNetCore.Http;   // For Sessions
+
 
 namespace SuperPortlandListings.Controllers
 {
@@ -78,12 +80,12 @@ namespace SuperPortlandListings.Controllers
                 }
 
 
-                searchResults = "Search Results:";
+                searchResults = "";
                 if (validForm)
                 {
                     if(searchCity != "")
                     {
-                        searchResults += " Showing all listings in <strong>" + searchCity + "</strong>.";
+                        searchResults += " Showing listings in <strong>" + searchCity + "</strong>.";
                     }
                     if(searchPriceRange != "")
                     {
