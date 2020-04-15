@@ -165,11 +165,11 @@
                     <label class="search-listings__label" for="searchCity">City</label>
                     <select id="searchCity" name="searchCity">
                         <option value=""></option>
-                        <option value="Aloha">Aloha</option>
-                        <option value="Beaverton">Beaverton</option>
-                        <option value="Cornelius">Cornelius</option>
-                        <option value="Forest Grove">Forest Grove</option>
-                        <option value="Hillsboro">Hillsboro</option>
+                        <!option value="Aloha" @(@searchCity == "Aloha" ? "selected" : "")>Aloha</!option>
+                        <!option value="Beaverton" @(@searchCity == "Beaverton" ? "selected" : "")>Beaverton</!option>
+                        <!option value="Cornelius" @(@searchCity == "Cornelius" ? "selected" : "")>Cornelius</!option>
+                        <!option value="Forest Grove" @(@searchCity == "Forest Grove" ? "selected" : "")>Forest Grove</!option>
+                        <!option value="Hillsboro" @(@searchCity == "Hillsboro" ? "selected" : "")>Hillsboro</!option>
                     </select>
                 </div>
                 <div class="search-listings__subsection">
@@ -188,10 +188,10 @@
                     <label class="search-listings__label" for="searchByOptions">Order By</label>
                     <select id="searchByOptions" name="searchByOptions">
                         <option value=""></option>
-                        <option value="Price">Price low to high</option>
-                        <option value="Price (Descreasing)">Price high to low</option>
-                        <option value="House Size">House Size low to high</option>
-                        <option value="House Size (Descreasing)">House Size high to low</option>
+                        <!option value="Price" @(@searchByOptions == "Price" ? "selected" : "")>Price low to high</!option>
+                        <!option value="Price (Descreasing)" @(@searchByOptions == "Price (Descreasing)" ? "selected" : "")>Price high to low</!option>
+                        <!option value="House Size" @(@searchByOptions == "House Size" ? "selected" : "")>House Size low to high</!option>
+                        <!option value="House Size (Descreasing)" @(@searchByOptions == "House Size (Descreasing)" ? "selected" : "")>House Size high to low</!option>
                     </select>
                 </div>
                 <div class="search-listings__subsection">
