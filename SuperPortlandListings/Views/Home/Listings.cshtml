@@ -19,23 +19,23 @@
     string displayAll = "" + ViewData["displayAll"];
 
 
-    listing listing0 = new listing("Cheery Neigborhood House", "zero", "Hillsboro", "22110 SW Hillsboro 97123", "$450,000", "January 15, 2020", "2005", "2500", "5000", "4", "2", "2",
+    listing listing0 = new listing("Cheery Neigborhood House", "zero", "Hillsboro", "22110 SW Hillsboro 97123", "$450,000", "January 15, 2020", "2005", "2500", "4800", "4", "2", "2",
         "Cheery Neigborhood House", "This house is great. You should visit it and buy it if you like it.");
-    listing listing1 = new listing("Perfect for Families", "one", "Hillsboro", "22111 SW Hillsboro 97123", "$460,000", "January 6, 2020", "2005", "2800", "5000", "4", "2", "2",
+    listing listing1 = new listing("Perfect for Families", "one", "Hillsboro", "22111 SW Hillsboro 97123", "$460,000", "January 6, 2020", "2005", "2800", "4500", "4", "2", "2",
         "Perfect for Families", "This house is great. You should visit it and buy it if you like it.");
-    listing listing2 = new listing("One Story Southwestern Style Home", "two", "Hillsboro", "22112 SW Hillsboro 97123", "$389,000", "January 12, 2020", "2005", "2100", "5000", "4", "2", "2",
+    listing listing2 = new listing("One Story Southwestern Style Home", "two", "Hillsboro", "22112 SW Hillsboro 97123", "$389,000", "January 12, 2020", "2005", "2100", "5400", "4", "2", "2",
         "One Story Southwestern Style Home", "This house is great. You should visit it and buy it if you like it.");
-    listing listing3 = new listing("Big Front Yard with this Home", "three", "Hillsboro", "22110 SW Hillsboro 97123", "$620,000", "January 12, 2020", "2005", "2500", "5000", "4", "2", "2",
+    listing listing3 = new listing("Big Front Yard with this Home", "three", "Hillsboro", "22110 SW Hillsboro 97123", "$620,000", "January 12, 2020", "2005", "2500", "8000", "4", "2", "2",
         "Big Front Yard with this Home", "This house is great. You should visit it and buy it if you like it.");
 
-    listing listing4 = new listing("Perfect for Growing Families", "four", "Forest Grove", "22111 SW Forest Grove 97116", "$451,000", "January 19, 2020", "2005", "3200", "5000", "4", "2", "2",
+    listing listing4 = new listing("Perfect for Growing Families", "four", "Forest Grove", "22111 SW Forest Grove 97116", "$451,000", "January 19, 2020", "2005", "3200", "7200", "4", "2", "2",
         "Perfect for Growing Families", "This house is great. You should visit it and buy it if you like it.");
     listing listing5 = new listing("Charming One Story Home", "five", "Forest Grove", "22112 SW Forest Grove 97116", "$395,000", "January 11, 2020", "2005", "1850", "5000", "4", "2", "2",
         "Charming One Story Home", "This house is great. You should visit it and buy it if you like it.");
 
-    listing listing6 = new listing("New House, Refined Look", "six", "Cornelius", "22110 SW Cornelius 97113", "$449,000", "January 11, 2020", "2005", "2400", "5000", "4", "2", "2",
+    listing listing6 = new listing("New House, Refined Look", "six", "Cornelius", "22110 SW Cornelius 97113", "$449,000", "January 11, 2020", "2005", "2400", "6000", "4", "2", "2",
         "New House, Refined Look", "This house is great. You should visit it and buy it if you like it.");
-    listing listing7 = new listing("Perfect for Families", "seven", "Cornelius", "22111 SW Cornelius 97113", "$471,000", "January 25, 2020", "2005", "2500", "5000", "4", "2", "2",
+    listing listing7 = new listing("Perfect for Families", "seven", "Cornelius", "22111 SW Cornelius 97113", "$471,000", "January 25, 2020", "2005", "2500", "7000", "4", "2", "2",
         "Perfect for Families", "This house is great. You should visit it and buy it if you like it.");
 
 
@@ -59,7 +59,7 @@
     {
         reorderedListings = theListings.OrderBy(theListings => theListings.price).ToList();
     }
-    else if (searchByOptions == "Price (Descreasing)")
+    else if (searchByOptions == "Price (decreasing)")
     {
         reorderedListings = theListings.OrderByDescending(theListings => theListings.price).ToList();
     }
@@ -67,9 +67,17 @@
     {
         reorderedListings = theListings.OrderBy(theListings => theListings.homeSquareFootage).ToList();
     }
-    else if (searchByOptions == "House Size (Descreasing)")
+    else if (searchByOptions == "House Size (decreasing)")
     {
         reorderedListings = theListings.OrderByDescending(theListings => theListings.homeSquareFootage).ToList();
+    }
+    else if (searchByOptions == "Lot Size")
+    {
+        reorderedListings = theListings.OrderBy(theListings => theListings.lotSquareFootage).ToList();
+    }
+    else if (searchByOptions == "Lot Size (decreasing)")
+    {
+        reorderedListings = theListings.OrderByDescending(theListings => theListings.lotSquareFootage).ToList();
     }
     else
     {
@@ -188,10 +196,12 @@
                     <label class="search-listings__label" for="searchByOptions">Order By</label>
                     <select id="searchByOptions" name="searchByOptions">
                         <option value=""></option>
-                        <!option value="Price" @(@searchByOptions == "Price" ? "selected" : "")>Price low to high</!option>
-                        <!option value="Price (Descreasing)" @(@searchByOptions == "Price (Descreasing)" ? "selected" : "")>Price high to low</!option>
-                        <!option value="House Size" @(@searchByOptions == "House Size" ? "selected" : "")>House Size low to high</!option>
-                        <!option value="House Size (Descreasing)" @(@searchByOptions == "House Size (Descreasing)" ? "selected" : "")>House Size high to low</!option>
+                        <!option value="Price" @(@searchByOptions == "Price" ? "selected" : "")>Price</!option>
+                        <!option value="Price (decreasing)" @(@searchByOptions == "Price (decreasing)" ? "selected" : "")>Price (decreasing)</!option>
+                        <!option value="House Size" @(@searchByOptions == "House Size" ? "selected" : "")>House Size</!option>
+                        <!option value="House Size (decreasing)" @(@searchByOptions == "House Size (decreasing)" ? "selected" : "")>House Size (decreasing)</!option>
+                        <!option value="Lot Size" @(@searchByOptions == "Lot Size" ? "selected" : "")>Lot Size</!option>
+                        <!option value="Lot Size (decreasing)" @(@searchByOptions == "Lot Size (decreasing)" ? "selected" : "")>Lot Size (decreasing)</!option>
                     </select>
                 </div>
                 <div class="search-listings__subsection">
