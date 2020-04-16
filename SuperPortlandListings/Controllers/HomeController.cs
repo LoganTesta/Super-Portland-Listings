@@ -52,6 +52,7 @@ namespace SuperPortlandListings.Controllers
 
                 string searchCity = "";
                 string searchBeds = "";
+                string searchBaths = "";
                 string searchPriceRange = "";
                 string searchByOptions = "";
                 string displayAll = "";
@@ -60,24 +61,27 @@ namespace SuperPortlandListings.Controllers
                 {
                     searchCity = System.Web.HttpUtility.HtmlEncode(Request.Form["searchCity"]);
                     searchBeds = System.Web.HttpUtility.HtmlEncode(Request.Form["searchBeds"]);
+                    searchBaths = System.Web.HttpUtility.HtmlEncode(Request.Form["searchBaths"]);
                     searchPriceRange = System.Web.HttpUtility.HtmlEncode(Request.Form["searchPriceRange"]);
                     searchByOptions = System.Web.HttpUtility.HtmlEncode(Request.Form["searchByOptions"]);
                     displayAll = System.Web.HttpUtility.HtmlEncode(Request.Form["searchListingsShowAll"]);
-                } catch(Exception)
+                }
+                catch (Exception)
                 {
                     searchCity = "";
                     searchBeds = "";
+                    searchBaths = "";
                     searchPriceRange = "";
                     searchByOptions = "";
                     displayAll = "";
                 }
 
-                if(displayAll == "Show All")
+                if (displayAll == "Show All")
                 {
                     validForm = false;
                 }
 
-                if(searchCity == "" && searchBeds == "" && searchPriceRange == "" && searchByOptions == "")
+                if (searchCity == "" && searchBeds == "" && searchBaths == "" && searchPriceRange == "" && searchByOptions == "")
                 {
                     validForm = false;
                 }
@@ -86,13 +90,17 @@ namespace SuperPortlandListings.Controllers
                 searchResults = "";
                 if (validForm)
                 {
-                    if(searchCity != "")
+                    if (searchCity != "")
                     {
                         searchResults += " Showing listings in <strong>" + searchCity + "</strong>.";
                     }
                     if (searchBeds != "")
                     {
-                        searchResults += " Showing listings with <strong>" + searchBeds+ "+ bedrooms</strong>.";
+                        searchResults += " Showing listings with <strong>" + searchBeds + "+ bedrooms</strong>.";
+                    }
+                    if (searchBaths != "")
+                    {
+                        searchResults += " Showing listings with <strong>" + searchBaths + "+ bathrooms</strong>.";
                     }
                     if (searchPriceRange != "")
                     {
@@ -103,10 +111,12 @@ namespace SuperPortlandListings.Controllers
                         searchResults += " Order by <strong>" + searchByOptions + "</strong>.";
                     }
 
-                } else
+                }
+                else
                 {
                     searchCity = "";
                     searchBeds = "";
+                    searchBaths = "";
                     searchPriceRange = "";
                     searchByOptions = "";
                     searchResults += " Showing all listings.";
@@ -115,6 +125,7 @@ namespace SuperPortlandListings.Controllers
                 ViewData["searchResults"] = searchResults;
                 ViewBag.searchCity = "" + searchCity;
                 ViewBag.searchBeds = "" + searchBeds;
+                ViewBag.searchBaths = "" + searchBaths;
                 ViewBag.searchPriceRange = "" + searchPriceRange;
                 ViewBag.searchByOptions = "" + searchByOptions;
                 ViewBag.displayAll = "" + displayAll;
@@ -306,7 +317,7 @@ namespace SuperPortlandListings.Controllers
                 }
 
 
-                if (sellerName == "" || sellerEmail == "" || sellerCity == "" || sellerState == "" || sellerZIP == "" || sellerShortDescription == "" || sellerDesiredPrice == "" 
+                if (sellerName == "" || sellerEmail == "" || sellerCity == "" || sellerState == "" || sellerZIP == "" || sellerShortDescription == "" || sellerDesiredPrice == ""
                     || sellerDesiredSellDate == "")
                 {
                     validForm = false;
@@ -414,7 +425,7 @@ namespace SuperPortlandListings.Controllers
                         destinationSmtp.Disconnect(true);
                         destinationSmtp.Dispose();
 
-                        contactFormResponse = "Thank you <strong>" + sellerName + "</strong>, we look forward to reading your comments and our reply will be sent to your email at: <strong>" 
+                        contactFormResponse = "Thank you <strong>" + sellerName + "</strong>, we look forward to reading your comments and our reply will be sent to your email at: <strong>"
                             + sellerEmail + "</strong>.";
                     }
                 }
