@@ -21,23 +21,23 @@
     string displayAll = "" + ViewData["displayAll"];
 
 
-    listing listing0 = new listing("Cheery Neigborhood House", "zero", "Hillsboro", "22110 SW Hillsboro 97123", "$450,000", "January 15, 2020", "2005", "2200", "4800", "3", "2", "3",
+    listing listing0 = new listing("Cheery Neigborhood House", "zero", "Hillsboro", "22110 SW Hillsboro 97123", "$450,000", "January 15, 2020", "2005", 2, "2200", "4800", "3", "2", "3",
         "Cheery Neigborhood House", "This house is great. You should visit it and buy it if you like it.");
-    listing listing1 = new listing("Perfect for Families", "one", "Hillsboro", "22111 SW Hillsboro 97123", "$460,000", "January 6, 2020", "2005", "2800", "4500", "4", "3", "3",
+    listing listing1 = new listing("Perfect for Families", "one", "Hillsboro", "22111 SW Hillsboro 97123", "$460,000", "January 6, 2020", "2005", 2, "2800", "4500", "4", "3", "3",
         "Perfect for Families", "This house is great. You should visit it and buy it if you like it.");
-    listing listing2 = new listing("One Story Southwestern Style Home", "two", "Hillsboro", "22112 SW Hillsboro 97123", "$389,000", "January 12, 2020", "2005", "1900", "5400", "3", "2", "2",
+    listing listing2 = new listing("One Story Southwestern Style Home", "two", "Hillsboro", "22112 SW Hillsboro 97123", "$389,000", "January 12, 2020", "2005", 1, "1850", "5400", "3", "2", "2",
         "One Story Southwestern Style Home", "This house is great. You should visit it and buy it if you like it.");
-    listing listing3 = new listing("Big Front Yard with this Home", "three", "Hillsboro", "22110 SW Hillsboro 97123", "$620,000", "January 12, 2020", "2005", "2500", "8000", "7", "4", "4",
+    listing listing3 = new listing("Big Front Yard with this Home", "three", "Hillsboro", "22110 SW Hillsboro 97123", "$620,000", "January 12, 2020", "2005", 2, "2500", "8000", "7", "4", "4",
         "Big Front Yard with this Home", "This house is great. You should visit it and buy it if you like it.");
 
-    listing listing4 = new listing("Perfect for Growing Families", "four", "Forest Grove", "22111 SW Forest Grove 97116", "$451,000", "January 19, 2020", "2005", "3200", "7200", "6", "4", "2",
+    listing listing4 = new listing("Perfect for Growing Families", "four", "Forest Grove", "22111 SW Forest Grove 97116", "$451,000", "January 19, 2020", "2005", 2, "3200", "7200", "6", "4", "2",
         "Perfect for Growing Families", "This house is great. You should visit it and buy it if you like it.");
-    listing listing5 = new listing("Charming One Story Home", "five", "Forest Grove", "22112 SW Forest Grove 97116", "$395,000", "January 11, 2020", "2005", "1750", "5000", "3", "2", "2",
+    listing listing5 = new listing("Charming Neigborhood Home", "five", "Forest Grove", "22112 SW Forest Grove 97116", "$395,000", "January 11, 2020", "2005", 2, "1950", "5000", "3", "2", "2",
         "Charming One Story Home", "This house is great. You should visit it and buy it if you like it.");
 
-    listing listing6 = new listing("New House, Refined Look", "six", "Cornelius", "22110 SW Cornelius 97113", "$449,000", "January 11, 2020", "2005", "2000", "6000", "4", "2", "2",
+    listing listing6 = new listing("New House, Refined Look", "six", "Cornelius", "22110 SW Cornelius 97113", "$449,000", "January 11, 2020", "2005", 2, "2000", "6000", "4", "2", "2",
         "New House, Refined Look", "This house is great. You should visit it and buy it if you like it.");
-    listing listing7 = new listing("Perfect for Families", "seven", "Cornelius", "22111 SW Cornelius 97113", "$471,000", "January 25, 2020", "2005", "2800", "7000", "6", "3", "2",
+    listing listing7 = new listing("Perfect for Families", "seven", "Cornelius", "22111 SW Cornelius 97113", "$471,000", "January 25, 2020", "2005", 2, "2800", "7000", "6", "3", "2",
         "Perfect for Families", "This house is great. You should visit it and buy it if you like it.");
 
 
@@ -273,6 +273,7 @@
                 <div class="house-container__cost">@finalListings[i].price</div>
                 <div class="house-container__label">NEW</div>
                 <div class="house-container__details">
+                    <div class="house-container__details__stories">@finalListings[i].numberOfStories story</div>
                     <div class="house-container__details__beds">@finalListings[i].numberOfBedrooms bd</div>
                     <div class="house-container__details__baths">@finalListings[i].numberOfBathrooms ba</div>
                     <div class="house-container__details__parking-spaces">@finalListings[i].parkingSpaces car</div>
