@@ -14,28 +14,29 @@
 
     var searchResults = ViewData["searchResults"];
     string searchCity = "" + ViewData["searchCity"];
+    string searchBeds = "" + ViewData["searchBeds"];
     string searchPriceRange = "" + ViewData["searchPriceRange"];
     string searchByOptions = "" + ViewData["searchByOptions"];
     string displayAll = "" + ViewData["displayAll"];
 
 
-    listing listing0 = new listing("Cheery Neigborhood House", "zero", "Hillsboro", "22110 SW Hillsboro 97123", "$450,000", "January 15, 2020", "2005", "2500", "4800", "4", "2", "2",
+    listing listing0 = new listing("Cheery Neigborhood House", "zero", "Hillsboro", "22110 SW Hillsboro 97123", "$450,000", "January 15, 2020", "2005", "2200", "4800", "3", "2", "2",
         "Cheery Neigborhood House", "This house is great. You should visit it and buy it if you like it.");
     listing listing1 = new listing("Perfect for Families", "one", "Hillsboro", "22111 SW Hillsboro 97123", "$460,000", "January 6, 2020", "2005", "2800", "4500", "4", "2", "2",
         "Perfect for Families", "This house is great. You should visit it and buy it if you like it.");
-    listing listing2 = new listing("One Story Southwestern Style Home", "two", "Hillsboro", "22112 SW Hillsboro 97123", "$389,000", "January 12, 2020", "2005", "2100", "5400", "4", "2", "2",
+    listing listing2 = new listing("One Story Southwestern Style Home", "two", "Hillsboro", "22112 SW Hillsboro 97123", "$389,000", "January 12, 2020", "2005", "1900", "5400", "3", "2", "2",
         "One Story Southwestern Style Home", "This house is great. You should visit it and buy it if you like it.");
-    listing listing3 = new listing("Big Front Yard with this Home", "three", "Hillsboro", "22110 SW Hillsboro 97123", "$620,000", "January 12, 2020", "2005", "2500", "8000", "4", "2", "2",
+    listing listing3 = new listing("Big Front Yard with this Home", "three", "Hillsboro", "22110 SW Hillsboro 97123", "$620,000", "January 12, 2020", "2005", "2500", "8000", "7", "2", "2",
         "Big Front Yard with this Home", "This house is great. You should visit it and buy it if you like it.");
 
-    listing listing4 = new listing("Perfect for Growing Families", "four", "Forest Grove", "22111 SW Forest Grove 97116", "$451,000", "January 19, 2020", "2005", "3200", "7200", "4", "2", "2",
+    listing listing4 = new listing("Perfect for Growing Families", "four", "Forest Grove", "22111 SW Forest Grove 97116", "$451,000", "January 19, 2020", "2005", "3200", "7200", "6", "2", "2",
         "Perfect for Growing Families", "This house is great. You should visit it and buy it if you like it.");
-    listing listing5 = new listing("Charming One Story Home", "five", "Forest Grove", "22112 SW Forest Grove 97116", "$395,000", "January 11, 2020", "2005", "1850", "5000", "4", "2", "2",
+    listing listing5 = new listing("Charming One Story Home", "five", "Forest Grove", "22112 SW Forest Grove 97116", "$395,000", "January 11, 2020", "2005", "1750", "5000", "3", "2", "2",
         "Charming One Story Home", "This house is great. You should visit it and buy it if you like it.");
 
-    listing listing6 = new listing("New House, Refined Look", "six", "Cornelius", "22110 SW Cornelius 97113", "$449,000", "January 11, 2020", "2005", "2400", "6000", "4", "2", "2",
+    listing listing6 = new listing("New House, Refined Look", "six", "Cornelius", "22110 SW Cornelius 97113", "$449,000", "January 11, 2020", "2005", "2000", "6000", "4", "2", "2",
         "New House, Refined Look", "This house is great. You should visit it and buy it if you like it.");
-    listing listing7 = new listing("Perfect for Families", "seven", "Cornelius", "22111 SW Cornelius 97113", "$471,000", "January 25, 2020", "2005", "2500", "7000", "4", "2", "2",
+    listing listing7 = new listing("Perfect for Families", "seven", "Cornelius", "22111 SW Cornelius 97113", "$471,000", "January 25, 2020", "2005", "2800", "7000", "6", "2", "2",
         "Perfect for Families", "This house is great. You should visit it and buy it if you like it.");
 
 
@@ -88,24 +89,40 @@
 
 @for (var i = 0; i < reorderedListings.Count; i++)
 {
-    if (@searchCity == "" && @searchPriceRange == "")
+    bool validListing = false;
+
+
+    if (@searchCity == "" && @searchBeds == "" && @searchPriceRange == "")
     {
-        finalListings.Add(reorderedListings[i]);
+        validListing = true;
     }
     else if (@searchCity == reorderedListings[i].city && @searchPriceRange == "")
     {
-        finalListings.Add(reorderedListings[i]);
+        if(@searchBeds == "" || Convert.ToInt32(@searchBeds) <= Convert.ToInt32(reorderedListings[i].numberOfBedrooms))
+        {
+            validListing = true;
+        }
+    }
+    else if (@searchBeds != "" && @searchPriceRange == "")
+    {
+        if(Convert.ToInt32(@searchBeds) <= Convert.ToInt32(reorderedListings[i].numberOfBedrooms))
+        {
+            if (@searchCity == "" || @searchCity == reorderedListings[i].city)
+            {
+                validListing = true;
+            }
+        }
     }
     else if (@searchPriceRange != "")
     {
-        bool validListing = true;
+        bool potentiallyValidListing = true;
 
-        if (@searchCity != "" && @searchCity != reorderedListings[i].city)
+        if ((@searchCity != "" && @searchCity != reorderedListings[i].city) || (@searchBeds != "" && Convert.ToInt32(@searchBeds) > Convert.ToInt32(reorderedListings[i].numberOfBedrooms)))
         {
-            validListing = false;
+            potentiallyValidListing = false;
         }
 
-        if (validListing)
+        if (potentiallyValidListing)
         {
             decimal listingPrice = Convert.ToDecimal(reorderedListings[i].price.Replace("$", ""));
 
@@ -113,45 +130,49 @@
             {
                 if (listingPrice < 200000)
                 {
-                    finalListings.Add(reorderedListings[i]);
+                    validListing = true;
                 }
             }
             else if (@searchPriceRange == "$200,000 - $399,999")
             {
                 if (listingPrice >= 200000 && listingPrice < 400000)
                 {
-                    finalListings.Add(reorderedListings[i]);
+                    validListing = true;
                 }
             }
             else if (@searchPriceRange == "$400,000 - $599,999")
             {
                 if (listingPrice >= 400000 && listingPrice < 600000)
                 {
-                    finalListings.Add(reorderedListings[i]);
+                    validListing = true;
                 }
             }
             else if (@searchPriceRange == "$600,000 - $799,999")
             {
                 if (listingPrice >= 600000 && listingPrice < 800000)
                 {
-                    finalListings.Add(reorderedListings[i]);
+                    validListing = true;
                 }
             }
             else if (@searchPriceRange == "$800,000 - $999,999")
             {
                 if (listingPrice >= 800000 && listingPrice < 1000000)
                 {
-                    finalListings.Add(reorderedListings[i]);
+                    validListing = true;
                 }
             }
             else if (@searchPriceRange == "$1 Million+")
             {
                 if (listingPrice >= 1000000)
                 {
-                    finalListings.Add(reorderedListings[i]);
+                    validListing = true;
                 }
             }
         }
+    }
+    if (validListing)
+    {
+        finalListings.Add(reorderedListings[i]);
     }
 }
 
@@ -178,6 +199,19 @@
                         <!option value="Cornelius" @(@searchCity == "Cornelius" ? "selected" : "")>Cornelius</!option>
                         <!option value="Forest Grove" @(@searchCity == "Forest Grove" ? "selected" : "")>Forest Grove</!option>
                         <!option value="Hillsboro" @(@searchCity == "Hillsboro" ? "selected" : "")>Hillsboro</!option>
+                    </select>
+                </div>
+                <div class="search-listings__subsection">
+                    <label class="search-listings__label" for="searchBeds">Beds</label>
+                    <select id="searchBeds" name="searchBeds">
+                        <option value=""></option>
+                        <!option value="1" @(@searchBeds == "1" ? "selected" : "")>1+</!option>
+                        <!option value="2" @(@searchBeds == "2" ? "selected" : "")>2+</!option>
+                        <!option value="3" @(@searchBeds == "3" ? "selected" : "")>3+</!option>
+                        <!option value="4" @(@searchBeds == "4" ? "selected" : "")>4+</!option>
+                        <!option value="5" @(@searchBeds == "5" ? "selected" : "")>5+</!option>
+                        <!option value="6" @(@searchBeds == "6" ? "selected" : "")>6+</!option>
+                        <!option value="7" @(@searchBeds == "7" ? "selected" : "")>7+</!option>
                     </select>
                 </div>
                 <div class="search-listings__subsection">

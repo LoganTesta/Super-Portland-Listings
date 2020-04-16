@@ -51,6 +51,7 @@ namespace SuperPortlandListings.Controllers
                 string searchResults = "";
 
                 string searchCity = "";
+                string searchBeds = "";
                 string searchPriceRange = "";
                 string searchByOptions = "";
                 string displayAll = "";
@@ -58,12 +59,14 @@ namespace SuperPortlandListings.Controllers
                 try
                 {
                     searchCity = System.Web.HttpUtility.HtmlEncode(Request.Form["searchCity"]);
+                    searchBeds = System.Web.HttpUtility.HtmlEncode(Request.Form["searchBeds"]);
                     searchPriceRange = System.Web.HttpUtility.HtmlEncode(Request.Form["searchPriceRange"]);
                     searchByOptions = System.Web.HttpUtility.HtmlEncode(Request.Form["searchByOptions"]);
                     displayAll = System.Web.HttpUtility.HtmlEncode(Request.Form["searchListingsShowAll"]);
                 } catch(Exception)
                 {
                     searchCity = "";
+                    searchBeds = "";
                     searchPriceRange = "";
                     searchByOptions = "";
                     displayAll = "";
@@ -74,7 +77,7 @@ namespace SuperPortlandListings.Controllers
                     validForm = false;
                 }
 
-                if(searchCity == "" && searchPriceRange == "" && searchByOptions == "")
+                if(searchCity == "" && searchBeds == "" && searchPriceRange == "" && searchByOptions == "")
                 {
                     validForm = false;
                 }
@@ -87,7 +90,11 @@ namespace SuperPortlandListings.Controllers
                     {
                         searchResults += " Showing listings in <strong>" + searchCity + "</strong>.";
                     }
-                    if(searchPriceRange != "")
+                    if (searchBeds != "")
+                    {
+                        searchResults += " Showing listings with <strong>" + searchBeds+ "+ bedrooms</strong>.";
+                    }
+                    if (searchPriceRange != "")
                     {
                         searchResults += " Showing listings between <strong>" + searchPriceRange + "</strong>.";
                     }
@@ -99,6 +106,7 @@ namespace SuperPortlandListings.Controllers
                 } else
                 {
                     searchCity = "";
+                    searchBeds = "";
                     searchPriceRange = "";
                     searchByOptions = "";
                     searchResults += " Showing all listings.";
@@ -106,6 +114,7 @@ namespace SuperPortlandListings.Controllers
 
                 ViewData["searchResults"] = searchResults;
                 ViewBag.searchCity = "" + searchCity;
+                ViewBag.searchBeds = "" + searchBeds;
                 ViewBag.searchPriceRange = "" + searchPriceRange;
                 ViewBag.searchByOptions = "" + searchByOptions;
                 ViewBag.displayAll = "" + displayAll;
