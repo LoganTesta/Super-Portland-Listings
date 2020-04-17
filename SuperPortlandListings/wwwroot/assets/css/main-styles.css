@@ -775,14 +775,8 @@ h4 {
     color: #333640;
 }
 
-.house-container__details__stories {
-    display: inline-block;
-    font-size: 16px;
-}
-
 .house-container__details__beds {
     display: inline-block;
-    padding-left: 50px;
     font-size: 16px;
 }
 
@@ -793,6 +787,12 @@ h4 {
 }
 
 .house-container__details__parking-spaces {
+    display: inline-block;
+    padding-left: 15px;
+    font-size: 16px;
+}
+
+.house-container__details__stories {
     display: inline-block;
     padding-left: 15px;
     font-size: 16px;
@@ -916,6 +916,21 @@ h4 {
     background: url('/assets/images/house7.jpeg') 50% 30%/cover no-repeat;
 }
 
+.house-container.eight .house-container__image {
+    background: url('/assets/images/house8.jpg') 50% 30%/cover no-repeat;
+}
+
+.house-container.nine .house-container__image {
+    background: url('/assets/images/house9.jpg') 50% 30%/cover no-repeat;
+}
+
+.house-container.ten .house-container__image {
+    background: url('/assets/images/house10.jpg') 50% 30%/cover no-repeat;
+}
+
+.house-container.eleven .house-container__image {
+    background: url('/assets/images/house11.jpg') 50% 30%/cover no-repeat;
+}
 
 /*Sellers page*/
 .background-hero-image.sellers {
