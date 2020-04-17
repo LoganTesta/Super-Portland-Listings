@@ -53,6 +53,7 @@ namespace SuperPortlandListings.Controllers
                 string searchCity = "";
                 string searchBeds = "";
                 string searchBaths = "";
+                string searchParkingSpaces = "";
                 string searchStories = "";
                 string searchPriceRange = "";
                 string searchByOptions = "";
@@ -63,6 +64,7 @@ namespace SuperPortlandListings.Controllers
                     searchCity = System.Web.HttpUtility.HtmlEncode(Request.Form["searchCity"]);
                     searchBeds = System.Web.HttpUtility.HtmlEncode(Request.Form["searchBeds"]);
                     searchBaths = System.Web.HttpUtility.HtmlEncode(Request.Form["searchBaths"]);
+                    searchParkingSpaces = System.Web.HttpUtility.HtmlEncode(Request.Form["searchParkingSpaces"]);
                     searchStories = System.Web.HttpUtility.HtmlEncode(Request.Form["searchStories"]);
                     searchPriceRange = System.Web.HttpUtility.HtmlEncode(Request.Form["searchPriceRange"]);
                     searchByOptions = System.Web.HttpUtility.HtmlEncode(Request.Form["searchByOptions"]);
@@ -73,6 +75,7 @@ namespace SuperPortlandListings.Controllers
                     searchCity = "";
                     searchBeds = "";
                     searchBaths = "";
+                    searchParkingSpaces = "";
                     searchStories = "";
                     searchPriceRange = "";
                     searchByOptions = "";
@@ -84,7 +87,7 @@ namespace SuperPortlandListings.Controllers
                     validForm = false;
                 }
 
-                if (searchCity == "" && searchBeds == "" && searchBaths == "" && searchStories == "" && searchPriceRange == "" && searchByOptions == "")
+                if (searchCity == "" && searchBeds == "" && searchBaths == "" && searchParkingSpaces == "" && searchStories == "" && searchPriceRange == "" && searchByOptions == "")
                 {
                     validForm = false;
                 }
@@ -97,33 +100,43 @@ namespace SuperPortlandListings.Controllers
                     {
                         searchResults += " Showing listings in <strong>" + searchCity + "</strong>.";
                     }
+
                     if (searchBeds != "")
                     {
                         searchResults += " Showing listings with <strong>" + searchBeds + "+ bedrooms</strong>.";
                     }
+
                     if (searchBaths != "")
                     {
                         searchResults += " Showing listings with <strong>" + searchBaths + "+ bathrooms</strong>.";
                     }
+
+                    if (searchParkingSpaces != "")
+                    {
+                        searchResults += " Showing listings with a <strong>" + searchParkingSpaces + " car garage</strong>.";
+                    }
+
                     if (searchStories != "")
                     {
                         searchResults += " Showing <strong>" + searchStories + " story listings</strong>.";
                     }
+
                     if (searchPriceRange != "")
                     {
                         searchResults += " Showing listings between <strong>" + searchPriceRange + "</strong>.";
                     }
+
                     if (searchByOptions != "")
                     {
                         searchResults += " Order by <strong>" + searchByOptions + "</strong>.";
                     }
-
                 }
                 else
                 {
                     searchCity = "";
                     searchBeds = "";
                     searchBaths = "";
+                    searchParkingSpaces = "";
                     searchStories = "";
                     searchPriceRange = "";
                     searchByOptions = "";
@@ -134,6 +147,7 @@ namespace SuperPortlandListings.Controllers
                 ViewBag.searchCity = "" + searchCity;
                 ViewBag.searchBeds = "" + searchBeds;
                 ViewBag.searchBaths = "" + searchBaths;
+                ViewBag.searchParkingSpaces = "" + searchParkingSpaces;
                 ViewBag.searchStories = "" + searchStories;
                 ViewBag.searchPriceRange = "" + searchPriceRange;
                 ViewBag.searchByOptions = "" + searchByOptions;

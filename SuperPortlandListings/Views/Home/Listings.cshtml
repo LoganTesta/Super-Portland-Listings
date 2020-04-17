@@ -16,6 +16,7 @@
     string searchCity = "" + ViewData["searchCity"];
     string searchBeds = "" + ViewData["searchBeds"];
     string searchBaths = "" + ViewData["searchBaths"];
+    string searchParkingSpaces = "" + ViewData["searchParkingSpaces"];
     string searchStories = "" + ViewData["searchStories"];
     string searchPriceRange = "" + ViewData["searchPriceRange"];
     string searchByOptions = "" + ViewData["searchByOptions"];
@@ -120,6 +121,11 @@
     }
 
     if (@searchBaths != "" && Convert.ToInt32(@searchBaths) > Convert.ToInt32(reorderedListings[i].numberOfBathrooms))
+    {
+        validListing = false;
+    }
+
+    if (@searchParkingSpaces != "" && Convert.ToInt32(@searchParkingSpaces) != Convert.ToInt32(reorderedListings[i].parkingSpaces))
     {
         validListing = false;
     }
@@ -235,6 +241,15 @@
                         <!option value="3" @(@searchBaths == "3" ? "selected" : "")>3+</!option>
                         <!option value="4" @(@searchBaths == "4" ? "selected" : "")>4+</!option>
                         <!option value="5" @(@searchBaths == "5" ? "selected" : "")>5+</!option>
+                    </select>
+                </div>
+                <div class="search-listings__subsection">
+                    <label class="search-listings__label" for="searchParkingSpaces">Garage</label>
+                    <select id="searchParkingSpaces" name="searchParkingSpaces">
+                        <option value=""></option>
+                        <!option value="1" @(@searchParkingSpaces == "1" ? "selected" : "")>1</!option>
+                        <!option value="2" @(@searchParkingSpaces == "2" ? "selected" : "")>2</!option>
+                        <!option value="3" @(@searchParkingSpaces == "3" ? "selected" : "")>3</!option>
                     </select>
                 </div>
                 <div class="search-listings__subsection">
