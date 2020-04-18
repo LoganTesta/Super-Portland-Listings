@@ -23,8 +23,8 @@
     string displayAll = "" + ViewData["displayAll"];
 
 
-    listing listing0 = new listing("Cheery Neigborhood House", "zero", "Hillsboro", "22110 SW Hillsboro 97123", "$450,000", "January 15, 2020", "2005", "2200", "4800", "3", "2", "3", "2",
-        "Cheery Neigborhood House", "This house is great. You should visit it and buy it if you like it.");
+    listing listing0 = new listing("Cheery Neighborhood House", "zero", "Hillsboro", "22110 SW Hillsboro 97123", "$450,000", "January 15, 2020", "2005", "2200", "4800", "3", "2", "3", "2",
+        "Cheery Neighborhood House", "This house is great. You should visit it and buy it if you like it.");
     listing listing1 = new listing("Perfect for Families", "one", "Hillsboro", "22111 SW Hillsboro 97123", "$460,000", "January 6, 2020", "2005", "2800", "4500", "4", "3", "3", "2",
         "Perfect for Families", "This house is great. You should visit it and buy it if you like it.");
     listing listing2 = new listing("One Story Southwestern Style Home", "two", "Hillsboro", "22112 SW Hillsboro 97123", "$389,000", "January 12, 2020", "2005", "1850", "5400", "3", "2", "2", "1",
@@ -34,8 +34,8 @@
 
     listing listing4 = new listing("Perfect for Growing Families", "four", "Forest Grove", "22111 SW Forest Grove 97116", "$451,000", "January 19, 2020", "2005", "3200", "7200", "6", "4", "2", "2",
         "Perfect for Growing Families", "This house is great. You should visit it and buy it if you like it.");
-    listing listing5 = new listing("Charming Neigborhood Home", "five", "Forest Grove", "22112 SW Forest Grove 97116", "$395,000", "January 11, 2020", "2005", "1950", "5000", "3", "2", "2", "2",
-        "Charming Neigborhood Home", "This house is great. You should visit it and buy it if you like it.");
+    listing listing5 = new listing("Charming Neighborhood Home", "five", "Forest Grove", "22112 SW Forest Grove 97116", "$395,000", "January 11, 2020", "2005", "1950", "5000", "3", "2", "2", "2",
+        "Charming Neighborhood Home", "This house is great. You should visit it and buy it if you like it.");
 
     listing listing6 = new listing("New House, Refined Look", "six", "Cornelius", "22110 SW Cornelius 97113", "$449,000", "January 11, 2020", "2005", "2000", "6000", "4", "2", "2", "2",
         "New House, Refined Look", "This house is great. You should visit it and buy it if you like it.");
@@ -309,7 +309,7 @@
     {
         <div class="col-sma-6 col-lar-4 house-container @finalListings[i].classCSS">
             <div class="house-container__image-container">
-                <div class="house-container__image"></div>
+                <a class="house-container__link" asp-area="" asp-controller="Home" asp-action="ListingPage" asp-route-id="@finalListings[i].name.Replace(" ","-")"><div class="house-container__image"></div></a>
             </div>
             <div class="house-container__non-bg-content">
                 <div class="house-container__title">@finalListings[i].name</div>

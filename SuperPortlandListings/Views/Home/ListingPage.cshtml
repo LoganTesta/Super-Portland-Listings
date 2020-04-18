@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Listing Page";
+    string routeName = Context.Request.Path;
+    int lastInstanceOfSlash = routeName.LastIndexOf("/");
+    string routeNameId = routeName.Substring(lastInstanceOfSlash + 1);
+    routeNameId = routeNameId.Replace("-", " ");
+
+}
+
+<div class="content-row">
+    <div class="col-sma-6">
+        <h2>@routeNameId</h2>
+        <p>This house is great. You should visit it and buy it if you like it.</p>
+    </div>
+    <div class="col-sma-6">
+        <div class="background-hero-image listing-page">
+
+        </div>
+    </div>
+</div>

@@ -463,6 +463,10 @@ namespace SuperPortlandListings.Controllers
             return View();
         }
 
+        public IActionResult ListingPage()
+        {
+            return View();
+        }
 
         [Route("error/404")]
         public IActionResult Error404()
