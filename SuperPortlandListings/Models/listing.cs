@@ -42,5 +42,11 @@ namespace SuperPortlandListings.Models
             this.shortDescription = shortDescription;
             this.description = description;
         }
+
+        public listing()
+        {
+
+        }
+
     }
 }

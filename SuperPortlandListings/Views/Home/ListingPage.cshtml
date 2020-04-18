@@ -4,14 +4,26 @@
     string routeName = Context.Request.Path;
     int lastInstanceOfSlash = routeName.LastIndexOf("/");
     string routeNameId = routeName.Substring(lastInstanceOfSlash + 1);
-    routeNameId = routeNameId.Replace("-", " ");
+    routeName = routeNameId.Replace("-", " ");
+
+    List<listing> theListings = ViewData["theListings"] as List<listing>;
+    listing currentListing = new listing();
+    for (int i=0; i<theListings.Count; i++)
+    {
+        if(theListings[i].name == routeName)
+        {
+            currentListing = theListings[i];
+        }
+    }
 
 }
 
 <div class="content-row">
     <div class="col-sma-6">
-        <h2>@routeNameId</h2>
-        <p>This house is great. You should visit it and buy it if you like it.</p>
+        <h2>@routeName</h2>
+        <p>@currentListing.price</p>
+        <p>@currentListing.address</p>
+        <p>@currentListing.description</p>
     </div>
     <div class="col-sma-6">
         <div class="background-hero-image listing-page">
