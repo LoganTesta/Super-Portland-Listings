@@ -20,11 +20,12 @@ namespace SuperPortlandListings.Models
         public string numberOfBathrooms { get; set; }
         public string parkingSpaces { get; set; }
         public string numberOfStories { get; set; }
+        public string photoFilePath { get; set; }
         public string shortDescription { get; set; }
         public string description { get; set; }
 
-        public listing(string name, string classCSS, string city, string address, string price, string placedOnMarket, string yearBuilt, string homeSquareFootage, 
-            string lotSquareFootage, string numberOfBedrooms, string numberOfBathrooms, string parkingSpaces, string numberOfStories, string shortDescription, string description)
+        public listing(string name, string classCSS, string city, string address, string price, string placedOnMarket, string yearBuilt, string homeSquareFootage, string lotSquareFootage, 
+            string numberOfBedrooms, string numberOfBathrooms, string parkingSpaces, string numberOfStories, string photoFilePath, string shortDescription, string description)
         {
             this.name = name;
             this.classCSS = classCSS;
@@ -39,6 +40,7 @@ namespace SuperPortlandListings.Models
             this.numberOfBathrooms = numberOfBathrooms;
             this.numberOfStories = numberOfStories;
             this.parkingSpaces = parkingSpaces;
+            this.photoFilePath = photoFilePath;
             this.shortDescription = shortDescription;
             this.description = description;
         }

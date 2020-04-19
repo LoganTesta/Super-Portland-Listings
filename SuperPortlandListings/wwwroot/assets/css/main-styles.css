@@ -751,6 +751,9 @@ h4 {
     left: 0;
     width: 100%;
     height: 220px;
+    background-position: 50% 30%;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .house-container__non-bg-content {
@@ -888,54 +891,6 @@ h4 {
 }
 
 
-.house-container.zero .house-container__image {
-    background: url('/assets/images/house0.jpeg') 50% 30%/cover no-repeat;
-}
-
-.house-container.one .house-container__image {
-    background: url('/assets/images/house1.jpeg') 50% 30%/cover no-repeat;
-}
-
-.house-container.two .house-container__image {
-    background: url('/assets/images/house2.jpeg') 50% 30%/cover no-repeat;
-}
-
-.house-container.three .house-container__image {
-    background: url('/assets/images/house3.jpeg') 50% 30%/cover no-repeat;
-}
-
-.house-container.four .house-container__image {
-    background: url('/assets/images/house4.jpeg') 50% 30%/cover no-repeat;
-}
-
-.house-container.five .house-container__image {
-    background: url('/assets/images/house5.jpeg') 50% 30%/cover no-repeat;
-}
-
-.house-container.six .house-container__image {
-    background: url('/assets/images/house6.jpeg') 50% 30%/cover no-repeat;
-}
-
-.house-container.seven .house-container__image {
-    background: url('/assets/images/house7.jpeg') 50% 30%/cover no-repeat;
-}
-
-.house-container.eight .house-container__image {
-    background: url('/assets/images/house8.jpg') 50% 30%/cover no-repeat;
-}
-
-.house-container.nine .house-container__image {
-    background: url('/assets/images/house9.jpg') 50% 30%/cover no-repeat;
-}
-
-.house-container.ten .house-container__image {
-    background: url('/assets/images/house10.jpg') 50% 30%/cover no-repeat;
-}
-
-.house-container.eleven .house-container__image {
-    background: url('/assets/images/house11.jpg') 50% 30%/cover no-repeat;
-}
-
 /*Sellers page*/
 .background-hero-image.sellers {
     background: url('/assets/images/key-up-close-in-door.jpeg') 50% 30%/cover no-repeat;
@@ -1001,6 +956,11 @@ h4 {
 }
 
 /*Listings Page page*/
+.background-hero-image.listing-page {
+    background-position: 50% 30%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 
 /*Error 404 page*/

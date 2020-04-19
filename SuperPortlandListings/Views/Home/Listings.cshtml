@@ -266,7 +266,9 @@
     {
         <div class="col-sma-6 col-lar-4 house-container @finalListings[i].classCSS">
             <div class="house-container__image-container">
-                <a class="house-container__link" asp-area="" asp-controller="Home" asp-action="ListingPage" asp-route-id="@finalListings[i].name.Replace(" ","-")"><div class="house-container__image"></div></a>
+                <a class="house-container__link" asp-area="" asp-controller="Home" asp-action="ListingPage" asp-route-id="@finalListings[i].name.Replace(" ","-")">
+                    <div class="house-container__image" style="background-image: url('@finalListings[i].photoFilePath')"></div>
+                </a>
             </div>
             <div class="house-container__non-bg-content">
                 <div class="house-container__title">@finalListings[i].name</div>
