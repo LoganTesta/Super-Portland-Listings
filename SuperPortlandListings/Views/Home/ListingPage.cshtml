@@ -21,8 +21,19 @@
 <div class="content-row">
     <div class="col-sma-6">
         <h2>@routeName</h2>
-        <p>@currentListing.price</p>
-        <p>@currentListing.address</p>
+        <div class="listing-info">
+            <div class="listing-info__price">@currentListing.price</div>
+            <div class="listing-info__address">@currentListing.address</div>
+            <div class="listing-info__placed-on-market">Listed on: @currentListing.placedOnMarket </div>
+            <div class="listing-info__beds">@currentListing.numberOfBedrooms Beds</div>
+            <div class="listing-info__baths">@currentListing.numberOfBathrooms Baths</div>
+            <div class="listing-info__parking-spaces">@currentListing.parkingSpaces Car Garage</div>
+            <div class="listing-info__stories">Stories: @currentListing.numberOfStories </div>
+            <div class="listing-info__year-built">Built: @currentListing.yearBuilt</div>
+            <div class="listing-info__house-size">Home: @currentListing.homeSquareFootage ft&sup2;</div>
+            <div class="listing-info__lot-size">Lot: @currentListing.lotSquareFootage ft&sup2;</div>
+        </div>
+        <p>@currentListing.shortDescription</p>
         <p>@currentListing.description</p>
     </div>
     <div class="col-sma-6">
