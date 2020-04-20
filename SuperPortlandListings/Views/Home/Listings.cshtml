@@ -12,6 +12,8 @@
 @{
     ViewData["Title"] = "Listings";
     List<listing> theListings = ViewData["theListings"] as List<listing>;
+    string projectDateString = "January 30, 2020";
+    DateTime projectDate = Convert.ToDateTime(projectDateString);
 
     var searchResults = ViewData["searchResults"];
     string searchCity = "" + ViewData["searchCity"];
@@ -266,14 +268,21 @@
     {
         <div class="col-sma-6 col-lar-4 house-container @finalListings[i].classCSS">
             <div class="house-container__image-container">
-                <a class="house-container__link" asp-area="" asp-controller="Home" asp-action="ListingPage" asp-route-id="@finalListings[i].name.Replace(" ","-")">
+                <a class="house-container__link" asp-area="" asp-controller="Home" asp-action="ListingPage" asp-route-id="@finalListings[i].name.Replace(" ", "-")">
                     <div class="house-container__image" style="background-image: url('@finalListings[i].photoFilePath')"></div>
                 </a>
             </div>
             <div class="house-container__non-bg-content">
                 <div class="house-container__title">@finalListings[i].name</div>
                 <div class="house-container__cost">@finalListings[i].price</div>
-                <div class="house-container__label">NEW</div>
+                <div class="house-container__label">
+                    @{ string labelText = "NEW";
+                        if (DateTime.Compare(Convert.ToDateTime(@finalListings[i].placedOnMarket), @projectDate.AddDays(-14)) >= 0)
+                        {
+                            @labelText;
+                        }
+                    }
+                </div>
                 <div class="house-container__details">
                     <div class="house-container__details__beds">@finalListings[i].numberOfBedrooms bd</div>
                     <div class="house-container__details__baths">@finalListings[i].numberOfBathrooms ba</div>
@@ -284,7 +293,7 @@
                     <div class="house-container__detials__lot-size">Lot: @finalListings[i].lotSquareFootage ft&sup2;</div>
                 </div>
                 <div class="house-container__location">@finalListings[i].address</div>
-                <div class="house-container__description">@finalListings[i].description</div>
+                <div class="house-container__description">@finalListings[i].shortDescription</div>
             </div>
         </div>
     }
