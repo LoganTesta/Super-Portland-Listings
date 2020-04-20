@@ -774,6 +774,7 @@ h4 {
 
 .house-container__cost {
     display: inline-block;
+    padding-bottom: 8px;
     color: #908870;
     font-size: 18px;
 }
@@ -814,10 +815,6 @@ h4 {
     font-size: 16px;
 }
 
-.house-container__details__year-built {
-    font-size: 16px;
-}
-
 .house-container__detials__house-size {
     display: inline-block;
     font-size: 16px;
@@ -830,7 +827,6 @@ h4 {
 }
 
 .house-container__location {
-    padding-bottom: 8px;
     font-size: 16px;
     font-weight: bold;
     color: #336044;
@@ -838,6 +834,7 @@ h4 {
 }
 
 .house-container__description {
+    padding-top: 5px;
     font-size: 16px;
     line-height: 20px;
 }
@@ -1021,6 +1018,7 @@ h4 {
 }
 
 .listing-info__description {
+    padding-bottom: 15px;
 }
 
 .listing-info__category-text {
@@ -1092,6 +1090,11 @@ h4 {
     /*Sellers page*/
     .background-hero-image.sellers {
         height: 200px;
+    }
+
+    /*ListingPage page*/
+    .listing-info__description {
+        padding-bottom: 0;
     }
 }
 
@@ -1215,7 +1218,7 @@ h4 {
 
     .house-container__image {
         width: 370px;
-        height: 320px;
+        height: 240px;
     }
 
 
