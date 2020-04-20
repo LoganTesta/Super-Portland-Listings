@@ -12,8 +12,8 @@
 @{
     ViewData["Title"] = "Listings";
     List<listing> theListings = ViewData["theListings"] as List<listing>;
-    string projectDateString = "January 30, 2020";
-    DateTime projectDate = Convert.ToDateTime(projectDateString);
+    DateTime projectDate = Convert.ToDateTime(ViewData["projectDate"]);
+    string labelText = "NEW";
 
     var searchResults = ViewData["searchResults"];
     string searchCity = "" + ViewData["searchCity"];
@@ -276,8 +276,8 @@
                 <div class="house-container__title">@finalListings[i].name</div>
                 <div class="house-container__cost">@finalListings[i].price</div>
                 <div class="house-container__label">
-                    @{ string labelText = "NEW";
-                        if (DateTime.Compare(Convert.ToDateTime(@finalListings[i].placedOnMarket), @projectDate.AddDays(-14)) >= 0)
+                    @{
+                        if (DateTime.Compare(Convert.ToDateTime(@finalListings[i].placedOnMarket).AddDays(14), @projectDate) >= 0)
                         {
                             @labelText;
                         }

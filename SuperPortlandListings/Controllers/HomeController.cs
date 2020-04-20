@@ -39,6 +39,7 @@ namespace SuperPortlandListings.Controllers
         public IActionResult Listings()
         {
             ViewData["theListings"] = SuperPortlandListings.Program.theListings;
+            ViewData["projectDate"] = SuperPortlandListings.Program.projectDate;
 
             return View();
         }
@@ -50,6 +51,7 @@ namespace SuperPortlandListings.Controllers
             if (ModelState.IsValid)
             {
                 ViewData["theListings"] = SuperPortlandListings.Program.theListings;
+                ViewData["projectDate"] = SuperPortlandListings.Program.projectDate;
 
                 bool validForm = true;
                 string searchResults = "";
@@ -470,6 +472,7 @@ namespace SuperPortlandListings.Controllers
         public IActionResult ListingPage()
         {
             ViewData["theListings"] = SuperPortlandListings.Program.theListings;
+            ViewData["projectDate"] = SuperPortlandListings.Program.projectDate;
             return View();
         }
 

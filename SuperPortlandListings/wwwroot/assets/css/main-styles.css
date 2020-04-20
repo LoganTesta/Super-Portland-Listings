@@ -964,9 +964,19 @@ h4 {
 }
 
 .listing-info__price {
+    display: inline-block;
     padding-bottom: 10px;
     font-size: 20px;
     color: #908870;
+}
+
+.listing-info__label {
+    display: inline-block;
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--color-1);
 }
 
 .listing-info__address {

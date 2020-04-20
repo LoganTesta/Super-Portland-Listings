@@ -43,7 +43,8 @@ namespace SuperPortlandListings
             "4", "3", "2", "2", "/assets/images/house11.jpg", "This house is great.", "This house is great. You should visit it and buy it if you like it.");
 
         public static List<listing> theListings = new List<listing>();
-        
+        public static string projectDateString = "January 30, 2020";
+        public static DateTime projectDate = Convert.ToDateTime(projectDateString);
 
         public static void Main(string[] args)
         {

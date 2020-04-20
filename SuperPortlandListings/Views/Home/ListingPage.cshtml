@@ -1,6 +1,9 @@
 ﻿
 @{
     ViewData["Title"] = "Listing Page";
+    DateTime projectDate = Convert.ToDateTime(ViewData["projectDate"]);
+    string labelText = "NEW";
+
     string routeName = Context.Request.Path;
     int lastInstanceOfSlash = routeName.LastIndexOf("/");
     string routeNameId = routeName.Substring(lastInstanceOfSlash + 1);
@@ -22,7 +25,15 @@
     <div class="col-sma-6">
         <h2>@routeName</h2>
         <div class="listing-info">
-            <div class="listing-info__price">@currentListing.price</div>
+            <div class="listing-info__price">@currentListing.price</div>                
+            <div class="listing-info__label">
+                @{
+                    if (DateTime.Compare(Convert.ToDateTime(@currentListing.placedOnMarket).AddDays(14), @projectDate) >= 0)
+                    {
+                        @labelText;
+                    }
+                }
+            </div>
             <div class="listing-info__address">@currentListing.address</div>
             <div class="listing-info__beds"><span class="listing-info__category-text">Beds:</span> @currentListing.numberOfBedrooms</div>
             <div class="listing-info__baths"><span class="listing-info__category-text">Baths:</span> @currentListing.numberOfBathrooms</div>
