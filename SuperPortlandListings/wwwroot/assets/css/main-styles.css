@@ -956,6 +956,65 @@ h4 {
 }
 
 /*Listings Page page*/
+.listing-info {
+    color: #808080;
+}
+
+.listing-info__price {
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #908870;
+}
+
+.listing-info__address {
+    padding-bottom: 10px;
+    font-weight: bold;
+    color: #336044;
+}
+
+.listing-info__beds {
+    padding-bottom: 2px;
+}
+
+.listing-info__baths {
+    padding-bottom: 2px;
+}
+
+.listing-info__parking-spaces {
+    padding-bottom: 2px;
+}
+
+.listing-info__stories {
+    padding-bottom: 2px;
+}
+
+.listing-info__year-built {
+    padding-bottom: 2px;
+}
+
+.listing-info__house-size {
+    padding-bottom: 2px;
+}
+
+.listing-info__lot-size {
+    padding-bottom: 2px;
+}
+
+.listing-info__short-description {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    font-style: italic;
+    color: #908870;
+}
+
+.listing-info__description {
+}
+
+.listing-info__category-text {
+    font-weight: bold;
+    color: #808080;
+}
+
 .background-hero-image.listing-page {
     background-position: 50% 30%;
     background-size: cover;
