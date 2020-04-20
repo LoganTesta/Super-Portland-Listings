@@ -10,6 +10,7 @@ namespace SuperPortlandListings.Models
         public string name { get; set; }
         public string classCSS { get; set; }
         public string city { get; set; }
+        public string county { get; set; }
         public string address { get; set; }
         public string price { get; set; }
         public string placedOnMarket { get; set; }
@@ -24,12 +25,13 @@ namespace SuperPortlandListings.Models
         public string shortDescription { get; set; }
         public string description { get; set; }
 
-        public listing(string name, string classCSS, string city, string address, string price, string placedOnMarket, string yearBuilt, string homeSquareFootage, string lotSquareFootage, 
+        public listing(string name, string classCSS, string city, string county, string address, string price, string placedOnMarket, string yearBuilt, string homeSquareFootage, string lotSquareFootage, 
             string numberOfBedrooms, string numberOfBathrooms, string parkingSpaces, string numberOfStories, string photoFilePath, string shortDescription, string description)
         {
             this.name = name;
             this.classCSS = classCSS;
             this.city = city;
+            this.county = county;
             this.address = address;
             this.price = price;
             this.placedOnMarket = placedOnMarket;

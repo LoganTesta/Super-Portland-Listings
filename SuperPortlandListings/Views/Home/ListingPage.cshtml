@@ -25,7 +25,7 @@
     <div class="col-sma-6">
         <h2>@routeName</h2>
         <div class="listing-info">
-            <div class="listing-info__price">@currentListing.price</div>                
+            <div class="listing-info__price">@currentListing.price</div>
             <div class="listing-info__label">
                 @{
                     if (DateTime.Compare(Convert.ToDateTime(@currentListing.placedOnMarket).AddDays(14), @projectDate) >= 0)
@@ -39,9 +39,10 @@
             <div class="listing-info__baths"><span class="listing-info__category-text">Baths:</span> @currentListing.numberOfBathrooms</div>
             <div class="listing-info__parking-spaces"><span class="listing-info__category-text">Garage Size:</span> @currentListing.parkingSpaces car</div>
             <div class="listing-info__stories"><span class="listing-info__category-text">Stories:</span> @currentListing.numberOfStories</div>
-            <div class="listing-info__year-built"><span class="listing-info__category-text">Built:</span> @currentListing.yearBuilt</div>
+            <div class="listing-info__year-built"><span class="listing-info__category-text">Year Built:</span> @currentListing.yearBuilt</div>
             <div class="listing-info__house-size"><span class="listing-info__category-text">Home:</span> @currentListing.homeSquareFootage ft&sup2;</div>
             <div class="listing-info__lot-size"><span class="listing-info__category-text">Lot:</span> @currentListing.lotSquareFootage ft&sup2;</div>
+            <div class="listing-info__county"><span class="listing-info__category-text">County:</span> @currentListing.county</div>
         </div>
         <div class="listing-info__short-description">@currentListing.shortDescription</div>
         <div class="listing-info__description">@currentListing.description</div>
