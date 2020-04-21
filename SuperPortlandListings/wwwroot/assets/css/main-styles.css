@@ -610,6 +610,7 @@ h4 {
 }
 
     .mobile-nav__menu.show {
+        top: 25px;
         left: 20px;
         width: 19px;
         height: 25px;
@@ -1146,8 +1147,11 @@ h4 {
         left: 25px;
     }
 
-    /*Listings page*/
-    .house-container__image {
+        .mobile-nav__menu.show {
+            left: 35px;
+        }
+            /*Listings page*/
+            .house-container__image {
         height: 230px;
     }
 
