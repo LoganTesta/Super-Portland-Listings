@@ -1088,7 +1088,7 @@ h4 {
 
 @media only screen and (min-width: 700px) and (max-width: 1199px){
     /*Listings page*/
-    .house-container:nth-of-type(2n + 1) {
+    .house-container:nth-of-type(3n + 1) {
         content: "";
         display: block;
         clear: both;
@@ -1104,19 +1104,26 @@ h4 {
 
 
 @media only screen and (min-width: 1200px) {
-    /*Listings page*/
-    .house-container:nth-of-type(3n + 1) {
-        content: "";
-        display: block;
-        clear: both;
-    }
-
-
     /*Our team page*/
     .team-member:nth-of-type(4n + 1) {
         content: "";
         display: block;
         clear: both;
+    }
+}
+
+
+
+
+@media only screen and (min-width: 500px) {
+    /* General sitewide sections */
+    .background-hero-image {
+        height: 340px;
+    }
+
+    /*Listings page*/
+    .house-container__image {
+        height: 320px;
     }
 }
 
@@ -1132,6 +1139,11 @@ h4 {
     /*Nav*/
     .mobile-nav__menu {
         left: 30px;
+    }
+
+    /*Listings page*/
+    .house-container__image {
+        height: 230px;
     }
 
     /*Sellers page*/

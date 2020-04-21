@@ -266,7 +266,7 @@
     <h3 class="listings__content-subtitle">Search Results</h3>
     @for (var i = 0; i < finalListings.Count; i++)
     {
-        <div class="col-sma-6 col-lar-4 house-container @finalListings[i].classCSS">
+        <div class="col-sma-4 house-container @finalListings[i].classCSS">
             <div class="house-container__image-container">
                 <a class="house-container__link" asp-area="" asp-controller="Home" asp-action="ListingPage" asp-route-id="@finalListings[i].name.Replace(" ", "-")">
                     <div class="house-container__image" style="background-image: url('@finalListings[i].photoFilePath')"></div>
