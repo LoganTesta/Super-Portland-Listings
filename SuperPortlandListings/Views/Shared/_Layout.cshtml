@@ -12,9 +12,32 @@
     <meta name="description" content="Get friendly and hassle-free real estate services whether you are interested in buying or selling from our knowledgeable local team." />
     <title>@ViewData["Title"] | Super Portland Listings</title>
     <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
-    <link rel="stylesheet" href="~/assets/css/main-styles.css" />
+    <link rel="stylesheet" href="/assets/css/main-styles.css" />
 </head>
 <body>
+    <div class="mobile-nav__menu">=</div>
+    <nav class="mobile-nav nav">
+        <ul class="nav__list">
+            <li class="nav__nav-item">
+                <a class="nav__nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav__nav-item">
+                <a class="nav__nav-link" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
+            </li>
+            <li class="nav__nav-item">
+                <a class="nav__nav-link" asp-area="" asp-controller="Home" asp-action="Listings">Listings</a>
+            </li>
+            <li class="nav__nav-item">
+                <a class="nav__nav-link" asp-area="" asp-controller="Home" asp-action="Sellers">Sellers</a>
+            </li>
+            <li class="nav__nav-item">
+                <a class="nav__nav-link" asp-area="" asp-controller="Home" asp-action="OurTeam">Our Team</a>
+            </li>
+            <li class="nav__nav-item">
+                <a class="nav__nav-link" asp-area="" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
     <div class="body-wrapper">
         <header class="header">
             <div class="inner-wrapper">
@@ -24,7 +47,7 @@
                     </a>
                 </div>
                 <h1 class="main-title"><a class="main-title__title" asp-area="" asp-controller="Home" asp-action="Index">Super Portland Listings</a></h1>
-                <nav class="nav">
+                <nav class="desktop-nav nav">
                     <ul class="nav__list">
                         <li class="nav__nav-item">
                             <a class="nav__nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -118,6 +141,7 @@
         </footer>
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="/assets/javascript/javascript-functions.js"></script>
         @RenderSection("Scripts", required: false)
     </div>
 </body>
