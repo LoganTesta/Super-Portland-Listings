@@ -609,6 +609,13 @@ h4 {
     cursor: pointer;
 }
 
+    .mobile-nav__menu.show {
+        left: 20px;
+        width: 19px;
+        height: 25px;
+        background: url('/assets/images/mobile-nav-menu-close.png') 50% 30%/cover no-repeat;
+    }
+
 .nav {
     padding: 15px 15px 10px 15px;
 }
