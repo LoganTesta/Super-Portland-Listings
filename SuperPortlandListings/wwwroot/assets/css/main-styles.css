@@ -479,8 +479,7 @@ h4 {
 
 /*General classes*/
 .body-wrapper.hide {
-    opacity: 0;
-    transition: 0.5s ease-in;
+    display: none;
 }
 
 .content__heading {
@@ -595,7 +594,7 @@ h4 {
 .mobile-nav.show {
     z-index: 10;
     opacity: 1;
-    transition: 0.8s ease-in;
+    transition: 0.3s ease-in;
 }
 
 .mobile-nav__menu {
