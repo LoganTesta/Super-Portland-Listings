@@ -560,14 +560,14 @@ h4 {
 .logo-container {
     position: absolute;
     top: 15px;
-    left: 50px;
+    left: 65px;
     width: 45px;
     height: 45px;
 }
 
 .main-title {
     display: block;
-    padding: 15px 20px 20px 75px;
+    padding: 15px 20px 20px 125px;
     text-align: right;
 }
 
@@ -605,8 +605,9 @@ h4 {
     display: block;
     position: absolute;
     top: 80px;
-    left: 30px;
+    left: 5px;
     opacity: 1;
+    z-index: 10;
     transition: 0.75s ease-in;
 }
 
@@ -614,8 +615,11 @@ h4 {
     display: block;
     position: absolute;
     top: 30px;
-    left: 20px;
+    left: 10px;
+    width: 40px;
+    height: 23px;
     z-index: 10;
+    background: url('/assets/images/mobile-nav-menu.png') 50% 30%/cover no-repeat;
     cursor: pointer;
 }
 
@@ -1133,12 +1137,12 @@ h4 {
 
     /*Header*/
     .logo-container {
-        left: 60px;
+        left: 80px;
     }
 
     /*Nav*/
     .mobile-nav__menu {
-        left: 30px;
+        left: 25px;
     }
 
     /*Listings page*/
