@@ -480,7 +480,7 @@ h4 {
 /*General classes*/
 .body-wrapper.hide {
     opacity: 0;
-    transition: 0.75s ease-in;
+    transition: 0.5s ease-in;
 }
 
 .content__heading {
@@ -579,9 +579,13 @@ h4 {
 
 
 /*Nav*/
-.mobile-nav { 
-    display: none;
+.mobile-nav {
+    display: block;
+    position: absolute;
+    top: 80px;
+    left: 5px;
     opacity: 0;
+    z-index: -10;
 }
 
 .desktop-nav { 
@@ -589,26 +593,9 @@ h4 {
 }
 
 .mobile-nav.show {
-    display: block;
-    transition: 0.75s ease-in;
-}
-
-.nav {
-    padding: 15px 15px 10px 15px;
-}
-
-.nav__list {
-    font-size: 0;
-}
-
-.mobile-nav.show {
-    display: block;
-    position: absolute;
-    top: 80px;
-    left: 5px;
-    opacity: 1;
     z-index: 10;
-    transition: 0.75s ease-in;
+    opacity: 1;
+    transition: 0.8s ease-in;
 }
 
 .mobile-nav__menu {
@@ -621,6 +608,14 @@ h4 {
     z-index: 10;
     background: url('/assets/images/mobile-nav-menu.png') 50% 30%/cover no-repeat;
     cursor: pointer;
+}
+
+.nav {
+    padding: 15px 15px 10px 15px;
+}
+
+.nav__list {
+    font-size: 0;
 }
 
 .nav__nav-item {
