@@ -11,14 +11,41 @@
 
     List<listing> theListings = ViewData["theListings"] as List<listing>;
     listing currentListing = new listing();
-    for (int i=0; i<theListings.Count; i++)
+    for (int i = 0; i < theListings.Count; i++)
     {
-        if(theListings[i].name == routeName)
+        if (theListings[i].name == routeName)
         {
             currentListing = theListings[i];
         }
     }
 
+    List<listing> additionalListingsInitial = new List<listing>();
+    List<listing> additionalListings = new List<listing>();
+    for (int i = 0; i < theListings.Count; i++)
+    {
+        if (currentListing.name != theListings[i].name)
+        {
+            string curPrice = "" + currentListing.price.Replace("$", "").Replace(",", "");
+            string listPrice = "" + theListings[i].price.Replace("$", "").Replace(",", "");
+            decimal currentListingPrice = Convert.ToDecimal(curPrice);
+            decimal theListingPrice = Convert.ToDecimal(listPrice);
+
+            if (currentListing.city == theListings[i].city && ((theListingPrice + 100000 > currentListingPrice) && (theListingPrice - 100000 < currentListingPrice)))
+            {
+                additionalListingsInitial.Add(theListings[i]);
+            }
+        }
+    }
+
+    if (additionalListingsInitial.Count > 4)
+    {
+        Random rand = new Random();
+        additionalListings = additionalListingsInitial.OrderBy(x => rand.Next()).Take(4).ToList();
+    }
+    else
+    {
+        additionalListings = additionalListingsInitial;
+    }
 }
 
 <div class="content-row">
@@ -52,4 +79,22 @@
 
         </div>
     </div>
+</div>
+
+<div class="content-row">
+    @{
+        if (@additionalListings.Count > 0)
+        {
+            <h3>More Listings to See:</h3>
+        }
+    }
+    @for (int i = 0; i < @additionalListings.Count; i++)
+    {
+        <div class="additional-listing col-vsm-6 col-lar-3">
+            <div class="additional-listing__name">@additionalListings[i].name</div>
+            <div class="additional-listing__cost">@additionalListings[i].price</div>
+            <div class="additional-listing__address">@additionalListings[i].address</div>
+            <div class="additional-listing__photo" style="background-image: url('@additionalListings[i].photoFilePath');"></div>
+        </div>
+    }
 </div>

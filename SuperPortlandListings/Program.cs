@@ -19,7 +19,7 @@ namespace SuperPortlandListings
             "4", "3", "3", "2", "/assets/images/house1.jpeg", "This house is great.", "This house is great. You should visit it and buy it if you like it.");
         public static listing listing2 = new listing("One Story Southwestern Style Home", "two", "Hillsboro", "Washington", "22112 SW Hillsboro 97123", "$389,000", "January 27, 2020", "2005", "1850", "5400", 
             "3", "2", "2", "1", "/assets/images/house2.jpeg", "This house is great.", "This house is great. You should visit it and buy it if you like it.");
-        public static listing listing3 = new listing("Big Front Yard with this Home", "three", "Hillsboro", "Washington", "22113 SW Hillsboro 97123", "$620,000", "January 12, 2020", "2005", "2500", "8000", 
+        public static listing listing3 = new listing("Big Front Yard with this Home", "three", "Hillsboro", "Washington", "22113 SW Hillsboro 97123", "$680,000", "January 12, 2020", "2005", "2500", "8000", 
             "7", "4", "4", "2", "/assets/images/house3.jpeg", "This house is great.", "This house is great. You should visit it and buy it if you like it.");
 
         public static listing listing4 = new listing("Perfect for Growing Families", "four", "Forest Grove", "Washington", "22111 SW Forest Grove 97116", "$451,000", "January 19, 2020", "2005", "3200", "7200", 
@@ -39,7 +39,7 @@ namespace SuperPortlandListings
             "4", "3", "2", "2", "/assets/images/house9.jpg", "This house is great.", "This house is great. You should visit it and buy it if you like it.");
         public static listing listing10 = new listing("Pleasant Home in Quiet Neighborhood", "ten", "Forest Grove", "Washington", "22114 SW Forest Grove 97116", "$260,000", "January 16, 2020", "1940", "1400", "6000", 
             "3", "1", "1", "1", "/assets/images/house10.jpg", "This house is great.", "This house is great. You should visit it and buy it if you like it.");
-        public static listing listing11 = new listing("Well Maintained Home for Sale", "eleven", "Aloha", "Washington", "22110 SW Forest Grove 97006", "$390,000", "January 27, 2020", "2006", "2000", "6000", 
+        public static listing listing11 = new listing("Well Maintained Home for Sale", "eleven", "Aloha", "Washington", "22110 SW Aloha 97006", "$390,000", "January 27, 2020", "2006", "2000", "6000", 
             "4", "3", "2", "2", "/assets/images/house11.jpg", "This house is great.", "This house is great. You should visit it and buy it if you like it.");
 
         public static List<listing> theListings = new List<listing>();
