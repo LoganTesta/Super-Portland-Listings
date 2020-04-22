@@ -1083,18 +1083,6 @@ h4 {
 
 }
 
-.additional-listing__name {
-
-}
-
-.additional-listing__cost {
-
-}
-
-.additional-listing__address {
-
-}
-
 .additional-listing__photo {
     width: 100%;
     height: 150px;
@@ -1102,6 +1090,33 @@ h4 {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.additional-listing__photo-link {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.additional-listing__name {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--color-1);
+}
+
+.additional-listing__name-link {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.additional-listing__cost {
+    color: #908870;
+}
+
+.additional-listing__address {
+    color: #336044;
+}
+
 
 /*Error 404 page*/
 .background-hero-image.four-hundred-four {
