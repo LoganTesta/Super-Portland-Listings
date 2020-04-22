@@ -13,13 +13,13 @@ namespace SuperPortlandListings
     public class Program
     {
 
-        public static listing listing0 = new listing("Cheery Neighborhood House", "zero", "Hillsboro", "Washington", "22110 SW Hillsboro 97123", "$550,000", "January 15, 2020", "2005", "2200", "4800", 
+        public static listing listing0 = new listing("Cheery Neighborhood House", "zero", "Hillsboro", "Washington", "22110 SW Hillsboro 97123", "$550,000", "January 15, 2020", "2005", "2700", "4800", 
             "3", "2", "3", "2", "/assets/images/house0.jpeg", "This house is great.", "This house is great. You should visit it and buy it if you like it.");
         public static listing listing1 = new listing("Perfect for Families", "one", "Hillsboro", "Washington", "22111 SW Hillsboro 97123", "$540,000", "January 6, 2020", "2005", "2800", "4500", 
             "4", "3", "3", "2", "/assets/images/house1.jpeg", "This house is great.", "This house is great. You should visit it and buy it if you like it.");
         public static listing listing2 = new listing("One Story Southwestern Style Home", "two", "Hillsboro", "Washington", "22112 SW Hillsboro 97123", "$439,000", "January 27, 2020", "2005", "1850", "5400", 
             "3", "2", "2", "1", "/assets/images/house2.jpeg", "This house is great.", "This house is great. You should visit it and buy it if you like it.");
-        public static listing listing3 = new listing("Big Front Yard with this Home", "three", "Hillsboro", "Washington", "22113 SW Hillsboro 97123", "$780,000", "January 12, 2020", "2005", "2500", "8000", 
+        public static listing listing3 = new listing("Big Front Yard with this Home", "three", "Hillsboro", "Washington", "22113 SW Hillsboro 97123", "$780,000", "January 12, 2020", "2005", "3200", "8000", 
             "7", "4", "4", "2", "/assets/images/house3.jpeg", "This house is great.", "This house is great. You should visit it and buy it if you like it.");
 
         public static listing listing4 = new listing("Perfect for Growing Families", "four", "Forest Grove", "Washington", "22111 SW Forest Grove 97116", "$541,000", "January 19, 2020", "2005", "2900", "7200", 
@@ -33,7 +33,7 @@ namespace SuperPortlandListings
             "6", "3", "2", "2", "/assets/images/house7.jpeg", "This house is great.", "This house is great. You should visit it and buy it if you like it.");
 
 
-        public static listing listing8 = new listing("Beautiful Front Porch and Yard", "eight", "Forest Grove", "Washington", "22113 SW Forest Grove 97116", "$475,000", "January 28, 2020", "1980", "2800", "6000", 
+        public static listing listing8 = new listing("Beautiful Front Porch and Yard", "eight", "Forest Grove", "Washington", "22113 SW Forest Grove 97116", "$465,000", "January 28, 2020", "1980", "2800", "6000", 
             "6", "3", "2", "2", "/assets/images/house8.jpg", "This house is great.", "This house is great. You should visit it and buy it if you like it.");
         public static listing listing9 = new listing("New Home with Plenty Nearby", "nine", "Hillsboro", "Washington", "22114 SW Hillsboro 97123", "$475,000", "January 14, 2020", "2005", "2100", "7400", 
             "4", "3", "2", "2", "/assets/images/house9.jpg", "This house is great.", "This house is great. You should visit it and buy it if you like it.");

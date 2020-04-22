@@ -1163,6 +1163,13 @@ h4 {
 
 
 @media only screen and (min-width: 1200px) {
+    /*Listings page*/
+    .house-container:nth-of-type(3n + 1) {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
     /*Our team page*/
     .team-member:nth-of-type(4n + 1) {
         content: "";
