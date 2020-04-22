@@ -1074,18 +1074,23 @@ h4 {
 }
 
 .background-hero-image.listing-page {
+    margin-bottom: 30px;
     background-position: 50% 30%;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.additional-listing {
+.listings-page__subheading {
+    padding-left: 40px;
+}
 
+.additional-listing {
 }
 
 .additional-listing__photo {
     width: 100%;
     height: 150px;
+    margin-bottom: 5px;
     background-position: 50% 30%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1115,6 +1120,16 @@ h4 {
 
 .additional-listing__address {
     color: #336044;
+}
+
+.additional-listing__beds {
+    display: inline-block;
+    color: #808080;
+}
+
+.additional-listing__baths {
+    display: inline-block;
+    color: #808080;
 }
 
 
@@ -1180,6 +1195,7 @@ h4 {
         left: 80px;
     }
 
+
     /*Nav*/
     .mobile-nav__menu {
         left: 25px;
@@ -1188,15 +1204,23 @@ h4 {
         .mobile-nav__menu.show {
             left: 35px;
         }
-            /*Listings page*/
-            .house-container__image {
+
+
+    /*Listings page*/
+    .background-hero-image.listing-page {
+        margin-bottom: 0;
+    }
+
+    .house-container__image {
         height: 230px;
     }
+
 
     /*Sellers page*/
     .background-hero-image.sellers {
         height: 200px;
     }
+
 
     /*ListingPage page*/
     .listing-info__description {
