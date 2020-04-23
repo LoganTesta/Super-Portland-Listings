@@ -905,21 +905,21 @@ h4 {
     }
 
     50% {
-        transform: scale(1.15) translate(-22px, -5px);
+        transform: scale(1.15) translate(-18px, -5px);
     }
 
     100% {
-        transform: scale(1.2) translate(-30px, -20px);
+        transform: scale(1.2) translate(-25px, -18px);
     }
 }
 
 @keyframes houseLoopOut {
     0% {
-        transform: scale(1.2) translate(-30px, -20px);
+        transform: scale(1.2) translate(-25px, -18px);
     }
 
     50% {
-        transform: scale(1.15) translate(-22px, -5px);
+        transform: scale(1.15) translate(-18px, -5px);
     }
 
     100% {
@@ -1137,7 +1137,7 @@ h4 {
 
 @media only screen and (min-width: 700px) and (max-width: 1199px){
     /*Listings page*/
-    .house-container:nth-of-type(3n + 1) {
+    .house-container:nth-of-type(2n + 1) {
         content: "";
         display: block;
         clear: both;
