@@ -1,4 +1,12 @@
 ﻿
+@using System;
+@using System.Web;
+@using Microsoft.AspNetCore.Html; @*For using HTML in strings*@
+@using Microsoft.AspNetCore.Http;   @*For Sessions*@
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@model SuperPortlandListings.Models.ListingPageModel;
+
 @{
     ViewData["Title"] = "Listing Page";
     DateTime projectDate = Convert.ToDateTime(ViewData["projectDate"]);
@@ -8,6 +16,8 @@
     int lastInstanceOfSlash = routeName.LastIndexOf("/");
     string routeNameId = routeName.Substring(lastInstanceOfSlash + 1);
     routeName = routeNameId.Replace("-", " ");
+
+    string calculatorResults = "" + ViewData["calculatorResults"];
 
     List<listing> theListings = ViewData["theListings"] as List<listing>;
     listing currentListing = new listing();
@@ -102,6 +112,12 @@
                     <div class="form__errors"></div>
                 </div>
             </form>
+            <div class="javascript-validation-results-contact-us"></div>
+            @{
+                <div class="form-response">
+                    @(new HtmlString(@calculatorResults))
+                </div>
+            }
         </div>
     </div>
     <div class="col-sma-6">
@@ -120,17 +136,17 @@
     }
     @for (int i = 0; i < @additionalListings.Count; i++)
     {
-<div class="additional-listing col-vsm-6 col-lar-3">
-    <div class="additional-listing__photo" style="background-image: url('@additionalListings[i].photoFilePath');">
-        <a class="additional-listing__photo-link" asp-area="" asp-controller="Home" asp-action="ListingPage" asp-route-id="@additionalListings[i].name.Replace(" ", "-")"></a>
-    </div>
-    <div class="additional-listing__name">
-        <a class="additional-listing__name-link" asp-area="" asp-controller="Home" asp-action="ListingPage" asp-route-id="@additionalListings[i].name.Replace(" ", "-")">@additionalListings[i].name</a>
-    </div>
-    <div class="additional-listing__cost">@additionalListings[i].price</div>
-    <div class="additional-listing__address">@additionalListings[i].address</div>
-    <div class="additional-listing__beds">@additionalListings[i].numberOfBedrooms bed</div>
-    <div class="additional-listing__baths">@additionalListings[i].numberOfBathrooms bath</div>
-</div>
+        <div class="additional-listing col-vsm-6 col-lar-3">
+            <div class="additional-listing__photo" style="background-image: url('@additionalListings[i].photoFilePath');">
+                <a class="additional-listing__photo-link" asp-area="" asp-controller="Home" asp-action="ListingPage" asp-route-id="@additionalListings[i].name.Replace(" ", "-")"></a>
+            </div>
+            <div class="additional-listing__name">
+                <a class="additional-listing__name-link" asp-area="" asp-controller="Home" asp-action="ListingPage" asp-route-id="@additionalListings[i].name.Replace(" ", "-")">@additionalListings[i].name</a>
+            </div>
+            <div class="additional-listing__cost">@additionalListings[i].price</div>
+            <div class="additional-listing__address">@additionalListings[i].address</div>
+            <div class="additional-listing__beds">@additionalListings[i].numberOfBedrooms bed</div>
+            <div class="additional-listing__baths">@additionalListings[i].numberOfBathrooms bath</div>
+        </div>
     }
 </div>

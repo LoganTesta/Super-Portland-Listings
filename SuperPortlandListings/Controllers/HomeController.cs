@@ -474,56 +474,57 @@ namespace SuperPortlandListings.Controllers
         }
 
         [HttpPost]
-        public IActionResult ListingPage(ListingPageModel listingPageModel)
+        public IActionResult ListingPage(ListingsModel listingsModel)
         {
             if (ModelState.IsValid)
             {
+                ViewData["theListings"] = SuperPortlandListings.Program.theListings;
+                ViewData["projectDate"] = SuperPortlandListings.Program.projectDate;
+
                 bool validForm = true;
+
+
                 string calculatorResults = "";
 
-                decimal houseCost = -1;
-                decimal downPayment = -1;
-                int mortgageDuration = -1;
-                decimal interestRate = -1;
+                string homePrice = "";
+                string downPayment = "";
+                string mortgageDuration = "";
+                string interestRate = "";
 
                 try
                 {
-                    houseCost = Convert.ToDecimal(System.Web.HttpUtility.HtmlEncode(Request.Form["houseCost"]));
-                    downPayment = Convert.ToDecimal(System.Web.HttpUtility.HtmlEncode(Request.Form["downPayment"]));
-                    mortgageDuration = Convert.ToInt32(System.Web.HttpUtility.HtmlEncode(Request.Form["mortgageDuration"]));
-                    interestRate = Convert.ToDecimal(System.Web.HttpUtility.HtmlEncode(Request.Form["interestRate"]));
+                    homePrice = System.Web.HttpUtility.HtmlEncode(Request.Form["homePrice"]);
+                    downPayment = System.Web.HttpUtility.HtmlEncode(Request.Form["downPayment"]);
+                    mortgageDuration = System.Web.HttpUtility.HtmlEncode(Request.Form["mortgageDuration"]);
+                    interestRate = System.Web.HttpUtility.HtmlEncode(Request.Form["interestRate"]);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    houseCost = -1;
-                    downPayment = -1;
-                    mortgageDuration = -1;
-                    interestRate = -1;
+                    homePrice = "";
+                    downPayment = "";
+                    mortgageDuration = "";
+                    interestRate = "";
                 }
 
 
-                if (houseCost == -1 || downPayment == -1 || mortgageDuration == -1 || interestRate == -1)
+                if (homePrice == "" || downPayment == "" || mortgageDuration == "" || interestRate == "")
                 {
                     validForm = false;
                 }
 
 
-                calculatorResults = "";
                 if (validForm)
                 {
-                    calculatorResults = "Showing your estimated mortgage results: ";
+                    calculatorResults += "Showing your estimated mortgage results: ";
                 }
                 else
                 {
-                    houseCost = -1;
-                    downPayment = -1;
-                    mortgageDuration = -1;
-                    interestRate = -1;
-                    calculatorResults = "Please make sure all fields are filled out.";
+                    calculatorResults += "Please make sure all fields are filled out.";
                 }
 
-                ViewData["calculatorResults"] = calculatorResults;
-                ViewBag.houseCost = "" + houseCost;
+                ViewData["calculatorResults"] = "" + calculatorResults;
+
+                ViewBag.homePrice = "" + homePrice;
                 ViewBag.downPayment = "" + downPayment;
                 ViewBag.mortgageDuration = "" + mortgageDuration;
                 ViewBag.interestRate = "" + interestRate;
