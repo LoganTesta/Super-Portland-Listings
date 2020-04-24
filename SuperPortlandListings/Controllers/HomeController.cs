@@ -47,7 +47,6 @@ namespace SuperPortlandListings.Controllers
         [HttpPost]
         public IActionResult Listings(ListingsModel listingsModel)
         {
-
             if (ModelState.IsValid)
             {
                 ViewData["theListings"] = SuperPortlandListings.Program.theListings;
@@ -419,7 +418,6 @@ namespace SuperPortlandListings.Controllers
                 }
                 else if (validForm)
                 {
-
                     //Construct the Email
                     string FromName = sellerName;
                     string FromEmail = sellerEmail;
@@ -463,7 +461,6 @@ namespace SuperPortlandListings.Controllers
             return View();
         }
 
-
         public IActionResult Privacy()
         {
             return View();
@@ -471,6 +468,66 @@ namespace SuperPortlandListings.Controllers
 
         public IActionResult ListingPage()
         {
+            ViewData["theListings"] = SuperPortlandListings.Program.theListings;
+            ViewData["projectDate"] = SuperPortlandListings.Program.projectDate;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ListingPage(ListingPageModel listingPageModel)
+        {
+            if (ModelState.IsValid)
+            {
+                bool validForm = true;
+                string calculatorResults = "";
+
+                decimal houseCost = -1;
+                decimal downPayment = -1;
+                int mortgageDuration = -1;
+                decimal interestRate = -1;
+
+                try
+                {
+                    houseCost = Convert.ToDecimal(System.Web.HttpUtility.HtmlEncode(Request.Form["houseCost"]));
+                    downPayment = Convert.ToDecimal(System.Web.HttpUtility.HtmlEncode(Request.Form["downPayment"]));
+                    mortgageDuration = Convert.ToInt32(System.Web.HttpUtility.HtmlEncode(Request.Form["mortgageDuration"]));
+                    interestRate = Convert.ToDecimal(System.Web.HttpUtility.HtmlEncode(Request.Form["interestRate"]));
+                }
+                catch (Exception)
+                {
+                    houseCost = -1;
+                    downPayment = -1;
+                    mortgageDuration = -1;
+                    interestRate = -1;
+                }
+
+
+                if (houseCost == -1 || downPayment == -1 || mortgageDuration == -1 || interestRate == -1)
+                {
+                    validForm = false;
+                }
+
+
+                calculatorResults = "";
+                if (validForm)
+                {
+                    calculatorResults = "Showing your estimated mortgage results: ";
+                }
+                else
+                {
+                    houseCost = -1;
+                    downPayment = -1;
+                    mortgageDuration = -1;
+                    interestRate = -1;
+                    calculatorResults = "Please make sure all fields are filled out.";
+                }
+
+                ViewData["calculatorResults"] = calculatorResults;
+                ViewBag.houseCost = "" + houseCost;
+                ViewBag.downPayment = "" + downPayment;
+                ViewBag.mortgageDuration = "" + mortgageDuration;
+                ViewBag.interestRate = "" + interestRate;
+            }
             ViewData["theListings"] = SuperPortlandListings.Program.theListings;
             ViewData["projectDate"] = SuperPortlandListings.Program.projectDate;
             return View();

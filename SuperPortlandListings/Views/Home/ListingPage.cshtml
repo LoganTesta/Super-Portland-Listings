@@ -70,9 +70,39 @@
             <div class="listing-info__house-size"><span class="listing-info__category-text">Home:</span> @currentListing.homeSquareFootage ft&sup2;</div>
             <div class="listing-info__lot-size"><span class="listing-info__category-text">Lot:</span> @currentListing.lotSquareFootage ft&sup2;</div>
             <div class="listing-info__county"><span class="listing-info__category-text">County:</span> @currentListing.county</div>
+            <div class="listing-info__short-description">@currentListing.shortDescription</div>
+            <div class="listing-info__description">@currentListing.description</div>
         </div>
-        <div class="listing-info__short-description">@currentListing.shortDescription</div>
-        <div class="listing-info__description">@currentListing.description</div>
+        <div class="mortgage-estimate-calculator">
+            <form class="form estimate-calculator-form" id="mortgageEstimateCalculatorForm" name="mortgageEstimateCalculatorForm" method="post">
+                <h3 class="mortgage-estimate-calculator__title">Estimate Mortgage</h3>
+                <div class="form__required">** - Required Field</div>
+                <div class="form__input-container">
+                    <label class="form__label" for="homePrice">Home Price **</label>
+                    <input id="homePrice" class="form__input" type="text" name="homePrice" />
+                    <div class="clear-both"></div>
+                </div>
+                <div class="form__input-container">
+                    <label class="form__label" for="downPayment">Down Payment **</label>
+                    <input id="downPayment" class="form__input" type="text" name="downPayment" />
+                    <div class="clear-both"></div>
+                </div>
+                <div class="form__input-container">
+                    <label class="form__label" for="mortgageDuration">Mortgage Duration (years) **</label>
+                    <input id="mortgageDuration" class="form__input" type="text" name="mortgageDuration" />
+                    <div class="clear-both"></div>
+                </div>
+                <div class="form__input-container">
+                    <label class="form__label" for="interestRate">Interest Rate **</label>
+                    <input id="interestRate" class="form__input" type="text" name="interestRate" />
+                    <div class="clear-both"></div>
+                </div>
+                <div class="form__input-container">
+                    <input asp-page-handler="MortgageEstimateCalculatorSection" id="estimateMortgageButton" class="form__submit-button button-container" type="submit" name="estimateMortgageButton" value="Estimate Mortgage!" />
+                    <div class="form__errors"></div>
+                </div>
+            </form>
+        </div>
     </div>
     <div class="col-sma-6">
         <div class="background-hero-image listing-page" style="background-image: url('@currentListing.photoFilePath')">
