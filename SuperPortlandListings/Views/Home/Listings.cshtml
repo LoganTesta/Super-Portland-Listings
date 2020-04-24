@@ -299,23 +299,23 @@
 </div>
 
 <script type="text/javascript">
-    for (let i = 0; i < 8; i++) {
-        document.getElementsByClassName("house-container__image")[i].addEventListener("mouseover", function () {
+    for (let i = 0; i < $(".house-container__image").length; i++) {
+        $(".house-container__image").eq(i).on("mouseover", function () {
             addHoverClass(i);
         });
 
-        document.getElementsByClassName("house-container__image")[i].addEventListener("mouseout", function () {
+        $(".house-container__image").eq(i).on("mouseout", function () {
             addOutClass(i);
         });
     }
 
     function addHoverClass(itemNumber) {
-        document.getElementsByClassName("house-container__image")[itemNumber].classList.toggle("over");
-        document.getElementsByClassName("house-container__image")[itemNumber].classList.remove("out");
+        $(".house-container__image").eq(itemNumber).toggleClass("over");
+        $(".house-container__image").eq(itemNumber).removeClass("out");
     }
 
     function addOutClass(itemNumber) {
-        document.getElementsByClassName("house-container__image")[itemNumber].classList.remove("over");
-        document.getElementsByClassName("house-container__image")[itemNumber].classList.toggle("out");
+        $(".house-container__image").eq(itemNumber).removeClass("over");
+        $(".house-container__image").eq(itemNumber).toggleClass("out");
     }
 </script>
