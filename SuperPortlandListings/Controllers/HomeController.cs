@@ -510,7 +510,17 @@ namespace SuperPortlandListings.Controllers
                 }
 
 
-                if (homePrice <= 0 || downPayment <= 0 || mortgageDuration <= 0 || interestRate <= 0)
+                if (homePrice < 0 || downPayment < 0 || mortgageDuration < 0 || interestRate < 0)
+                {
+                    validForm = false;
+                }
+
+                if (homePrice == 0)
+                {
+                    validForm = false;
+                }
+
+                if (mortgageDuration == 0)
                 {
                     validForm = false;
                 }
@@ -520,6 +530,7 @@ namespace SuperPortlandListings.Controllers
                 {
                     mortgageAmount = homePrice - downPayment;
                     monthlyPayment = mortgageAmount/(mortgageDuration * 12);
+                    monthlyPayment = Math.Round(monthlyPayment, 2);
 
                     ViewBag.homePrice = "$" + homePrice;
                     ViewBag.downPayment = "$" + downPayment;
