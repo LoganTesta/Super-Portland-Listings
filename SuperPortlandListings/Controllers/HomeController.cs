@@ -12,7 +12,8 @@ using MailKit.Security;
 using MimeKit;
 
 using Microsoft.AspNetCore.Html; //For using HTML in strings 
-using Microsoft.AspNetCore.Http;   // For Sessions
+using Microsoft.AspNetCore.Http; // For Sessions
+using System.Collections; // For ArrayLists
 
 
 namespace SuperPortlandListings.Controllers
@@ -554,6 +555,22 @@ namespace SuperPortlandListings.Controllers
 
                     calculatorResults += "Please make sure all fields are filled out.";
                 }
+
+                ArrayList theSessionVariables = new ArrayList();
+                theSessionVariables.Add("homePriceUserInput");
+                theSessionVariables.Add("downPaymentUserInput");
+                theSessionVariables.Add("mortgageDurationUserInput");
+                theSessionVariables.Add("interestRateUserInput");
+
+                HttpContext.Session.SetString("homePriceUserInput", Convert.ToString(homePrice));
+                HttpContext.Session.SetString("downPaymentUserInput", Convert.ToString(downPayment));
+                HttpContext.Session.SetString("mortgageDurationUserInput", Convert.ToString(mortgageDuration));
+                HttpContext.Session.SetString("interestRateUserInput", Convert.ToString(interestRate));
+
+                ViewBag.homePriceUserInput = HttpContext.Session.GetString("homePriceUserInput");
+                ViewBag.downPaymentUserInput = HttpContext.Session.GetString("downPaymentUserInput");
+                ViewBag.mortgageDurationUserInput = HttpContext.Session.GetString("mortgageDurationUserInput");
+                ViewBag.interestRateUserInput = HttpContext.Session.GetString("interestRateUserInput");
 
                 ViewData["calculatorResults"] = "" + calculatorResults;
 

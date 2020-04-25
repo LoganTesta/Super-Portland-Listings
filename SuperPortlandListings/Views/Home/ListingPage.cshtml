@@ -17,6 +17,11 @@
     string routeNameId = routeName.Substring(lastInstanceOfSlash + 1);
     routeName = routeNameId.Replace("-", " ");
 
+    string homePriceUserInput = "" + ViewData["homePriceUserInput"];
+    string downPaymentUserInput = "" + ViewData["downPaymentUserInput"];
+    string mortgageDurationUserInput = "" + ViewData["mortgageDurationUserInput"];
+    string interestRateUserInput = "" + ViewData["interestRateUserInput"];
+
     string calculatorResults = "" + ViewData["calculatorResults"];
     string homePrice = "" + ViewData["homePrice"];
     string downPayment = "" + ViewData["downPayment"];
@@ -24,7 +29,6 @@
     string interestRate = "" + ViewData["interestRate"];
     string mortgageAmount = "" + ViewData["mortgageAmount"];
     string monthlyPayment = "" + ViewData["monthlyPayment"];
-
 
     List<listing> theListings = ViewData["theListings"] as List<listing>;
     listing currentListing = new listing();
@@ -98,22 +102,22 @@
                 <div class="form__required">** - Required Field</div>
                 <div class="form__input-container">
                     <label class="form__label" for="homePrice">Home Price **</label>
-                    <input id="homePrice" class="form__input" type="text" name="homePrice" />
+                    <input id="homePrice" class="form__input" type="text" name="homePrice" value="@homePriceUserInput"/>
                     <div class="clear-both"></div>
                 </div>
                 <div class="form__input-container">
                     <label class="form__label" for="downPayment">Down Payment</label>
-                    <input id="downPayment" class="form__input" type="text" name="downPayment" />
+                    <input id="downPayment" class="form__input" type="text" name="downPayment" value="@downPaymentUserInput" />
                     <div class="clear-both"></div>
                 </div>
                 <div class="form__input-container">
                     <label class="form__label" for="mortgageDuration">Mortgage Duration (years) **</label>
-                    <input id="mortgageDuration" class="form__input" type="text" name="mortgageDuration" />
+                    <input id="mortgageDuration" class="form__input" type="text" name="mortgageDuration" value="@mortgageDurationUserInput" />
                     <div class="clear-both"></div>
                 </div>
                 <div class="form__input-container">
                     <label class="form__label" for="interestRate">Interest Rate</label>
-                    <input id="interestRate" class="form__input" type="text" name="interestRate" />
+                    <input id="interestRate" class="form__input" type="text" name="interestRate" value="@interestRateUserInput" />
                     <div class="clear-both"></div>
                 </div>
                 <div class="form__input-container">
