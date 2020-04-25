@@ -10,7 +10,7 @@ namespace SuperPortlandListings.Models
     {
         public decimal houseCost { get; set; } 
         public decimal downPayment { get; set; }
-        public int mortgageDuration { get; set; }
+        public decimal mortgageDuration { get; set; }
         public decimal interestRate { get; set; }
     }
 }

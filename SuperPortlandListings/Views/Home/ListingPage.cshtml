@@ -18,6 +18,11 @@
     routeName = routeNameId.Replace("-", " ");
 
     string calculatorResults = "" + ViewData["calculatorResults"];
+    string homePrice = "" + ViewData["homePrice"];
+    string downPayment = "" + ViewData["downPayment"];
+    string mortgageDuration = "" + ViewData["mortgageDuration"];
+    string interestRate = "" + ViewData["interestRate"];
+
 
     List<listing> theListings = ViewData["theListings"] as List<listing>;
     listing currentListing = new listing();
@@ -115,7 +120,11 @@
             <div class="javascript-validation-results-contact-us"></div>
             @{
                 <div class="form-response">
-                    @(new HtmlString(@calculatorResults))
+                    <span>Price: </span> @homePrice
+                    <span>Down Payment: </span> @downPayment
+                    <span>Mortgage Duration: </span> @mortgageDuration
+                    <span>Interest Rate: </span> @interestRate
+                     @(new HtmlString(@calculatorResults))
                 </div>
             }
         </div>

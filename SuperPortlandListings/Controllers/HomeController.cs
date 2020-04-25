@@ -486,28 +486,28 @@ namespace SuperPortlandListings.Controllers
 
                 string calculatorResults = "";
 
-                string homePrice = "";
-                string downPayment = "";
-                string mortgageDuration = "";
-                string interestRate = "";
+                decimal homePrice = -1;
+                decimal downPayment = -1;
+                decimal mortgageDuration = -1;
+                decimal interestRate = -1;
 
                 try
                 {
-                    homePrice = System.Web.HttpUtility.HtmlEncode(Request.Form["homePrice"]);
-                    downPayment = System.Web.HttpUtility.HtmlEncode(Request.Form["downPayment"]);
-                    mortgageDuration = System.Web.HttpUtility.HtmlEncode(Request.Form["mortgageDuration"]);
-                    interestRate = System.Web.HttpUtility.HtmlEncode(Request.Form["interestRate"]);
+                    Decimal.TryParse(System.Web.HttpUtility.HtmlEncode(Request.Form["homePrice"]), out homePrice);
+                    Decimal.TryParse(System.Web.HttpUtility.HtmlEncode(Request.Form["downPayment"]), out downPayment);
+                    Decimal.TryParse(System.Web.HttpUtility.HtmlEncode(Request.Form["mortgageDuration"]), out mortgageDuration);
+                    Decimal.TryParse(System.Web.HttpUtility.HtmlEncode(Request.Form["interestRate"]), out interestRate);
                 }
                 catch (Exception e)
                 {
-                    homePrice = "";
-                    downPayment = "";
-                    mortgageDuration = "";
-                    interestRate = "";
+                    homePrice = -1;
+                    downPayment = -1;
+                    mortgageDuration = -1;
+                    interestRate = -1;
                 }
 
 
-                if (homePrice == "" || downPayment == "" || mortgageDuration == "" || interestRate == "")
+                if (homePrice <= 0 || downPayment <= 0 || mortgageDuration <= 0 || interestRate <= 0)
                 {
                     validForm = false;
                 }

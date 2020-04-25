@@ -1074,8 +1074,18 @@ h4 {
     padding-left: 40px;
 }
 
-.additional-listing {
+
+.mortgage-estimate-calculator {
+    padding-top: 50px;
 }
+
+    .mortgage-estimate-calculator .form-response {
+        padding-top: 20px;
+    }
+
+
+    .additional-listing {
+    }
 
 .additional-listing__photo {
     width: 100%;
