@@ -491,6 +491,9 @@ namespace SuperPortlandListings.Controllers
                 decimal mortgageDuration = -1;
                 decimal interestRate = -1;
 
+                decimal mortgageAmount = 0;
+                decimal monthlyPayment = 0;
+
                 try
                 {
                     Decimal.TryParse(System.Web.HttpUtility.HtmlEncode(Request.Form["homePrice"]), out homePrice);
@@ -515,19 +518,34 @@ namespace SuperPortlandListings.Controllers
 
                 if (validForm)
                 {
+                    mortgageAmount = homePrice - downPayment;
+                    monthlyPayment = mortgageAmount/(mortgageDuration * 12);
+
+                    ViewBag.homePrice = "$" + homePrice;
+                    ViewBag.downPayment = "$" + downPayment;
+                    ViewBag.mortgageDuration = "" + mortgageDuration + " years";
+                    ViewBag.interestRate = "" + interestRate + "%";
+
+                    ViewBag.mortgageAmount = "Mortgage Size: $" + mortgageAmount;
+                    ViewBag.monthlyPayment = "Monthly Payment/Mortgage: $" + monthlyPayment + "/month";
+
                     calculatorResults += "Showing your estimated mortgage results: ";
                 }
                 else
                 {
+                    ViewBag.homePrice = "$" + homePrice;
+                    ViewBag.downPayment = "$" + downPayment;
+                    ViewBag.mortgageDuration = "" + mortgageDuration + " years";
+                    ViewBag.interestRate = "" + interestRate + "%";
+
+                    ViewBag.mortgageAmount = "";
+                    ViewBag.monthlyPayment = "";
+
                     calculatorResults += "Please make sure all fields are filled out.";
                 }
 
                 ViewData["calculatorResults"] = "" + calculatorResults;
 
-                ViewBag.homePrice = "" + homePrice;
-                ViewBag.downPayment = "" + downPayment;
-                ViewBag.mortgageDuration = "" + mortgageDuration;
-                ViewBag.interestRate = "" + interestRate;
             }
             ViewData["theListings"] = SuperPortlandListings.Program.theListings;
             ViewData["projectDate"] = SuperPortlandListings.Program.projectDate;

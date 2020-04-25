@@ -22,6 +22,8 @@
     string downPayment = "" + ViewData["downPayment"];
     string mortgageDuration = "" + ViewData["mortgageDuration"];
     string interestRate = "" + ViewData["interestRate"];
+    string mortgageAmount = "" + ViewData["mortgageAmount"];
+    string monthlyPayment = "" + ViewData["monthlyPayment"];
 
 
     List<listing> theListings = ViewData["theListings"] as List<listing>;
@@ -91,6 +93,8 @@
         <div class="mortgage-estimate-calculator">
             <form class="form estimate-calculator-form" id="mortgageEstimateCalculatorForm" name="mortgageEstimateCalculatorForm" method="post">
                 <h3 class="mortgage-estimate-calculator__title">Estimate Mortgage</h3>
+                <p>This calculator is solely for approximation purposes.  It is simplied and includes only principal and interest.  Prospective buyers should also
+                take into account property taxes, homeowner's insurance, HOAs, home maintanence, and more.</p>
                 <div class="form__required">** - Required Field</div>
                 <div class="form__input-container">
                     <label class="form__label" for="homePrice">Home Price **</label>
@@ -120,11 +124,13 @@
             <div class="javascript-validation-results-contact-us"></div>
             @{
                 <div class="form-response">
-                    <span>Price: </span> @homePrice
-                    <span>Down Payment: </span> @downPayment
-                    <span>Mortgage Duration: </span> @mortgageDuration
-                    <span>Interest Rate: </span> @interestRate
-                     @(new HtmlString(@calculatorResults))
+                    <div>Price: @homePrice</div>
+                    <div>Down Payment: @downPayment</div>
+                    <div>Mortgage Duration: @mortgageDuration</div>
+                    <div>Interest Rate: @interestRate</div>
+                    @(new HtmlString(@calculatorResults))
+                    <div>@mortgageAmount</div>
+                    <div>@monthlyPayment</div>
                 </div>
             }
         </div>
