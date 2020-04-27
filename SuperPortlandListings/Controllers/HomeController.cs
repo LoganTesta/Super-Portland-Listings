@@ -530,7 +530,17 @@ namespace SuperPortlandListings.Controllers
                 if (validForm)
                 {
                     mortgageAmount = homePrice - downPayment;
-                    monthlyPayment = mortgageAmount/(mortgageDuration * 12);
+                    double mortgageDurationMonths = Convert.ToDouble(mortgageDuration * 12);
+                    double principal = Convert.ToDouble(mortgageAmount);
+                    double intRate = (Convert.ToDouble(interestRate) * 0.01)/12;
+
+                    if (intRate > 0)
+                    {
+                        monthlyPayment = Convert.ToDecimal(principal * (intRate * Math.Pow(1 + intRate, mortgageDurationMonths)) / (Math.Pow(1 + intRate, mortgageDurationMonths) - 1));
+                    } else
+                    {
+                        monthlyPayment = Convert.ToDecimal(principal / mortgageDurationMonths);
+                    }
                     monthlyPayment = Math.Round(monthlyPayment, 2);
 
                     ViewBag.homePrice = "$" + homePrice;
