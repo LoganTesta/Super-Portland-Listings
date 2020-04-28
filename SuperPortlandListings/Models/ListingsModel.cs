@@ -8,9 +8,7 @@ namespace SuperPortlandListings.Models
 {
     public class ListingsModel
     {
-        [BindProperty]
         public string searchCity { get; set; }
-        [BindProperty]
         public string searchByOptions { get; set; }
     }
 }

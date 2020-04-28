@@ -5,8 +5,6 @@
 @using Microsoft.AspNetCore.Http;   @*For Sessions*@
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
-@model SuperPortlandListings.Models.ListingPageModel;
-
 @{
     ViewData["Title"] = "Listing Page";
     DateTime projectDate = Convert.ToDateTime(ViewData["projectDate"]);

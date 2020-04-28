@@ -475,7 +475,7 @@ namespace SuperPortlandListings.Controllers
         }
 
         [HttpPost]
-        public IActionResult ListingPage(ListingsModel listingsModel)
+        public IActionResult ListingPage(ListingPageModel listingPageModel)
         {
             if (ModelState.IsValid)
             {
