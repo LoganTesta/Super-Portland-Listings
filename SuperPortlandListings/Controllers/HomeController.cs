@@ -474,14 +474,18 @@ namespace SuperPortlandListings.Controllers
 
         public IActionResult ListingPage()
         {
+            listing currentListing = getCurrentListing(Request.Path);
+
             ViewData["theListings"] = SuperPortlandListings.Program.theListings;
             ViewData["projectDate"] = SuperPortlandListings.Program.projectDate;
-            return View();
+            return View(currentListing);
         }
 
         [HttpPost]
         public IActionResult ListingPage(ListingPageModel listingPageModel)
         {
+            listing currentListing = getCurrentListing(Request.Path);
+
             if (ModelState.IsValid)
             {
                 ViewData["theListings"] = SuperPortlandListings.Program.theListings;
@@ -592,7 +596,7 @@ namespace SuperPortlandListings.Controllers
             }
             ViewData["theListings"] = SuperPortlandListings.Program.theListings;
             ViewData["projectDate"] = SuperPortlandListings.Program.projectDate;
-            return View();
+            return View(currentListing);
         }
 
         [Route("error/404")]
@@ -611,5 +615,28 @@ namespace SuperPortlandListings.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+
+        public listing getCurrentListing(string routeName)
+        {
+            List<listing> theListings = SuperPortlandListings.Program.theListings;
+
+            int lastInstanceOfSlash = routeName.LastIndexOf("/");
+            string routeNameId = routeName.Substring(lastInstanceOfSlash + 1);
+            routeName = routeNameId.Replace("-", " ");
+
+            listing currentListing = new listing();
+            for (int i = 0; i < theListings.Count; i++)
+            {
+                if (theListings[i].name == routeName)
+                {
+                    currentListing = theListings[i];
+                }
+            }
+
+            return currentListing;
+        }
+
     }
 }
