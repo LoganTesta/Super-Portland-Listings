@@ -936,6 +936,24 @@ h4 {
     float: right;
 }
 
+
+/*Communities page*/
+.community { }
+.community__name {
+    font-size: 20px;
+    color: var(--color-2);
+}
+
+.community__background-image {
+
+}
+
+.community__details {
+
+}
+
+.community__description {
+}
 /*Our Team page*/
 .team-member {
     padding-bottom: 50px;
@@ -1229,6 +1247,16 @@ h4 {
     }
 
 
+    /*Communities page*/
+    .community {
+        padding-bottom: 40px;
+    }
+
+    .community.three, community.four { 
+        padding-bottom: 0;
+    }
+
+
     /*ListingPage page*/
     .listing-info__description {
         padding-bottom: 0;
@@ -1386,6 +1414,20 @@ h4 {
     /*Sellers page*/
     .background-hero-image.sellers {
         height: 240px;
+    }
+
+
+    /*Communities page*/
+    .community__name {
+        font-size: 24px;
+    }
+
+    .community.three {
+        padding-bottom: 40px;
+    }
+
+    .community.four {
+        padding-bottom: 0;
     }
 
 
