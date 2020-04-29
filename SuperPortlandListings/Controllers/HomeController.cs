@@ -474,7 +474,7 @@ namespace SuperPortlandListings.Controllers
 
         public IActionResult ListingPage()
         {
-            listing currentListing = getCurrentListing(Request.Path);
+            ListingModel currentListing = getCurrentListing(Request.Path);
 
             ViewData["theListings"] = SuperPortlandListings.Program.theListings;
             ViewData["projectDate"] = SuperPortlandListings.Program.projectDate;
@@ -484,7 +484,7 @@ namespace SuperPortlandListings.Controllers
         [HttpPost]
         public IActionResult ListingPage(ListingPageModel listingPageModel)
         {
-            listing currentListing = getCurrentListing(Request.Path);
+            ListingModel currentListing = getCurrentListing(Request.Path);
 
             if (ModelState.IsValid)
             {
@@ -618,15 +618,15 @@ namespace SuperPortlandListings.Controllers
 
 
 
-        public listing getCurrentListing(string routeName)
+        public ListingModel getCurrentListing(string routeName)
         {
-            List<listing> theListings = SuperPortlandListings.Program.theListings;
+            List<ListingModel> theListings = SuperPortlandListings.Program.theListings;
 
             int lastInstanceOfSlash = routeName.LastIndexOf("/");
             string routeNameId = routeName.Substring(lastInstanceOfSlash + 1);
             routeName = routeNameId.Replace("-", " ");
 
-            listing currentListing = new listing();
+            ListingModel currentListing = new ListingModel();
             for (int i = 0; i < theListings.Count; i++)
             {
                 if (theListings[i].name == routeName)

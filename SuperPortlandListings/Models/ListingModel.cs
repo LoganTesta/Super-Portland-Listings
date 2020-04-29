@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SuperPortlandListings.Models
 {
-    public class listing
+    public class ListingModel
     {
         public string name { get; set; }
         public string classCSS { get; set; }
@@ -25,7 +25,7 @@ namespace SuperPortlandListings.Models
         public string shortDescription { get; set; }
         public string description { get; set; }
 
-        public listing(string name, string classCSS, string city, string county, string address, string price, string placedOnMarket, string yearBuilt, string homeSquareFootage, string lotSquareFootage, 
+        public ListingModel(string name, string classCSS, string city, string county, string address, string price, string placedOnMarket, string yearBuilt, string homeSquareFootage, string lotSquareFootage, 
             string numberOfBedrooms, string numberOfBathrooms, string parkingSpaces, string numberOfStories, string photoFilePath, string shortDescription, string description)
         {
             this.name = name;
@@ -47,7 +47,7 @@ namespace SuperPortlandListings.Models
             this.description = description;
         }
 
-        public listing()
+        public ListingModel()
         {
 
         }

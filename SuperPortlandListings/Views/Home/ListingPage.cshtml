@@ -5,13 +5,13 @@
 @using Microsoft.AspNetCore.Http;   @*For Sessions*@
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
-@model SuperPortlandListings.Models.listing;
+@model SuperPortlandListings.Models.ListingModel;
 @{
     ViewData["Title"] = "Listing Page";
-    DateTime projectDate = Convert.ToDateTime(ViewData["projectDate"]);
     string labelText = "NEW";
-    listing currentListing = Model;
 
+    DateTime projectDate = Convert.ToDateTime(ViewData["projectDate"]);
+    ListingModel currentListing = Model;
 
     string homePriceUserInput = "" + ViewData["homePriceUserInput"];
     string downPaymentUserInput = "" + ViewData["downPaymentUserInput"];
@@ -25,12 +25,13 @@
     string interestRate = "" + ViewData["interestRate"];
     string mortgageAmount = "" + ViewData["mortgageAmount"];
     string monthlyPayment = "" + ViewData["monthlyPayment"];
+    List<ListingModel> theListings = ViewData["theListings"] as List<ListingModel>;
 
-    List<listing> theListings = ViewData["theListings"] as List<listing>;
 
 
-    List<listing> additionalListingsInitial = new List<listing>();
-    List<listing> additionalListings = new List<listing>();
+
+    List<ListingModel> additionalListingsInitial = new List<ListingModel>();
+    List<ListingModel> additionalListings = new List<ListingModel>();
     for (int i = 0; i < theListings.Count; i++)
     {
         if (currentListing.name != theListings[i].name)

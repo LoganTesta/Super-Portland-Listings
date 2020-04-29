@@ -11,7 +11,7 @@
 
 @{
     ViewData["Title"] = "Listings";
-    List<listing> theListings = ViewData["theListings"] as List<listing>;
+    List<ListingModel> theListings = ViewData["theListings"] as List<ListingModel>;
     DateTime projectDate = Convert.ToDateTime(ViewData["projectDate"]);
     string labelText = "NEW";
 
@@ -26,8 +26,8 @@
     string displayAll = "" + ViewData["displayAll"];
 
 
-    List<listing> reorderedListings = new List<listing>();
-    List<listing> finalListings = new List<listing>();
+    List<ListingModel> reorderedListings = new List<ListingModel>();
+    List<ListingModel> finalListings = new List<ListingModel>();
 }
 
 
