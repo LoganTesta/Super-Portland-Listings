@@ -938,19 +938,21 @@ h4 {
 
 
 /*Communities page*/
-.community { }
+.community { 
+
+}
+
 .community__name {
     padding-bottom: 8px;
     font-size: 20px;
+    text-align: center;
     color: var(--color-2);
 }
 
 .community__background-image {
-
-}
-
-.community__details {
-
+    width: 100%;
+    height: 180px;
+    margin-bottom: 4px;
 }
 
 .community__description {
@@ -960,6 +962,27 @@ h4 {
 .community__listings-link { 
 
 }
+
+.community.zero .community__background-image {
+    background: url('/assets/images/houses-overhead.jpeg') 50% 30%/cover no-repeat;
+}
+
+.community.one .community__background-image {
+    background: url('/assets/images/houses-overhead.jpeg') 50% 30%/cover no-repeat;
+}
+
+.community.two .community__background-image {
+    background: url('/assets/images/houses-overhead.jpeg') 50% 30%/cover no-repeat;
+}
+
+.community.three .community__background-image {
+    background: url('/assets/images/houses-overhead.jpeg') 50% 30%/cover no-repeat;
+}
+
+.community.four .community__background-image {
+    background: url('/assets/images/houses-overhead.jpeg') 50% 30%/cover no-repeat;
+}
+
 
 
 /*Our Team page*/
