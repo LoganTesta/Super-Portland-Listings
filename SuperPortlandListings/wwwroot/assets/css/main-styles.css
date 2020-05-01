@@ -940,6 +940,7 @@ h4 {
 /*Communities page*/
 .community { }
 .community__name {
+    padding-bottom: 8px;
     font-size: 20px;
     color: var(--color-2);
 }
@@ -953,7 +954,14 @@ h4 {
 }
 
 .community__description {
+    padding-bottom: 4px;
 }
+
+.community__listings-link { 
+
+}
+
+
 /*Our Team page*/
 .team-member {
     padding-bottom: 50px;

@@ -42,6 +42,30 @@ namespace SuperPortlandListings.Controllers
             ViewData["theListings"] = SuperPortlandListings.Program.theListings;
             ViewData["projectDate"] = SuperPortlandListings.Program.projectDate;
 
+            string searchCity = "";
+            if (String.IsNullOrEmpty(HttpContext.Request.Query["city"]) == false)
+            {
+                bool validForm = true;
+                string searchResults = "";
+
+                searchCity = HttpContext.Request.Query["city"];
+
+                if(searchCity == "")
+                {
+                    validForm = false;
+                }
+
+                if (validForm)
+                {
+                    if (searchCity != "")
+                    {
+                        searchResults += " Showing listings in <strong>" + searchCity + "</strong>.";
+                    }
+                }
+                ViewData["searchResults"] = searchResults;
+                ViewBag.searchCity = "" + searchCity;
+            }
+
             return View();
         }
 
