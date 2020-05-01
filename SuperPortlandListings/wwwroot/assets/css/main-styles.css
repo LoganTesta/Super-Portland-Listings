@@ -558,9 +558,8 @@ h4 {
 }
 
 .header__contact-social-info {
-    width: 293px;
-    padding-top: 10px;
-    padding-bottom: 22px;
+    width: 305px;
+    padding: 10px 10px 22px 10px;
     margin-left: auto;
     margin-right: auto;
     font-size: 0;
@@ -576,18 +575,21 @@ h4 {
 
 .header__social-container {
     display: inline-block;
-
     padding-left: 20px;
     font-size: 0;
 }
 
 .header__social-item {
     display: inline-block;
-    margin-right: 12px;
+    margin-right: 15px;
 }
 
-.header__social-item__link {
+    .header__social-item:last-of-type {
+        margin-right: 0;
+    }
 
+.header__social-item__link {
+    display: inline-block;
 }
 
 .header__social-item__social-icon {
@@ -596,8 +598,6 @@ h4 {
 
 .header .header__social-item .header__social-item__social-icon::before {
     display: inline-block;
-    width: 20px;
-    height: 20px;
     border-radius: 10px;
 }
 
@@ -1401,7 +1401,42 @@ h4 {
         position: absolute;
         top: 80px;
         right: 20px;
+        width: auto;
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
     }
+
+    .header__telephone {
+        display: block;
+        padding-bottom: 12px;
+        font-size: 20px;
+    }
+
+    .header__social-container {
+        display: block;
+        padding-left: 0px;
+    }
+
+    .header__social-item {
+        display: inline-block;
+        margin-right: 23px;
+    }
+
+    .header__social-item__link {
+    }
+
+    .header__social-item__social-icon {
+        font-size: 22px;
+    }
+
+    .header .header__social-item .header__social-item__social-icon::before {
+        display: inline-block;
+        border-radius: 11px;
+    }
+
+
+
 
     .main-title {
         padding-left: 90px;
