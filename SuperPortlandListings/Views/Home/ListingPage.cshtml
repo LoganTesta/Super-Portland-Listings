@@ -87,12 +87,14 @@
         <div class="mortgage-estimate-calculator">
             <form class="form estimate-calculator-form" id="mortgageEstimateCalculatorForm" name="mortgageEstimateCalculatorForm" method="post">
                 <h3 class="mortgage-estimate-calculator__title">Estimate Mortgage</h3>
-                <p>This calculator is solely for approximation purposes.  It is simplied and includes only principal and interest.  Prospective buyers should also
-                take into account property taxes, private mortgage insurance (PMI), homeowner's insurance, HOAs, home maintanence, and other costs.</p>
+                <p>
+                    This calculator is solely for approximation purposes.  It is simplied and includes only principal and interest.  Prospective buyers should also
+                    take into account property taxes, private mortgage insurance (PMI), homeowner's insurance, HOAs, home maintanence, and other costs.
+                </p>
                 <div class="form__required">** - Required Field</div>
                 <div class="form__input-container">
                     <label class="form__label" for="homePrice">Home Price **</label>
-                    <input id="homePrice" class="form__input" type="text" name="homePrice" value="@homePriceUserInput"/>
+                    <input id="homePrice" class="form__input" type="text" name="homePrice" value="@homePriceUserInput" />
                     <div class="clear-both"></div>
                 </div>
                 <div class="form__input-container">
@@ -117,15 +119,17 @@
             </form>
             <div class="javascript-validation-results-contact-us"></div>
             @{
-                <div class="form-response">
-                    <div>Price: @homePrice</div>
-                    <div>Down Payment: @downPayment</div>
-                    <div>Mortgage Duration: @mortgageDuration</div>
-                    <div>Interest Rate: @interestRate</div>
-                    @(new HtmlString(@calculatorResults))
-                    <div>@mortgageAmount</div>
-                    <div>@monthlyPayment</div>
-                </div>
+                        <div class="form-response">
+                            @(new HtmlString(@calculatorResults))
+                            <div>Price: @homePrice</div>
+                            <div>Down Payment: @downPayment</div>
+                            <div>Mortgage Duration: @mortgageDuration</div>
+                            <div>Interest Rate: @interestRate</div>
+                            @(new HtmlString(@mortgageAmount))
+                            @(new HtmlString(@monthlyPayment))
+
+
+                        </div>
             }
         </div>
     </div>

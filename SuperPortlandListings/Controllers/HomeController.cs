@@ -510,114 +510,108 @@ namespace SuperPortlandListings.Controllers
         {
             ListingModel currentListing = getCurrentListing(Request.Path);
 
-            if (ModelState.IsValid)
+            bool validForm = true;
+            string calculatorResults = "";
+
+            decimal homePrice = -1;
+            decimal downPayment = -1;
+            decimal mortgageDuration = -1;
+            decimal interestRate = -1;
+
+            decimal mortgageAmount = 0;
+            decimal monthlyPayment = 0;
+
+            try
             {
-                ViewData["theListings"] = SuperPortlandListings.Program.theListings;
-                ViewData["projectDate"] = SuperPortlandListings.Program.projectDate;
+                Decimal.TryParse(System.Web.HttpUtility.HtmlEncode(Request.Form["homePrice"]), out homePrice);
+                Decimal.TryParse(System.Web.HttpUtility.HtmlEncode(Request.Form["downPayment"]), out downPayment);
+                Decimal.TryParse(System.Web.HttpUtility.HtmlEncode(Request.Form["mortgageDuration"]), out mortgageDuration);
+                Decimal.TryParse(System.Web.HttpUtility.HtmlEncode(Request.Form["interestRate"]), out interestRate);
+            }
+            catch (Exception e)
+            {
+                homePrice = -1;
+                downPayment = -1;
+                mortgageDuration = -1;
+                interestRate = -1;
+            }
 
-                bool validForm = true;
+
+            if (homePrice < 0 || downPayment < 0 || mortgageDuration < 0 || interestRate < 0)
+            {
+                validForm = false;
+            }
+
+            if (homePrice == 0)
+            {
+                validForm = false;
+            }
+
+            if (mortgageDuration == 0)
+            {
+                validForm = false;
+            }
 
 
-                string calculatorResults = "";
+            if (validForm)
+            {
+                mortgageAmount = homePrice - downPayment;
+                double mortgageDurationMonths = Convert.ToDouble(mortgageDuration * 12);
+                double principal = Convert.ToDouble(mortgageAmount);
+                double intRate = (Convert.ToDouble(interestRate) * 0.01) / 12;
 
-                decimal homePrice = -1;
-                decimal downPayment = -1;
-                decimal mortgageDuration = -1;
-                decimal interestRate = -1;
-
-                decimal mortgageAmount = 0;
-                decimal monthlyPayment = 0;
-
-                try
+                if (intRate > 0)
                 {
-                    Decimal.TryParse(System.Web.HttpUtility.HtmlEncode(Request.Form["homePrice"]), out homePrice);
-                    Decimal.TryParse(System.Web.HttpUtility.HtmlEncode(Request.Form["downPayment"]), out downPayment);
-                    Decimal.TryParse(System.Web.HttpUtility.HtmlEncode(Request.Form["mortgageDuration"]), out mortgageDuration);
-                    Decimal.TryParse(System.Web.HttpUtility.HtmlEncode(Request.Form["interestRate"]), out interestRate);
-                }
-                catch (Exception e)
-                {
-                    homePrice = -1;
-                    downPayment = -1;
-                    mortgageDuration = -1;
-                    interestRate = -1;
-                }
-
-
-                if (homePrice < 0 || downPayment < 0 || mortgageDuration < 0 || interestRate < 0)
-                {
-                    validForm = false;
-                }
-
-                if (homePrice == 0)
-                {
-                    validForm = false;
-                }
-
-                if (mortgageDuration == 0)
-                {
-                    validForm = false;
-                }
-
-
-                if (validForm)
-                {
-                    mortgageAmount = homePrice - downPayment;
-                    double mortgageDurationMonths = Convert.ToDouble(mortgageDuration * 12);
-                    double principal = Convert.ToDouble(mortgageAmount);
-                    double intRate = (Convert.ToDouble(interestRate) * 0.01)/12;
-
-                    if (intRate > 0)
-                    {
-                        monthlyPayment = Convert.ToDecimal(principal * (intRate * Math.Pow(1 + intRate, mortgageDurationMonths)) / (Math.Pow(1 + intRate, mortgageDurationMonths) - 1));
-                    } else
-                    {
-                        monthlyPayment = Convert.ToDecimal(principal / mortgageDurationMonths);
-                    }
-                    monthlyPayment = Math.Round(monthlyPayment, 2);
-
-                    ViewBag.homePrice = "$" + homePrice;
-                    ViewBag.downPayment = "$" + downPayment;
-                    ViewBag.mortgageDuration = "" + mortgageDuration + " years";
-                    ViewBag.interestRate = "" + interestRate + "%";
-
-                    ViewBag.mortgageAmount = "Mortgage Size: $" + mortgageAmount;
-                    ViewBag.monthlyPayment = "Monthly Payment/Mortgage: $" + monthlyPayment + "/month";
-
-                    calculatorResults += "Showing your estimated mortgage results: ";
+                    monthlyPayment = Convert.ToDecimal(principal * (intRate * Math.Pow(1 + intRate, mortgageDurationMonths)) / (Math.Pow(1 + intRate, mortgageDurationMonths) - 1));
                 }
                 else
                 {
-                    ViewBag.homePrice = "$" + homePrice;
-                    ViewBag.downPayment = "$" + downPayment;
-                    ViewBag.mortgageDuration = "" + mortgageDuration + " years";
-                    ViewBag.interestRate = "" + interestRate + "%";
-
-                    ViewBag.mortgageAmount = "";
-                    ViewBag.monthlyPayment = "";
-
-                    calculatorResults += "Please make sure all fields are filled out.";
+                    monthlyPayment = Convert.ToDecimal(principal / mortgageDurationMonths);
                 }
+                monthlyPayment = Math.Round(monthlyPayment, 2);
 
-                ArrayList theSessionVariables = new ArrayList();
-                theSessionVariables.Add("homePriceUserInput");
-                theSessionVariables.Add("downPaymentUserInput");
-                theSessionVariables.Add("mortgageDurationUserInput");
-                theSessionVariables.Add("interestRateUserInput");
+                ViewBag.homePrice = "$" + homePrice;
+                ViewBag.downPayment = "$" + downPayment;
+                ViewBag.mortgageDuration = "" + mortgageDuration + " years";
+                ViewBag.interestRate = "" + interestRate + "%";
 
-                HttpContext.Session.SetString("homePriceUserInput", Convert.ToString(homePrice));
-                HttpContext.Session.SetString("downPaymentUserInput", Convert.ToString(downPayment));
-                HttpContext.Session.SetString("mortgageDurationUserInput", Convert.ToString(mortgageDuration));
-                HttpContext.Session.SetString("interestRateUserInput", Convert.ToString(interestRate));
+                ViewBag.mortgageAmount = "<div class='form-response__mortgage-size'>Mortgage Size: $" + mortgageAmount + "</div>";
+                ViewBag.monthlyPayment = "<div class='form-response__monthly-payment'>Monthly Payment: $" + monthlyPayment + "/month</div>";
 
-                ViewBag.homePriceUserInput = HttpContext.Session.GetString("homePriceUserInput");
-                ViewBag.downPaymentUserInput = HttpContext.Session.GetString("downPaymentUserInput");
-                ViewBag.mortgageDurationUserInput = HttpContext.Session.GetString("mortgageDurationUserInput");
-                ViewBag.interestRateUserInput = HttpContext.Session.GetString("interestRateUserInput");
-
-                ViewData["calculatorResults"] = "" + calculatorResults;
-
+                calculatorResults += "Showing your estimated mortgage results: ";
             }
+            else
+            {
+                ViewBag.homePrice = "$" + homePrice;
+                ViewBag.downPayment = "$" + downPayment;
+                ViewBag.mortgageDuration = "" + mortgageDuration + " years";
+                ViewBag.interestRate = "" + interestRate + "%";
+
+                ViewBag.mortgageAmount = "";
+                ViewBag.monthlyPayment = "";
+
+                calculatorResults += "Please make sure all required fields are filled out and all filled out fields have positive numbers.";
+            }
+
+            ArrayList theSessionVariables = new ArrayList();
+            theSessionVariables.Add("homePriceUserInput");
+            theSessionVariables.Add("downPaymentUserInput");
+            theSessionVariables.Add("mortgageDurationUserInput");
+            theSessionVariables.Add("interestRateUserInput");
+
+            HttpContext.Session.SetString("homePriceUserInput", Convert.ToString(homePrice));
+            HttpContext.Session.SetString("downPaymentUserInput", Convert.ToString(downPayment));
+            HttpContext.Session.SetString("mortgageDurationUserInput", Convert.ToString(mortgageDuration));
+            HttpContext.Session.SetString("interestRateUserInput", Convert.ToString(interestRate));
+
+            ViewBag.homePriceUserInput = HttpContext.Session.GetString("homePriceUserInput");
+            ViewBag.downPaymentUserInput = HttpContext.Session.GetString("downPaymentUserInput");
+            ViewBag.mortgageDurationUserInput = HttpContext.Session.GetString("mortgageDurationUserInput");
+            ViewBag.interestRateUserInput = HttpContext.Session.GetString("interestRateUserInput");
+
+            ViewData["calculatorResults"] = "<div class='form-response__calculator-results'>" + calculatorResults + "</div>";
+
+
             ViewData["theListings"] = SuperPortlandListings.Program.theListings;
             ViewData["projectDate"] = SuperPortlandListings.Program.projectDate;
             return View(currentListing);
