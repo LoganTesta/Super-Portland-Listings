@@ -718,23 +718,25 @@ h4 {
 }
 
 .footer__social-container {
+    font-size: 0;
 }
 
 .footer__social-item {
     display: inline-block;
-    margin-right: 15px;
+    margin-right: 18px;
 }
 
 .footer__social-item__link {
 }
 
 .footer__social-item__social-icon {
+    font-size: 22px;
 }
 
 .footer .footer__social-item .footer__social-item__social-icon::before {
     display: inline-block;
-    width: 32px;
-    height: 32px;
+    width: 26px;
+    height: 26px;
     border-radius: 16px;
 }
 
@@ -1314,6 +1316,10 @@ h4 {
 @media only screen and (min-width: 700px) {
 
     /*Header*/
+    .header__contact-social-info {
+        margin-right: 25px;
+    }
+
     .logo-container {
         left: 80px;
     }
@@ -1502,6 +1508,23 @@ h4 {
 
     .footer__navigation-section {
         padding-bottom: 0;
+    }
+
+    .footer__social-container {
+    }
+
+    .footer__social-item {
+        margin-right: 20px;
+    }
+
+    .footer__social-item__social-icon {
+        font-size: 27px;
+    }
+
+    .footer .footer__social-item .footer__social-item__social-icon::before {
+        width: 31px;
+        height: 31px;
+        border-radius: 16px;
     }
 
     .footer__location-and-hours {
