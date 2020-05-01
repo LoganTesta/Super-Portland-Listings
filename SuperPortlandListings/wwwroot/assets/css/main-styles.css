@@ -671,6 +671,27 @@ h4 {
 .footer-nav__nav-link {
 }
 
+.footer__social-container {
+}
+
+.footer__social-item {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.footer__social-item__link {
+}
+
+.footer__social-item__social-icon {
+}
+
+.footer .footer__social-item .footer__social-item__social-icon::before {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+}
+
 .footer__location-and-hours {
     padding-bottom: 30px;
 }
