@@ -553,8 +553,54 @@ h4 {
 
 /*Header*/
 .header {
+    position: relative;
     background: linear-gradient(var(--color-3-low-opacity), var(--color-3-very-low-opacity), rgba(255, 255, 255, 1));
 }
+
+.header__contact-social-info {
+    width: 293px;
+    padding-top: 10px;
+    padding-bottom: 22px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0;
+
+}
+
+.header__telephone {
+    display: inline-block;
+    font-size: 18px;
+    text-align: center;
+    color: var(--color-2);
+}
+
+.header__social-container {
+    display: inline-block;
+
+    padding-left: 20px;
+    font-size: 0;
+}
+
+.header__social-item {
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.header__social-item__link {
+
+}
+
+.header__social-item__social-icon {
+    font-size: 20px;
+}
+
+.header .header__social-item .header__social-item__social-icon::before {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+}
+
 
 .logo-container {
     position: absolute;
@@ -1349,6 +1395,12 @@ h4 {
     /*Header*/
     .header {
         padding-bottom: 20px;
+    }
+
+    .header__contact-social-info {
+        position: absolute;
+        top: 80px;
+        right: 20px;
     }
 
     .main-title {
