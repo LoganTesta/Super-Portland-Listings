@@ -119,17 +119,15 @@
             </form>
             <div class="javascript-validation-results-contact-us"></div>
             @{
-                        <div class="form-response">
-                            @(new HtmlString(@calculatorResults))
-                            <div>Price: @homePrice</div>
-                            <div>Down Payment: @downPayment</div>
-                            <div>Mortgage Duration: @mortgageDuration</div>
-                            <div>Interest Rate: @interestRate</div>
-                            @(new HtmlString(@mortgageAmount))
-                            @(new HtmlString(@monthlyPayment))
-
-
-                        </div>
+                <div class="form-response">
+                    @(new HtmlString(@calculatorResults))
+                    @(new HtmlString(@homePrice))
+                    @(new HtmlString(@downPayment))
+                    @(new HtmlString(@mortgageDuration))
+                    @(new HtmlString(@interestRate))
+                    @(new HtmlString(@mortgageAmount))
+                    @(new HtmlString(@monthlyPayment))
+                </div>
             }
         </div>
     </div>

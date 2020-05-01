@@ -570,11 +570,6 @@ namespace SuperPortlandListings.Controllers
                 }
                 monthlyPayment = Math.Round(monthlyPayment, 2);
 
-                ViewBag.homePrice = "$" + homePrice;
-                ViewBag.downPayment = "$" + downPayment;
-                ViewBag.mortgageDuration = "" + mortgageDuration + " years";
-                ViewBag.interestRate = "" + interestRate + "%";
-
                 ViewBag.mortgageAmount = "<div class='form-response__mortgage-size'>Mortgage Size: $" + mortgageAmount + "</div>";
                 ViewBag.monthlyPayment = "<div class='form-response__monthly-payment'>Monthly Payment: $" + monthlyPayment + "/month</div>";
 
@@ -582,16 +577,16 @@ namespace SuperPortlandListings.Controllers
             }
             else
             {
-                ViewBag.homePrice = "$" + homePrice;
-                ViewBag.downPayment = "$" + downPayment;
-                ViewBag.mortgageDuration = "" + mortgageDuration + " years";
-                ViewBag.interestRate = "" + interestRate + "%";
-
                 ViewBag.mortgageAmount = "";
                 ViewBag.monthlyPayment = "";
 
                 calculatorResults += "Please make sure all required fields are filled out and all filled out fields have positive numbers.";
             }
+
+            ViewBag.homePrice = "<div class='form-response__home-price'>Price: $" + homePrice + "</div>";
+            ViewBag.downPayment = "<div class='form-response__down-payment'>Down Payment: $" + downPayment + "</div>";
+            ViewBag.mortgageDuration = "<div class='form-response__mortgage-duration'>Mortgage Duration: " + mortgageDuration + " years</div>";
+            ViewBag.interestRate = "<div class='form-response__interest-rate'>Interest Rate: " + interestRate + "%</div>";
 
             ArrayList theSessionVariables = new ArrayList();
             theSessionVariables.Add("homePriceUserInput");
