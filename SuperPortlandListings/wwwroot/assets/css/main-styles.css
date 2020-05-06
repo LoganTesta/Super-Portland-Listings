@@ -674,6 +674,7 @@ h4 {
 .nav__nav-item {
     display: block;
     padding-bottom: 15px;
+    font-size: 0;
 }
 
 .nav__list.show .nav__nav-item {
@@ -681,7 +682,7 @@ h4 {
 }
 
 .nav__dropdown {
-    float: right;
+    display: inline-block;
 }
 
 .nav__dropdown-arrow {
@@ -696,11 +697,21 @@ h4 {
 
     .nav__dropdown-menu.show {
         display: block;
+        padding-top: 15px;
+        padding-left: 15px;
     }
 
 .nav__dropdown-menu__item {
     display: block;
     padding-bottom: 8px;
+}
+
+.nav__dropdown-menu__item:last-of-type {
+    padding-bottom: 0;
+}
+
+.desktop-nav .nav__dropdown-menu__link {
+    color: #ffffff;
 }
 
 
@@ -1517,11 +1528,22 @@ h4 {
 
     .nav__nav-item {
         display: inline-block;
+        position: relative;
         padding-bottom: 0;
         padding-right: 30px;
     }
 
     .nav__nav-link {
+    }
+
+    .nav__dropdown-menu.show {
+        position: absolute;
+        top: 30px;
+        left: 0px;
+        z-index: 10;
+        width: 140px;
+        padding: 15px 20px;
+        background-color: rgba(26, 90, 208, 0.9);
     }
 
 
