@@ -12,3 +12,7 @@ $(window).resize(function () {
         $(".body-wrapper").removeClass("hide");
     }
 });
+
+$(".nav__dropdown-arrow").on("click", function () {
+    $(this).parents(".nav__nav-item").find(".nav__dropdown-menu").toggleClass("show");
+});

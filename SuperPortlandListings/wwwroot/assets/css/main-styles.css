@@ -685,11 +685,18 @@ h4 {
 }
 
 .nav__dropdown-arrow {
+    padding-left: 8px;
     color: var(--color-2);
+    cursor: pointer;
 }
 
 .nav__dropdown-menu {
+    display: none;
 }
+
+    .nav__dropdown-menu.show {
+        display: block;
+    }
 
 .nav__dropdown-menu__item {
     display: block;
