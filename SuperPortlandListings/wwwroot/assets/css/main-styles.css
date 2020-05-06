@@ -698,12 +698,12 @@ h4 {
     .nav__dropdown-menu.show {
         display: block;
         padding-top: 15px;
-        padding-left: 15px;
+        padding-left: 20px;
     }
 
 .nav__dropdown-menu__item {
     display: block;
-    padding-bottom: 8px;
+    padding-bottom: 15px;
 }
 
 .nav__dropdown-menu__item:last-of-type {
@@ -712,6 +712,12 @@ h4 {
 
 .desktop-nav .nav__dropdown-menu__link {
     color: #ffffff;
+    transition: 0.4s ease-in;
+}
+
+.desktop-nav .nav__dropdown-menu__link:hover {
+    color: var(--color-3);
+    transition: 0.4s ease-in;
 }
 
 
@@ -1543,7 +1549,11 @@ h4 {
         z-index: 10;
         width: 140px;
         padding: 15px 20px;
-        background-color: rgba(26, 90, 208, 0.9);
+        background-color: rgba(26, 90, 208, 0.95);
+    }
+
+    .nav__dropdown-menu__item {
+        padding-bottom: 20px;    
     }
 
 
