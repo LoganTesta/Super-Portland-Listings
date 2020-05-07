@@ -7,11 +7,12 @@
 
 @model SuperPortlandListings.Models.ListingModel;
 @{
-    ViewData["Title"] = "Listing Page";
-    string labelText = "NEW";
-
-    DateTime projectDate = Convert.ToDateTime(ViewData["projectDate"]);
     ListingModel currentListing = Model;
+    ViewData["Title"] = "" + currentListing.name;
+
+    string labelText = "NEW";
+    DateTime projectDate = Convert.ToDateTime(ViewData["projectDate"]);
+
 
     string homePriceUserInput = "" + ViewData["homePriceUserInput"];
     string downPaymentUserInput = "" + ViewData["downPaymentUserInput"];
@@ -26,7 +27,6 @@
     string mortgageAmount = "" + ViewData["mortgageAmount"];
     string monthlyPayment = "" + ViewData["monthlyPayment"];
     List<ListingModel> theListings = ViewData["theListings"] as List<ListingModel>;
-
 
 
 
