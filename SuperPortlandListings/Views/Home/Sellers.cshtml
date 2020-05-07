@@ -8,17 +8,17 @@
     var contactResponse = "" + ViewData["Message"];
 }
 
-    <div class="content-row">
-        <div class="col-sma-8">
-            <h2>Sellers</h2>
-            <p>If you are thinking of selling your home than feel free to write use below.  We also offer a free phone consultation for prospective sellers.</p>
-        </div>
-        <div class="col-sma-4">
-            <div class="background-hero-image sellers">
+<div class="content-row">
+    <div class="col-sma-8">
+        <h2>Sellers</h2>
+        <p>If you are thinking of selling your home than feel free to write use below.  We also offer a free phone consultation for prospective sellers.</p>
+    </div>
+    <div class="col-sma-4">
+        <div class="background-hero-image sellers">
 
-            </div>
         </div>
     </div>
+</div>
 <div class="content-row">
     <div class="col-sma-12">
         <div class="javascript-validation-results-contact-us"></div>
@@ -100,3 +100,28 @@
         </form>
     </div>
 </div>
+
+
+<script type="text/javascript">
+
+    $("#sellerButton").on("click", sellerButtonUpdatePage);
+
+    function sellerButtonUpdatePage() {
+        event.preventDefault();
+
+        $.ajax({
+            method: "POST",
+            url: "",
+            data: '' + $('form').serialize(),
+            success: function (response) {
+                let parser = new DOMParser();
+                let ajaxDocument = parser.parseFromString(response, "text/html");
+
+                let formResponse = ajaxDocument.getElementsByClassName("form-response")[0];
+
+                $(".form-response").eq(0).html(formResponse.innerHTML);
+            }
+        });
+    }
+
+</script>

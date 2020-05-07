@@ -63,3 +63,27 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+    $("#contactButton").on("click", contactButtonUpdatePage);
+
+    function contactButtonUpdatePage() {
+        event.preventDefault();
+
+        $.ajax({
+            method: "POST",
+            url: "",
+            data: '' + $('form').serialize(),
+            success: function (response) {
+                let parser = new DOMParser();
+                let ajaxDocument = parser.parseFromString(response, "text/html");
+
+                let formResponse = ajaxDocument.getElementsByClassName("form-response")[0];
+
+                $(".form-response").eq(0).html(formResponse.innerHTML);
+            }
+        });
+    }
+
+</script>

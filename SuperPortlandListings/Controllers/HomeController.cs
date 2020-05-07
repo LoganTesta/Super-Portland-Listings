@@ -316,6 +316,7 @@ namespace SuperPortlandListings.Controllers
                     string FromName = sellerName;
                     string FromEmail = sellerEmail;
                     string ToEmail = "youremail";
+                    string ToPassword = "yourpassword";
                     string EmailSubject = "Potential Seller Question from " + sellerName;
 
                     string BodyEmail = "<strong>From:</strong> " + sellerName + "<br />";
@@ -341,7 +342,7 @@ namespace SuperPortlandListings.Controllers
                     using (var destinationSmtp = new SmtpClient())
                     {
                         destinationSmtp.Connect("cmx5.my-hosting-panel.com", 465, true);
-                        destinationSmtp.Authenticate("youremail", "yourpassword");
+                        destinationSmtp.Authenticate(ToEmail, ToPassword);
                         destinationSmtp.Send(emailMessage);
                         destinationSmtp.Disconnect(true);
                         destinationSmtp.Dispose();
@@ -458,6 +459,7 @@ namespace SuperPortlandListings.Controllers
                     string FromName = userName;
                     string FromEmail = userEmail;
                     string ToEmail = "youremail";
+                    string ToPassword = "yourpassword";
                     string EmailSubject = userSubject;
 
                     string BodyEmail = "<strong>From:</strong> " + userName + "<br />";
@@ -478,7 +480,7 @@ namespace SuperPortlandListings.Controllers
                     using (var destinationSmtp = new SmtpClient())
                     {
                         destinationSmtp.Connect("cmx5.my-hosting-panel.com", 465, true);
-                        destinationSmtp.Authenticate("youremail", "yourpassword");
+                        destinationSmtp.Authenticate(ToEmail, ToPassword);
                         destinationSmtp.Send(emailMessage);
                         destinationSmtp.Disconnect(true);
                         destinationSmtp.Dispose();
