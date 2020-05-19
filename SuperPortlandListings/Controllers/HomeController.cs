@@ -558,19 +558,26 @@ namespace SuperPortlandListings.Controllers
             if (validForm)
             {
                 mortgageAmount = homePrice - downPayment;
-                double mortgageDurationMonths = Convert.ToDouble(mortgageDuration * 12);
-                double principal = Convert.ToDouble(mortgageAmount);
-                double intRate = (Convert.ToDouble(interestRate) * 0.01) / 12;
+                if (mortgageAmount > 0)
+                {
+                    double mortgageDurationMonths = Convert.ToDouble(mortgageDuration * 12);
+                    double principal = Convert.ToDouble(mortgageAmount);
+                    double intRate = (Convert.ToDouble(interestRate) * 0.01) / 12;
 
-                if (intRate > 0)
+                    if (intRate > 0)
+                    {
+                        monthlyPayment = Convert.ToDecimal(principal * (intRate * Math.Pow(1 + intRate, mortgageDurationMonths)) / (Math.Pow(1 + intRate, mortgageDurationMonths) - 1));
+                    }
+                    else
+                    {
+                        monthlyPayment = Convert.ToDecimal(principal / mortgageDurationMonths);
+                    }
+                    monthlyPayment = Math.Round(monthlyPayment, 2);
+                } else
                 {
-                    monthlyPayment = Convert.ToDecimal(principal * (intRate * Math.Pow(1 + intRate, mortgageDurationMonths)) / (Math.Pow(1 + intRate, mortgageDurationMonths) - 1));
+                    mortgageAmount = 0;
+                    monthlyPayment = 0;
                 }
-                else
-                {
-                    monthlyPayment = Convert.ToDecimal(principal / mortgageDurationMonths);
-                }
-                monthlyPayment = Math.Round(monthlyPayment, 2);
 
                 ViewBag.mortgageAmount = "<div class='form-response__mortgage-size'>Mortgage Size: $" + mortgageAmount + "</div>";
                 ViewBag.monthlyPayment = "<div class='form-response__monthly-payment'>Monthly Payment: $" + monthlyPayment + "/month</div>";
