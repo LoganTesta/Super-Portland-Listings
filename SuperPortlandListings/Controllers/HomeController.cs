@@ -247,6 +247,7 @@ namespace SuperPortlandListings.Controllers
                 }
 
 
+                //Email validation.
                 if (!sellerEmail.Contains("@"))
                 {
                     validForm = false;
@@ -287,6 +288,7 @@ namespace SuperPortlandListings.Controllers
                 }
 
 
+                //Phone validation.
                 Int64 sellerPhoneInteger;
                 bool sellerPhoneIsNumeric = Int64.TryParse(sellerPhone, out sellerPhoneInteger);
                 if (sellerPhone.Length != 10 || !sellerPhoneIsNumeric)
@@ -296,12 +298,23 @@ namespace SuperPortlandListings.Controllers
                 }
 
 
+                //Zipcode validation.
                 Int64 sellerZipCodeInteger;
                 bool sellerZipCodeIsNumeric = Int64.TryParse(sellerZIP, out sellerZipCodeInteger);
                 if (sellerZIP.Length != 5 || !sellerZipCodeIsNumeric)
                 {
                     validForm = false;
                     contactFormResponse += "Zip code must be a number exactly 5 digits in length. ";
+                }
+
+
+                //Price validation.
+                Int64 sellerDesiredPriceInteger;
+                bool sellerDesiredPriceIsNumeric = Int64.TryParse(sellerDesiredPrice, out sellerDesiredPriceInteger);
+                if (!sellerDesiredPriceIsNumeric || sellerDesiredPriceInteger < 0)
+                {
+                    validForm = false;
+                    contactFormResponse += "Price must be a positive integer, no $ signs or commas.";
                 }
 
 
@@ -407,6 +420,7 @@ namespace SuperPortlandListings.Controllers
                 }
 
 
+                //Email validation.
                 if (!userEmail.Contains("@"))
                 {
                     validForm = false;
