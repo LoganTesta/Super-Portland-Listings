@@ -819,7 +819,7 @@ h4 {
 /*Index page*/
 .index-house {
     width: 100%;
-    height: 200px;
+    height: 275px;
     margin-bottom: 20px;
 }
 
@@ -1387,6 +1387,12 @@ h4 {
         .mobile-nav__menu.show {
             left: 35px;
         }
+
+
+    /*Index page*/
+    .index-house {
+        height: 225px;
+    }
 
 
     /*Listings page*/
