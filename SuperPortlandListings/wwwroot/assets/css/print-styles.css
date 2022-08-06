@@ -14,3 +14,11 @@
 
 
 /***############### Website Specific Styles. ***/
+
+/* Prevent mid-item splitting onto two pages if possible */
+.background-hero-image,
+.community__background-image,
+.footer__team__agent-photo {
+    break-inside: avoid;
+    page-break-inside: avoid; /*Older version*/
+}

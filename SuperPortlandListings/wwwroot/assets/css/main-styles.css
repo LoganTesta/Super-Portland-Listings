@@ -491,6 +491,7 @@ h4 {
 
 /* General sitewide sections */
 .form {
+    padding-bottom: 100px;
 }
 
 .form__input-container {
