@@ -1370,6 +1370,13 @@ h4 {
 
 @media only screen and (min-width: 700px) {
 
+
+    /* General sitewide sections */
+    .form {
+        padding-bottom: 0;
+    }
+
+
     /*Header*/
     .header__contact-social-info {
         margin-right: 25px;
