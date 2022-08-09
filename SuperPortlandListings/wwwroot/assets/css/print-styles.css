@@ -23,3 +23,16 @@
     break-inside: avoid;
     page-break-inside: avoid; /*Older version*/
 }
+
+
+@media only print and (min-width: 500px) {
+    /* General sitewide sections */
+    .background-hero-image {
+        height: 340px;
+    }
+
+    /*Listings page*/
+    .house-container__image {
+        height: 320px;
+    }
+}
