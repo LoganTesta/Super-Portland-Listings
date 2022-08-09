@@ -18,7 +18,8 @@
 /* Prevent mid-item splitting onto two pages if possible */
 .background-hero-image,
 .community__background-image,
-.footer__team__agent-photo {
+.footer__team__agent-photo,
+.house-container__image {
     break-inside: avoid;
     page-break-inside: avoid; /*Older version*/
 }
