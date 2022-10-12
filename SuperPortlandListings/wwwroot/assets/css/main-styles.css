@@ -439,6 +439,10 @@ input, textarea, select {
     transition: box-shadow 0.4s ease-in;
 }
 
+select {
+    background-color: #ffffff;
+}
+
     input:focus, textarea:focus, select:focus {
         box-shadow: 0 0 4px 6px var(--color-1-semi-opacity);
         transition: box-shadow 0.4s ease-in;
@@ -871,7 +875,7 @@ h4 {
 }
 
 .search-listings__search {
-    padding: 15px;
+    padding: 10px;
     font-weight: bold;
     background-color: var(--color-1);
     color: #ffffff;
@@ -879,7 +883,7 @@ h4 {
 }
 
 .search-listings__show-all {
-    padding: 15px;
+    padding: 10px;
     font-weight: bold;
     background-color: var(--color-1);
     color: #ffffff;
@@ -1639,11 +1643,11 @@ h4 {
     }
 
     .search-listings__search {
-        margin-top: 17px;
+        margin-top: 19px;
     }
 
     .search-listings__show-all {
-        margin-top: 17px;
+        margin-top: 19px;
     }
 
 
