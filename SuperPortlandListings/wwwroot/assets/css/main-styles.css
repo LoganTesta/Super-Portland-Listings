@@ -932,6 +932,11 @@ h4 {
 
 }
 
+.house-container__link:focus-visible {
+    outline-width: 3px;
+    outline-offset: 0;
+}
+
 .house-container__image {
     position: relative;
     top: 0;
