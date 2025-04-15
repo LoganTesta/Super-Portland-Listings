@@ -443,23 +443,30 @@ select {
     background-color: #ffffff;
 }
 
-    input:focus, textarea:focus, select:focus {
-        box-shadow: 0 0 4px 6px var(--color-1-semi-opacity);
-        transition: box-shadow 0.4s ease-in;
-    }
+input:focus, textarea:focus, select:focus {
+    box-shadow: 0 0 4px 6px var(--color-1-semi-opacity);
+    transition: box-shadow 0.4s ease-in;
+}
+
 
 a, a:link, a:visited, a:hover {
     transition: 0.4s ease-in;
     font-weight: bold;
 }
 
-    a, a:link, a:visited {
-        color: var(--color-2);
-    }
+a, a:link, a:visited {
+    color: var(--color-2);
+}
 
-        a:hover {
-            color: var(--color-3);
-        }
+a:hover {
+    color: var(--color-3);
+}
+
+a:focus,
+a:focus-visible {
+    outline: 2px solid var(--color-3);
+    outline-offset: 3px;
+}
 
 button {
     padding: 10px;
@@ -615,6 +622,10 @@ h4 {
     left: 65px;
     width: 45px;
     height: 45px;
+}
+
+.logo-container__link {
+    display: block;
 }
 
 .main-title {
@@ -774,6 +785,7 @@ h4 {
 }
 
 .footer__social-item__link {
+    display: block;
 }
 
 .footer__social-item__social-icon {
