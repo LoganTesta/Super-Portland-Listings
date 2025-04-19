@@ -577,13 +577,12 @@ h4 {
     margin-left: auto;
     margin-right: auto;
     font-size: 0;
-
+    text-align: center;
 }
 
 .header__telephone {
     display: inline-block;
     font-size: 18px;
-    text-align: center;
     color: var(--color-2);
 }
 
@@ -1503,14 +1502,14 @@ h4 {
     }
 
     .header__telephone {
-        display: block;
-        padding-bottom: 12px;
+        display: inline-block;
         font-size: 20px;
     }
 
     .header__social-container {
         display: block;
         padding-left: 0px;
+        padding-top: 12px;
     }
 
     .header__social-item {
