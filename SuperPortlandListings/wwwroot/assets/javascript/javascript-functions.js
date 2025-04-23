@@ -13,6 +13,10 @@ $(window).resize(function () {
     }
 });
 
-$(".nav__dropdown-arrow").on("click", function () {
+$("#mobileNavDdropdownListings").on("click", function () {
+    $(this).parents(".nav__nav-item").find(".nav__dropdown-menu").toggleClass("show");
+});
+
+$("#navDdropdownListings").on("click", function () {
     $(this).parents(".nav__nav-item").find(".nav__dropdown-menu").toggleClass("show");
 });
