@@ -29,8 +29,8 @@
             </li>
             <li class="nav__nav-item">
                 <a class="nav__nav-link" asp-area="" asp-controller="Home" asp-action="Listings">Listings</a>
-                <button id="mobileNavDdropdownListings" class="nav__dropdown"><i class="fas fa-angle-down nav__dropdown-arrow"></i></button>
-                <ul class="nav__dropdown-menu">
+                <button id="navDropdownListingsMobile" class="nav__dropdown"><i class="fas fa-angle-down nav__dropdown-arrow"></i></button>
+                <ul id="navDropdownListingsMenuMobile" class="nav__dropdown-menu" aria-expanded="false">
                     <li class="nav__dropdown-menu__item">
                         <a class="nav__dropdown-menu__link" href="/Home/Listings?city=Aloha">Aloha</a>
                     </li>
@@ -81,8 +81,8 @@
                         </li>
                         <li class="nav__nav-item">
                             <a class="nav__nav-link" asp-area="" asp-controller="Home" asp-action="Listings">Listings</a>
-                            <button id="navDdropdownListings" class="nav__dropdown"><i class="fas fa-angle-down nav__dropdown-arrow"></i></button>
-                            <ul class="nav__dropdown-menu">
+                            <button id="navDropdownListings" class="nav__dropdown"><i class="fas fa-angle-down nav__dropdown-arrow"></i></button>
+                            <ul id="navDropdownListingsMenu" class="nav__dropdown-menu" aria-expanded="false">
                                 <li class="nav__dropdown-menu__item">
                                     <a class="nav__dropdown-menu__link" href="/Home/Listings?city=Aloha">Aloha</a>
                                 </li>

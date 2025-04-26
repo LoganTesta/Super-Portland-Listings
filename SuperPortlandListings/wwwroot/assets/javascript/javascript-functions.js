@@ -13,10 +13,20 @@ $(window).resize(function () {
     }
 });
 
-$("#mobileNavDdropdownListings").on("click", function () {
+$("#navDropdownListingsMobile").on("click", function () {
     $(this).parents(".nav__nav-item").find(".nav__dropdown-menu").toggleClass("show");
+    checkMenuItemShowStatus("#navDropdownListingsMenuMobile");
 });
 
-$("#navDdropdownListings").on("click", function () {
+$("#navDropdownListings").on("click", function () {
     $(this).parents(".nav__nav-item").find(".nav__dropdown-menu").toggleClass("show");
+    checkMenuItemShowStatus("#navDropdownListingsMenu");
 });
+
+function checkMenuItemShowStatus(menuItem) {
+    if ($(menuItem).hasClass("show")) {
+        $(menuItem).attr("aria-expanded", true);
+    } else {
+        $(menuItem).attr("aria-expanded", false);
+    }
+}
