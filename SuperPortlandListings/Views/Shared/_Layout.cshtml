@@ -18,7 +18,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
-    <button class="mobile-nav__menu"></button>
+    <button class="mobile-nav__menu" aria-label="mobile nav menu"></button>
     <nav class="mobile-nav nav">
         <ul class="nav__list">
             <li class="nav__nav-item">
@@ -29,7 +29,7 @@
             </li>
             <li class="nav__nav-item">
                 <a class="nav__nav-link" asp-area="" asp-controller="Home" asp-action="Listings">Listings</a>
-                <button id="navDropdownListingsMobile" class="nav__dropdown"><i class="fas fa-angle-down nav__dropdown-arrow"></i></button>
+                <button id="navDropdownListingsMobile" class="nav__dropdown" aria-label="navDropdownListingsMobile"><i class="fas fa-angle-down nav__dropdown-arrow"></i></button>
                 <ul id="navDropdownListingsMenuMobile" class="nav__dropdown-menu" aria-expanded="false">
                     <li class="nav__dropdown-menu__item">
                         <a class="nav__dropdown-menu__link" href="/Home/Listings?city=Aloha">Aloha</a>
@@ -81,7 +81,7 @@
                         </li>
                         <li class="nav__nav-item">
                             <a class="nav__nav-link" asp-area="" asp-controller="Home" asp-action="Listings">Listings</a>
-                            <button id="navDropdownListings" class="nav__dropdown"><i class="fas fa-angle-down nav__dropdown-arrow"></i></button>
+                            <button id="navDropdownListings" class="nav__dropdown" aria-label="navDropdownListings"><i class="fas fa-angle-down nav__dropdown-arrow"></i></button>
                             <ul id="navDropdownListingsMenu" class="nav__dropdown-menu" aria-expanded="false">
                                 <li class="nav__dropdown-menu__item">
                                     <a class="nav__dropdown-menu__link" href="/Home/Listings?city=Aloha">Aloha</a>
@@ -230,7 +230,7 @@
                     <div class="col-sma-3">
                         <div class="footer__team">
                             <h3 class="footer__subheading">Meet Our Team</h3>
-                            <div class="footer__team__agent-photo"><a class="footer__team__agent-photo__link" asp-area="" asp-controller="Home" asp-action="OurTeam"></a></div>
+                            <div class="footer__team__agent-photo"><a class="footer__team__agent-photo__link" asp-area="" asp-controller="Home" asp-action="OurTeam" aria-label="our team"></a></div>
                             <h4 class="footer__team__agent-name"><a class="footer__team__agent-name__link" asp-area="" asp-controller="Home" asp-action="OurTeam">Kelsey Smith</a></h4>
                             <div class="footer__team__agent-description">
                                 <p>Kelsey is highly knowledgeable about the local market and happy to work with your budget for buying or selling!</p>
@@ -241,7 +241,6 @@
                 </div>
             </div>
         </footer>
-        <script src="/assets/javascript/javascript-functions.js"></script>
         @RenderSection("Scripts", required: false)
     </div>
 </body>
